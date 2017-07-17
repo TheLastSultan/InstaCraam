@@ -32,7 +32,7 @@ and React/Redux. It serves as a platform to allow photographers, 'shooters', to 
 [api-endpoints]: api-endpoints.md
 [component-hierarchy]: component-hierarchy.md
 [schema]: schema.md
-[sample-state] sample-state.md
+[sample-state]: sample-state.md
 
 ## Implementation Timeline
 
