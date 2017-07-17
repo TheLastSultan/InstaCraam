@@ -25,9 +25,11 @@ and React/Redux. It serves as a platform to allow photographers, 'shooters', to 
 
 * [View Wireframes]()
 * [React Components]()
-* [API endpoints]()
+* [API endpoints][api-endpoints]
 * [DB schema]()
 * [Sample State]()
+
+[api-endpoints]: docs/api-endpoints.md
 
 ## Implementation Timeline
 
