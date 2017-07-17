@@ -3,25 +3,29 @@
 **AuthFormContainer**
 * AuthForm
 
-**FeedContainer**
+**MainPageContiner**
 * NavBar
-* Feed
+* ProfileContainer/MainFeedContainer
 
-**ImageIndexContainer**
-* ImagesIndex
+**MainFeedContainer**
+* PhotosIndex
+* PhotoIndexContainer
 
-**ImageIndexItemContainer**
-* ImageIndexItem
+**PhotoIndexContainer**
+* PhotosIndex
 
-**ImageIndexItem**
+**PhotoIndexItemContainer**
+* PhotoIndexItem
+
+**PhotoIndexItem**
 * UserDetailContainer
   * UserDetail
     * ProfilePic
     * Username
     * Location
-* ImageDetailContainer
-  * ImageDetail
-    * Image
+* PhotoDetailContainer
+  * PhotoDetail
+    * Photo
     * Caption
     * LikesContainer
       * LikeItem
@@ -32,11 +36,11 @@
 **UserProfileContainer**
 * UserProfileDetailContainer
   * UserProfileDetail
-* UserImagesContainer
-  * UserImages
-    * UserImageItem
-* UserImageDetailContainer
-  * UserImageDetail
+* UserPhotosContainer
+  * UserPhotos
+    * UserPhotoItem
+* UserPhotoDetailContainer
+  * UserPhotoDetail
 
 **UserProfileDetailContainer**
   * UserProfileDetail
@@ -46,9 +50,9 @@
     * Followings
     * UserDescription
 
-**UserImageDetailContainer**
-  * UserImageDetail
-    * Image
+**UserPhotoDetailContainer**
+  * UserPhotoDetail
+    * Photo
     * Caption
     * LikesContainer
       * LikeItem
@@ -65,4 +69,4 @@
 | --- | --- |
 | "/" | "FeedContainer" |
 | "/:username" | "UserProfileContainer" |
-| "/:username/images/:id" | "UserImageDetailContainer"
+| "/:username/images/:id" | "UserPhotoDetailContainer"
