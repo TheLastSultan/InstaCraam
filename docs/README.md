@@ -29,7 +29,7 @@ and React/Redux. It serves as a platform to allow photographers, 'shooters', to 
 * [DB schema]()
 * [Sample State]()
 
-[api-endpoints]: docs/api-endpoints.md
+[api-endpoints]: api-endpoints.md
 
 ## Implementation Timeline
 
