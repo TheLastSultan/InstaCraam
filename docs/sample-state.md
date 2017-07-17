@@ -43,7 +43,9 @@
         username: 'norris',
         avatar_url: 'https://path/to/avatar.png',
         description: 'Houston 100',
+        followersCount: 4,
         followers: [2, 3, 4, 10],
+        followingCount: 3,
         following: [2, 3, 4]
       },
       ...

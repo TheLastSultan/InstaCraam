@@ -27,7 +27,7 @@
 | ----------- |-----------| --------|
 | id | integer | not null, primary key |
 | likable_type | string | not null |
-| likeable_id | integer | not null |
+| likable_id | integer | not null |
 | liker_id | integer | not null, foreign key (references users), indexed |
 |  | | unique_index[likable_type, likeable_id, liker_id] |
 

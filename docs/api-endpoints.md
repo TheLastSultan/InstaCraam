@@ -14,6 +14,7 @@
 
 * `GET /api/users/:id/`
   * Get user profile (profile page/personal feed)
+  * responds with images included
 
 ### Session
 * `POST /api/session`
@@ -28,17 +29,21 @@
   * Upload image, user_id provided by current user
 * `DELETE /api/images/:id`
   * Delete image, user_id must equal current user
-* `PATCH /api/users/:id/images`
+
+* `PATCH /api/images/:id`
   * Update images, user_id must equal current user
+* Nested: Resources route
 
 ### Likes
 * `POST /api/images/:id/like`
-* `DELETE /api/images/:id/like/:id`
+* `DELETE /api/images/:id/like/`
+* Resource route
 
 ### Comments
 * `POST /api/comments/`
 * `DELETE /api/comments/:id`
 
 ### Follows
-* `POST /api/users/:id/follows`
-* `DELETE /api/users/:id/follows/:id`
+* `POST /api/users/:id/follow`
+* `DELETE /api/users/:id/follow`
+* Resource route
