@@ -49,6 +49,12 @@ group :development do
   # Guard/LiveReload
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'rack-livereload'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'annotate'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
