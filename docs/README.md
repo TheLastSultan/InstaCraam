@@ -24,13 +24,13 @@ and React/Redux. It serves as a platform to allow photographers, 'shooters', to 
 ## Design Docs
 
 * [View Wireframes]()
-* [React Components]()
+* [Rect Component Hierarchy][component-hierarchy]
 * [API endpoints][api-endpoints]
 * [DB schema]()
 * [Sample State]()
 
 [api-endpoints]: api-endpoints.md
-
+[component-hierarchy]: component-hierarchy.md
 ## Implementation Timeline
 
 ### Phase 1: Backend and Frontend User Authentication (2 days)
