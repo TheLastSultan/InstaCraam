@@ -6,44 +6,39 @@
 
 ## JSON API
 ### Users
+* `GET /api/users/`  
 * `POST /api/users/`
+  * Create user (signup)
 * `PATCH /api/users/:id`
+  * Update user profile (settings)
+
 * `GET /api/users/:id/`
+  * Get user profile (profile page/personal feed)
 
 ### Session
 * `POST /api/session`
+  * login
 * `DELETE /api/session`
+  * logout
 
-### Photos
-
-* `POST /api/users/:id/images`
-  * upload an image for a user
-* `GET /api/users/:id/followers`
-  * index of all followers for user
-* `GET /api/users/:id/following`
-    * index of people user is following
-
-<!-- * `GET /api/images`
-* `GET /api/images/:id`
-* `PATCH /api/images/:id`
+### Images
+* `GET /api/images`
+  * should only get images based on current user's following list
+* `POST /api/images/
+  * Upload image, user_id provided by current user
 * `DELETE /api/images/:id`
-* `GET /api/images/:id/likes`
-  * index of all likes for an image
-* `POST /api/images/:id/likes`
-  * create a like for an image
-* `GET /api/images/:id/comments`
-  * index of all comments for an image
-* `POST /api/images/:id/comments`
-  * create a comment for an image -->
+  * Delete image, user_id must equal current user
+* `PATCH /api/users/:id/images`
+  * Update images, user_id must equal current user
 
 ### Likes
-* `POST /api/likes/:id`
-* `DELETE /api/likes/:id`
+* `POST /api/images/:id/like`
+* `DELETE /api/images/:id/like/:id`
 
 ### Comments
-* `POST /api/comments/:id`
+* `POST /api/comments/`
 * `DELETE /api/comments/:id`
 
 ### Follows
 * `POST /api/users/:id/follows`
-* `DELETE /api/follows/:id`
+* `DELETE /api/users/:id/follows/:id`

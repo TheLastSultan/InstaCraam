@@ -59,6 +59,7 @@ and React/Redux. It serves as a platform to allow photographers, 'shooters', to 
 
 ### Bonus Features:
 
+- [ ] Filters
 - [ ] Upload Photo
 - [ ] Direct messaging
 - [ ] Hashtags
