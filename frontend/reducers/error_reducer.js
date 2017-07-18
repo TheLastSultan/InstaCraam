@@ -5,7 +5,6 @@ const ErrorReducer = (state = [], action) => {
 
   switch (action.type) {
     case RECEIVE_ERRORS:
-      console.log('inside error reducer');
       return action.errors;
 
     case CLEAR_ERRORS:

@@ -1,3 +1,56 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$var: 15px;
+
+.splash-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: $var*4 auto;
+}
+.splash-image-container {
+  background-image: image-url("splash-phones.png");
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 620px;
+  flex-basis: 420px;
+}
+.splash-form-container {
+  h1 {
+    margin-top: 0px;
+  }
+  p {
+    font-size: 1.5em;
+    color: #999;
+  }
+}
+.splash-box {
+  border: 1px solid #e6e6e6;
+  border-radius: 1px;
+  background: #fff;
+  padding: $var*2;
+  width: 300px;
+  text-align: center;
+  margin-bottom: $var;
+  &:last-child {
+    padding: $var $var*2;
+  }
+}
+.or-container {
+  display: flex;
+  align-items: center;
+  justify-content: space;
+  .or {
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin: $var;
+    color: #999;
+  }
+  .line {
+    flex: 1;
+    background: #999;
+    height: 1px;
+  }
+}
