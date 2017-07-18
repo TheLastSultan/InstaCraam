@@ -16,7 +16,7 @@ export const login = user => {
   return $.ajax({
     method: 'POST',
     url: 'api/session',
-    dataType: JSON,
+    dataType: 'JSON',
     data: {
       user: {
         username: user.username,
