@@ -8,6 +8,7 @@ $var: 15px;
   align-items: center;
   justify-content: center;
   margin: $var*4 auto;
+  font-size: 14px;
 }
 .splash-image-container {
   background-image: image-url("splash-phones.png");
@@ -21,8 +22,15 @@ $var: 15px;
     margin-top: 0px;
   }
   p {
-    font-size: 1.5em;
-    color: #999;
+    color: #262626;
+    &.greeting {
+      font-size: 1.25em;
+    }
+    &.fine-print {
+      margin: 20px 20px 0px;
+      font-weight: lighter;
+      line-height: 18px;
+    }
   }
 }
 .splash-box {
@@ -35,6 +43,13 @@ $var: 15px;
   margin-bottom: $var;
   &:last-child {
     padding: $var $var*2;
+  }
+  &.session-form p {
+    color: #999;
+  }
+  &.redirect  {
+    padding-top: $var;
+    padding-bottom: $var;
   }
 }
 .or-container {
@@ -52,5 +67,21 @@ $var: 15px;
     flex: 1;
     background: #999;
     height: 1px;
+  }
+}
+
+.cta {
+  text-align: center;
+  color: #262626;
+  line-height: 18px;
+  margin: $var*2;
+}
+
+@media (max-width: 720px) {
+  .splash-image-container {
+    display: none;
+  }
+  .splash-box {
+    width: 100%;
   }
 }

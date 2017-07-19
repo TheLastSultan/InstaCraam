@@ -57,19 +57,45 @@ class SessionForm extends React.Component {
   render() {
     const { formType } = this.props;
     const buttonText = (formType === 'login') ? `Log In` : `Sign Up`;
-    let greeting;
+    let greeting, finePrint, redirect;
     if  (formType === 'signup') {
-      greeting = (<p>Sign up to share photos with other Shootrs</p>);
+      greeting = (
+        <p className="greeting">
+          Share photos with your friends and family!
+        </p>
+      );
+      finePrint = (
+        <p className="fine-print">
+          Sign up! We don't have a <strong>Terms &amp; Privacy
+          Policy</strong>.
+        </p>
+      );
+      redirect = (
+        <p>
+          Have an account? <Link to="/login">Log in</Link>
+        </p>
+      );
+    } else {
+      greeting = (
+        <p className="greeting">
+          Welcome back!
+        </p>
+      );
+      redirect = (
+        <p>
+          Don't have account? <Link to="/signup">Sign up</Link>
+        </p>
+      );
     }
 
     return (
       <div className="splash-container">
         <div className="splash-image-container">&nbsp;</div>
         <div className="splash-form-container">
-          <div className="splash-box">
+          <div className="session-form splash-box">
             <h1>Shootr</h1>
             { greeting }
-            <form className="session-form">
+            <form className="">
               <input
                 type="text"
                 value={ this.state.username }
@@ -96,15 +122,15 @@ class SessionForm extends React.Component {
                 <span className="line"></span>
               </div>
 
-              <button onClick={ this._demo }>Demo/Guest Login</button>
-
+              <button onClick={ this._demo }>Demo</button>
+              { finePrint }
             </form>
           </div>
-          <div className="splash-box">
-            <GreetingContainer />
+          <div className="redirect splash-box">
+            { redirect }
           </div>
-          <div>
-            Check out the repo.
+          <div className="cta">
+            Check out the <a href="https://github.com/nrrs/shootr/" target="_blank">repo</a>.
           </div>
         </div>
       </div>
