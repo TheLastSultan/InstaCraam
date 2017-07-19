@@ -11,7 +11,6 @@ class SessionForm extends React.Component {
       username: "",
       password: ""
     };
-
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
@@ -87,9 +86,9 @@ class SessionForm extends React.Component {
         </p>
       );
     }
-
+    
     return (
-      <div className="splash-container">
+      <div className="splash-container container">
         <div className="splash-image-container">&nbsp;</div>
         <div className="splash-form-container">
           <div className="session-form splash-box">
@@ -130,7 +129,8 @@ class SessionForm extends React.Component {
             { redirect }
           </div>
           <div className="cta">
-            Check out the <a href="https://github.com/nrrs/shootr/" target="_blank">repo</a>.
+            Check out the
+            <a href="https://github.com/nrrs/shootr/" target="_blank"> repo</a>.
           </div>
         </div>
       </div>

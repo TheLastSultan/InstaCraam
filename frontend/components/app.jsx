@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import GreetingContainer from './greeting/greeting_container';
+import NavContainer from './nav/nav_container';
 import SessionFormContainer from './session_form/session_form_container';
 import Footer from './footer';
 import { AuthRoute, ProtectedRoute } from 'util/route_util';
@@ -9,10 +9,8 @@ import { AuthRoute, ProtectedRoute } from 'util/route_util';
 import Dummy from './dummy';
 
 const App = () => (
-  <div className="container">
-    <nav>
-      <GreetingContainer />
-    </nav>
+  <div className="App">
+    <NavContainer />
     <Switch>
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
