@@ -10,6 +10,7 @@
   top: 0px;
   left: 0px;
   right: 0px;
+  z-index: 100;
   nav > div {
     display: flex;
     align-items: center;
@@ -22,31 +23,7 @@
   display: flex;
   justify-content: space-between;
   .dashboard {
-    #upload {
-      background-image: image-url('plus.svg');
-    }
-    #likes {
-      background-image: image-url('heart.svg');
-    }
-    #profile {
-      background-image: image-url('profile.svg');
-    }
-    button {
-      width: 26px;
-      height: 26px;
-      text-indent: -99999px;
-      background-color: transparent;
-      background-position: 50%;
-      background-size: cover;
-      margin-right: 30px;
-      border: 0px;
-      &:hover {
-        box-shadow: none;
-      }
-      &:last-child {
-        margin-right: 0px;
-      }
-    }
+
   }
 }
 .logo-container {
@@ -81,7 +58,7 @@
   background-repeat: no-repeat;
   background-size: 11px;
   background-position: 30% 50%;
-  &:focus {
+  &:focus, &:active {
     background-position: 8px 50%;
     &::-webkit-input-placeholder {
       left: 0px;
@@ -91,9 +68,31 @@
     position: relative;
     left: 55px;
   }
-  &::selection {
-    background: red;
+}
+button.icon {
+  width: 26px;
+  height: 26px;
+  text-indent: -99999px;
+  background-color: transparent;
+  background-position: 50%;
+  background-size: cover;
+  margin-right: 30px;
+  border: 0px;
+  &:hover {
+    box-shadow: none;
   }
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+.icon-upload {
+  background-image: image-url('plus.svg');
+}
+.icon-likes {
+  background-image: image-url('heart.svg');
+}
+.icon-profile {
+  background-image: image-url('profile.svg');
 }
 
 @media (max-width: 640px) {

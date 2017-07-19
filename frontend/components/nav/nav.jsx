@@ -20,10 +20,20 @@ const personalGreeting = (currentUser, logout) => {
         </div>
 
         <div className="dashboard">
-          <button id="upload" onClick={logout}>Upload</button>
-          <button id="likes" onClick={logout}>Likes</button>
+          <button
+            id="nav-upload"
+            className="icon icon-upload"
+            onClick={logout}>Upload</button>
+
+          <button
+            id="nav-likes"
+            className="icon icon-likes"
+            onClick={logout}>Likes</button>
+
           <Link to={`/api/user/${currentUser.id}`}>
-            <button id="profile">User Profile</button>
+            <button
+              id="nav-profile"
+              className="icon icon-profile">User Profile</button>
           </Link>
         </div>
       </nav>

@@ -8,7 +8,7 @@ class FeedIndex extends React.Component {
   }
 
   componentWillMount() {
-    this.props.requestAllImages();
+    // this.props.requestAllImages();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -18,25 +18,131 @@ class FeedIndex extends React.Component {
   }
 
   render() {
-    const { posts, deletePost } = this.props;
+    const { images } = this.props;
     const notLoaded = (
       <div>
         <h1>Loading...</h1>
       </div>
     );
     const loaded = (
-      <section>
-        <h1>All Posts!</h1>
-        <div className="post-index container">
-          <PostsListings posts={ posts } deletePost={ deletePost } />
-          <PostFormContainer />
+      <div className="main-content-container">
+        <div className="feed-container">
+          <article className="feed-item-container">
+            <header className="user-detail-container">
+              avatar <span className="username">norris</span>
+            </header>
+            <figure className="item-image-container">
+              <img src="http://unsplash.it/600/500" />
+            </figure>
+            <section className="item-goodies">
+              <div className="image-actions-container">
+                like : comment : message
+              </div>
+              <div className="comments-container">
+                <ul>
+                  <li>
+                    <span className="username">bailey</span>
+                    &nbsp;
+                    <span className="comment">cool photo bro</span>
+                  </li>
+                  <li>
+                    <span className="username">bailey</span>
+                    &nbsp;
+                    <span className="comment">cool photo bro</span>
+                  </li>
+                  <li>
+                    <span className="username">bailey</span>
+                    &nbsp;
+                    <span className="comment">cool photo bro</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="add-comments-container">
+                <input type="text" placeholder="Add a comment..." />
+              </div>
+            </section>
+          </article>
+
+          <article className="feed-item-container">
+            <header className="user-detail-container">
+              avatar <span className="username">bailey</span>
+            </header>
+            <figure className="item-image-container">
+              <img src="http://unsplash.it/600/600" />
+            </figure>
+            <section className="item-goodies">
+              <div className="image-actions-container">
+                like : comment : message
+              </div>
+              <div className="comments-container">
+                <ul>
+                  <li>
+                    <span className="username">bailey</span>
+                    &nbsp;
+                    <span className="comment">cool photo bro</span>
+                  </li>
+                  <li>
+                    <span className="username">bailey</span>
+                    &nbsp;
+                    <span className="comment">cool photo bro</span>
+                  </li>
+                  <li>
+                    <span className="username">bailey</span>
+                    &nbsp;
+                    <span className="comment">cool photo bro</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="add-comments-container">
+                <input type="text" placeholder="Add a comment..." />
+              </div>
+            </section>
+          </article>
+
+          <article className="feed-item-container">
+            <header className="user-detail-container">
+              avatar <span className="username">batman</span>
+            </header>
+            <figure className="item-image-container">
+              <img src="http://unsplash.it/600/750" />
+            </figure>
+            <section className="item-goodies">
+              <div className="image-actions-container">
+                <button className="icon icon-likes">like</button>
+              </div>
+              <div className="comments-container">
+                <ul>
+                  <li>
+                    <span className="username">bailey</span>
+                    &nbsp;
+                    <span className="comment">cool photo bro</span>
+                  </li>
+                  <li>
+                    <span className="username">bailey</span>
+                    &nbsp;
+                    <span className="comment">cool photo bro</span>
+                  </li>
+                  <li>
+                    <span className="username">bailey</span>
+                    &nbsp;
+                    <span className="comment">cool photo bro</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="add-comments-container">
+                <input type="text" placeholder="Add a comment..." />
+              </div>
+            </section>
+          </article>
+
         </div>
-      </section>
+      </div>
     );
 
-    return (posts.length > 0) ? loaded : notLoaded;
+    return loaded;
+    // return (images.length > 0) ? loaded : notLoaded;
   }
 
 }
 
-export default PostsIndex;
+export default FeedIndex;
