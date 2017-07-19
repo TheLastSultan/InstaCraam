@@ -49,7 +49,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
 
     const guest = {
-      username: 'norris',
+      username: 'guest',
       password: 'password'
     };
 
