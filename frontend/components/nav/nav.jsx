@@ -7,7 +7,7 @@ const personalGreeting = (currentUser, logout) => {
       <nav id="main-nav" role="navigation">
         <div className="logo-container">
           <Link to="/">
-          <img src="assets/shootr_logo.svg" id="logo"/>
+          <img src="http://res.cloudinary.com/norriskwan/image/upload/v1500490229/shootr_logo_kga817.svg" id="logo"/>
           <h1>Shootr</h1>
           </Link>
         </div>
