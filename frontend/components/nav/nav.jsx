@@ -22,7 +22,9 @@ const personalGreeting = (currentUser, logout) => {
         <div className="dashboard">
           <button id="upload" onClick={logout}>Upload</button>
           <button id="likes" onClick={logout}>Likes</button>
-          <button id="profile" onClick={logout}>Log Out</button>
+          <Link to={`/api/user/${currentUser.id}`}>
+            <button id="profile">User Profile</button>
+          </Link>
         </div>
       </nav>
     </div>

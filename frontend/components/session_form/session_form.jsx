@@ -12,10 +12,7 @@ class SessionForm extends React.Component {
       password: ""
     };
     this._handleSubmit = this._handleSubmit.bind(this);
-  }
-
-  componentWillMount() {
-    this.props.clearErrors();
+    this._demo = this._demo.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -31,7 +28,6 @@ class SessionForm extends React.Component {
 
   _handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     const user = this.state;
     this.props.processForm(user);
   }
@@ -49,8 +45,15 @@ class SessionForm extends React.Component {
     );
   }
 
-  _demo() {
-    console.log('demo');
+  _demo(e) {
+    e.preventDefault();
+
+    const guest = {
+      username: 'norris',
+      password: 'password'
+    };
+
+    this.props.guestLogin(guest);
   }
 
   render() {
@@ -86,7 +89,7 @@ class SessionForm extends React.Component {
         </p>
       );
     }
-    
+
     return (
       <div className="splash-container container">
         <div className="splash-image-container">&nbsp;</div>

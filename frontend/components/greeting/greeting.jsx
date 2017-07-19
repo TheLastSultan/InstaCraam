@@ -11,7 +11,6 @@ const sessionLinks = () => (
 );
 
 const personalGreeting = (currentUser, logout) => {
-  console.log('hi');
   return (
     <hgroup className="header-group">
       <h2 className="header-name">Hi, {currentUser.username}!</h2>

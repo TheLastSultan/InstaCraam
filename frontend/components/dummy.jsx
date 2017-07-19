@@ -1,11 +1,10 @@
 import React from 'react';
 
-import GreetingContainer from './greeting/greeting';
 
 const Dummy = () => {
+  
   return (
-    <div>
-      <GreetingContainer />
+    <div className="main-content-container">
       <h3>Dummy Component</h3>
     </div>
   );
