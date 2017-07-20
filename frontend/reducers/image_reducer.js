@@ -19,7 +19,9 @@ const ImageReducer = (state = defaultState(), action) => {
       return merge({}, state, { data: action.images });
 
     case RECEIVE_ALL_IMAGES_FOR_USER:
-      return { data: action.images };
+      return {
+        data: action.images
+      };
 
     case RECEIVE_SINGLE_IMAGE:
       const image = action.image;

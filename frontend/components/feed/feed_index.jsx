@@ -16,7 +16,7 @@ class FeedIndex extends React.Component {
 
     const notLoaded = (
       <div className="main-content-container">
-        <div className="feed-container">
+        <div className="feed-container list">
           <h2 className="loading">Loading...</h2>
         </div>
       </div>
@@ -24,7 +24,7 @@ class FeedIndex extends React.Component {
 
     const loaded = (
       <div className="main-content-container">
-        <div className="feed-container">
+        <div className="feed-container list">
           {
             images.map( (el, i) => (
               <FeedItem
@@ -36,6 +36,7 @@ class FeedIndex extends React.Component {
       </div>
     );
 
+    // return notLoaded;
     return (images.length > 0) ? loaded : notLoaded;
   }
 

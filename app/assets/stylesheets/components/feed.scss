@@ -1,6 +1,9 @@
 .feed-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+.list {
   flex-direction: column;
 }
 article.feed-item-container {
@@ -76,9 +79,18 @@ span.avatar {
   border-radius: 50%;
   text-indent: -99999px;
   margin-right: 10px;
+  border: 1px solid rgba(0,0,0,.0975);
 }
 .username {
   font-size: 14px;
   font-weight: bold;
   margin-right: 0.3em;
+  a {
+    color: #262626;
+  }
+}
+
+
+.col-3 {
+  width: 3/12*100px;
 }

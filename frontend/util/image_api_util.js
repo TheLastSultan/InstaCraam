@@ -15,6 +15,6 @@ export const fetchSingleImage = id => {
 export const fetchAllImagesForUser = id => {
   return $.ajax({
     action: 'GET',
-    url: `/api/user/${id}/images`
+    url: `/api/users/${id}/images`
   });
 };

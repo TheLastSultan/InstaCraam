@@ -1,8 +1,8 @@
 import React from 'react';
 
-import FeedItem from '../feed/feed_item';
+import GridItem from '../grid/grid_item';
 
-class FeedIndex extends React.Component {
+class Profile extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -11,23 +11,19 @@ class FeedIndex extends React.Component {
     const { location } = this.props;
     const userId = location.pathname.slice(-1);
     this.props.requestAllImagesForUser(userId);
+    this.props.requestProfileInfo(userId);
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(this.props);
-    console.log(nextProps);
     const oldId = this.props.location.pathname.slice(-1),
           newId = nextProps.location.pathname.slice(-1);
-
-
     if (oldId !== newId) {
       nextProps.requestAllImagesForUser(newId);
     }
   }
 
   render() {
-    // console.log(this.props);
-    const { images } = this.props;
+    const { images, profile } = this.props;
 
     const notLoaded = (
       <div className="main-content-container">
@@ -38,11 +34,14 @@ class FeedIndex extends React.Component {
     );
 
     const loaded = (
-      <div className="main-content-container">
-        <div className="feed-container">
+      <div className="main-content-container grid">
+        <section className="user-profile">
+          { profile.username }
+        </section>
+        <div className="grid-container">
           {
             images.map( (el, i) => (
-              <FeedItem
+              <GridItem
                 key={i}
                 image={el} />
             ))
@@ -57,7 +56,7 @@ class FeedIndex extends React.Component {
 
 }
 
-export default FeedIndex;
+export default Profile;
 
 
 

@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    # @image = Image.find(params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   private
