@@ -30,7 +30,7 @@ const personalGreeting = (currentUser, logout) => {
             className="icon icon-likes"
             onClick={logout}>Likes</button>
 
-          <Link to={`/api/user/${currentUser.id}`}>
+          <Link to={`/user/${currentUser.id}`}>
             <button
               id="nav-profile"
               className="icon icon-profile">User Profile</button>

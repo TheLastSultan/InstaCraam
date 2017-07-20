@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
 class FeedItem extends React.Component {
   constructor(props) {
@@ -13,7 +14,11 @@ class FeedItem extends React.Component {
         <header className="user-detail-container">
             <span className="avatar" style={avatarStyle}></span>
             <div className="user-box">
-              <span className="username">{image.username}</span>
+              <span className="username">
+                <Link to={`/user/${image.userId}`}>
+                  {image.username}
+                </Link>
+              </span>
               <span className="location">{image.location}</span>
             </div>
         </header>

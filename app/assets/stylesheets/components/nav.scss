@@ -50,13 +50,12 @@
   min-width: 125px;
   width: 215px;
   border-radius: 3px;
-  // position: relative;
-  // left: -60px;
   padding-left: 25px;
   background-image: image-url('search.svg');
   background-repeat: no-repeat;
   background-size: 11px;
   background-position: 30% 50%;
+  background-color: #fafafa;
   &:focus, &:active {
     background-position: 8px 50%;
     &::-webkit-input-placeholder {
