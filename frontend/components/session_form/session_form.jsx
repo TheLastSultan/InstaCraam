@@ -8,6 +8,7 @@ class SessionForm extends React.Component {
     super(props);
 
     this.state = {
+      fullname: "",
       username: "",
       password: ""
     };
@@ -59,8 +60,16 @@ class SessionForm extends React.Component {
   render() {
     const { formType } = this.props;
     const buttonText = (formType === 'login') ? `Log In` : `Sign Up`;
-    let greeting, finePrint, redirect;
+    let greeting, finePrint, redirect, fullname;
     if  (formType === 'signup') {
+      fullname = (
+        <input
+          type="text"
+          value={ this.state.fullname }
+          onChange={ this._update('fullname') }
+          placeholder='Full Name'
+        />
+      );
       greeting = (
         <p className="greeting">
           Share photos with your friends and family!
@@ -98,6 +107,8 @@ class SessionForm extends React.Component {
             <h1>Shootr</h1>
             { greeting }
             <form className="">
+              { fullname }
+
               <input
                 type="text"
                 value={ this.state.username }
