@@ -23,7 +23,9 @@ class FeedIndex extends React.Component {
 
     const notLoaded = (
       <div className="main-content-container">
-        <h1>Loading...</h1>
+        <div className="feed-container">
+          <h2 className="loading">Loading...</h2>
+        </div>
       </div>
     );
 
