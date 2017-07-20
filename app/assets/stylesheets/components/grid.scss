@@ -1,9 +1,11 @@
+.grid > * {
+  max-width: 935px;
+  margin: 0 auto;
+}
 .grid-container {
   column-count: 3;
   column-gap: 1em;
   column-rule: 0px;
-  max-width: 935px;
-  margin: 0 auto;
 }
 .grid-item {
   display: inline-flex;

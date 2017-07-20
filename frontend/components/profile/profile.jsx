@@ -35,8 +35,25 @@ class Profile extends React.Component {
 
     const loaded = (
       <div className="main-content-container grid">
-        <section className="user-profile">
-          { profile.username }
+        <section className="user-profile container">
+          <div className="avatar-box">
+            <figure className="avatar-container">
+              <img src={profile.avatarUrl} className="profile-avatar" />
+            </figure>
+          </div>
+          <div className="user-box">
+            <div className="username-box">
+              <span>{ profile.username }</span>
+              <button id="edit-profile">Edit Profile</button>
+            </div>
+            <div className="stats">
+              <strong>5 </strong>posts &nbsp;&nbsp;&nbsp; <strong>3 </strong>followers &nbsp;&nbsp;&nbsp; <strong>3 </strong>following
+            </div>
+            <div className="description">
+              <span className="fullname">{ profile.fullname }</span>
+              <span>{ profile.description }</span>
+            </div>
+          </div>
         </section>
         <div className="grid-container">
           {
