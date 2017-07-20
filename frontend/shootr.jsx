@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from 'store/store';
 import Root from 'components/root';
 
-import { requestAllImages, requestSingleImage } from 'actions/image_actions';
+import { requestAllImages, requestSingleImage, requestAllImagesForUser } from 'actions/image_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -24,4 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.requestAllImages = requestAllImages;
   window.requestSingleImage = requestSingleImage;
+  window.requestAllImagesForUser = requestAllImagesForUser;
 });

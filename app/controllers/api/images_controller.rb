@@ -10,7 +10,14 @@ class Api::ImagesController < ApplicationController
   end
 
   def index
-    @images = Image.all
+    id = params[:user_id].to_i
+
+
+    if id.zero?
+      @images = Image.all
+    else
+      @images = Image.all.select { |img| img.user_id == id }
+    end
   end
 
   def update

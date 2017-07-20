@@ -11,3 +11,10 @@ export const fetchSingleImage = id => {
     url: `/api/images/${id}`
   });
 };
+
+export const fetchAllImagesForUser = id => {
+  return $.ajax({
+    action: 'GET',
+    url: `/api/user/${id}/images`
+  });
+};

@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    # @image = Image.find(params[:id])
   end
 
   private
