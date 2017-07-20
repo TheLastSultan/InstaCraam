@@ -12,7 +12,6 @@ const ProfileReducer = (state = defaultState(), action) => {
 
   switch (action.type) {
     case RECEIVE_USER_INFO:
-    console.log('DAFDJSFJADSLKFJDSAKFJ');
       return action.user;
     default:
       return state;
