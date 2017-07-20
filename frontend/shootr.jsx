@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from 'store/store';
 import Root from 'components/root';
 
-import { signup, login, logout } from 'actions/session_actions';
+import { requestAllImages, requestSingleImage } from 'actions/image_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<Root store={store} />, root);
 
   window.dispatch = store.dispatch;
-  window.login = login;
   window.getState = store.getState;
+  window.requestAllImages = requestAllImages;
+  window.requestSingleImage = requestSingleImage;
 });

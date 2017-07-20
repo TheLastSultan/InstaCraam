@@ -10,6 +10,7 @@ class Api::ImagesController < ApplicationController
   end
 
   def index
+    @images = Image.all
   end
 
   def update
@@ -19,6 +20,7 @@ class Api::ImagesController < ApplicationController
   end
 
   def show
+    @image = Image.find(params[:id])
   end
 
   private

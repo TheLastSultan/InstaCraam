@@ -2,9 +2,8 @@ import merge from 'lodash/merge';
 
 import {
   RECEIVE_ALL_IMAGES,
-  RECEIVE_SINGLE_IMAGE,
-  REMOVE_IMAGE
-} from '../actions/image_actions';
+  RECEIVE_SINGLE_IMAGE
+} from 'actions/image_actions';
 
 const defaultState = () => ({
   data: {},
@@ -16,19 +15,14 @@ const ImageReducer = (state = defaultState(), action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_IMAGES:
-      return merge({}, state, { data: action.posts });
+      return merge({}, state, { data: action.images });
 
     case RECEIVE_SINGLE_IMAGE:
-      const post = action.post;
+      const image = action.image;
       return merge({}, state, {
-        data: { [post.id]: post },
-        currentPost: post.id
+        data: { [image.id]: image },
+        currentImage: image.id
       });
-
-    case REMOVE_IMAGE:
-      let nextState = merge({}, state);
-      delete nextState.data[action.postId];
-      return nextState;
 
     default:
       return state;

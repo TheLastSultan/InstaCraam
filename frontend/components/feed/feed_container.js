@@ -1,17 +1,19 @@
 import { connect } from 'react-redux';
 import FeedIndex from './feed_index';
-import { requestAllImages, deletePost } from '../../actions/image_actions';
+import { requestAllImages } from '../../actions/image_actions';
 import { selectAllImages } from '../../reducers/selectors';
 
-const mapStateToProps = (state, { errors }) => {
-  console.log(state);
+const mapStateToProps = ({ errors, images, session }) => {
+  const allImages = selectAllImages(images);
   return ({
-    // images: selectAllImages(state)
+    images: allImages,
+    currentUser: session.currentUser,
+    errors
   });
 };
 
 const mapDispatchToProps = dispatch => ({
-  // requestAllImages: () => dispatch(requestAllImages())
+  requestAllImages: () => dispatch(requestAllImages())
 });
 
 export default connect(

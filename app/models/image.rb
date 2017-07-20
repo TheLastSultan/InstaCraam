@@ -13,6 +13,10 @@
 
 class Image < ApplicationRecord
   validates :img_url, presence: true
+  validates :poster, presence: true
 
-  belongs_to :user_id
+  belongs_to :poster,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :User
 end
