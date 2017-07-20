@@ -15,7 +15,6 @@ body {
 }
 
 .errors-list {
-  list-style: none;
   color: red;
   margin-bottom: $var;
 }
@@ -24,4 +23,10 @@ body {
   position: relative;
   margin-top: 77px;
   padding: 60px 15px;
+}
+
+@media (max-width: 640px) {
+  .main-content-container {
+    padding: 30px 15px;
+  }
 }

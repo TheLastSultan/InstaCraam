@@ -3,6 +3,9 @@ body, ul, input, div, figure {
   padding: 0px;
   box-sizing: border-box;
 }
+ul {
+  list-style: none;
+}
 
 input {
   font-size: 14px;

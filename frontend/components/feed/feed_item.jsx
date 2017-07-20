@@ -10,18 +10,26 @@ class FeedItem extends React.Component {
 
     const { image } = this.props;
 
+
+    console.log(image.avatarUrl);
+
+    const avatar = ( <span className="avatar" style={{ backgroundImage: `url(${image.avatarUrl})` }}>hi</span> );
+
     return (
       <article className="feed-item-container">
         <header className="user-detail-container">
-            <span className="username">{ image.userId }</span>
-            <span className="location">{ image.location }</span>
+            { avatar }
+            <div className="user-box">
+              <span className="username">{ image.username }</span>
+              <span className="location">{ image.location }</span>
+            </div>
         </header>
         <figure className="item-image-container">
           <img src={ image.imgUrl} />
         </figure>
         <section className="item-goodies">
           <div className="image-actions-container">
-            like : comment : message
+            <button className="icon icon-likes">like</button>
           </div>
           <div className="comments-container">
             <ul>

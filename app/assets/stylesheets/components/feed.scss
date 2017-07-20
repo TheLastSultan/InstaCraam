@@ -9,15 +9,33 @@ article.feed-item-container {
   border-radius: 3px;
   margin-bottom: 60px;
   background: #fff;
+  font-size: 14px;
   header.user-detail-container {
     padding: 15px;
+    display: flex;
+    align-items: center;
+    .user-box {
+      display: flex;
+      flex-direction: column;
+      & > * {
+        display: flex;
+      }
+      .location {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-transform: capitalize;
+        line-height: 1.2em;
+      }
+    }
   }
   figure.item-image-container {
-
+    position: relative;
+    img {
+      width: 100%;
+    }
   }
   section.item-goodies {
     padding: 15px;
-    font-size: 14px;
     div.image-actions-container {
       margin-bottom: 10px;
       button.icon {
@@ -28,11 +46,8 @@ article.feed-item-container {
     }
     div.comments-container {
       margin-bottom: 10px;
-      ul {
-        list-style: none;
-        li {
-          margin-bottom: 6px;
-        }
+      li {
+        margin-bottom: 6px;
       }
     }
     div.add-comments-container {
@@ -48,7 +63,16 @@ article.feed-item-container {
     }
   }
 }
-
+span.avatar {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-position: 50%;
+  border-radius: 50%;
+  text-indent: -99999px;
+  margin-right: 10px;
+}
 .username {
   font-size: 14px;
   font-weight: bold;
