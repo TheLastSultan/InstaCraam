@@ -10,6 +10,7 @@ article.feed-item-container {
   margin-bottom: 60px;
   background: #fff;
   font-size: 14px;
+  word-wrap: break-word;
   header.user-detail-container {
     padding: 15px;
     display: flex;
@@ -44,6 +45,9 @@ article.feed-item-container {
       }
       padding-bottom: 5px;
     }
+    div.caption-container {
+      margin-bottom: 6px;
+    }
     div.comments-container {
       margin-bottom: 10px;
       li {
@@ -76,4 +80,5 @@ span.avatar {
 .username {
   font-size: 14px;
   font-weight: bold;
+
 }
