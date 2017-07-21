@@ -6,7 +6,7 @@
 #  username        :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  avatar_url      :string
+#  avatar_url      :string           default("http://res.cloudinary.com/norriskwan/image/upload/v1500518554/profile_bhxtpb.svg")
 #  description     :text
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -28,6 +28,11 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id,
     class_name: :Image
+
+  has_many :comments,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Comment
 
   def self.find_by_creds(username, password)
     user = User.find_by(username: username)
