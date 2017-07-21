@@ -65,7 +65,14 @@ class EditProfile extends React.Component {
               </div>
               <div className="user-box">
                 <div className="username-box">
-                  <span>{currentUser.username}</span>
+                  <span>{ currentUser.username }</span>
+                </div>
+                <div className="stats">
+                  <strong>5 </strong>posts &nbsp;&nbsp;&nbsp; <strong>3 </strong>followers &nbsp;&nbsp;&nbsp; <strong>3 </strong>following
+                </div>
+                <div className="description">
+                  <span className="fullname">{ currentUser.fullname }</span>
+                  <span>{ currentUser.description }</span>
                 </div>
               </div>
             </section>
