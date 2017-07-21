@@ -37,8 +37,7 @@ const personalGreeting = (currentUser, logout) => {
             <button
               id="nav-explore"
               title="explore"
-              className="icon icon-explore"
-              onClick={logout}>Explore</button>
+              className="icon icon-explore" >Explore</button>
           </Link>
 
           <button

@@ -28,21 +28,23 @@ class Explore extends React.Component {
     );
 
     const loaded = (
-      <div className="main-content-container">
-        <section className="map-section-container">
-          <figure className="map">
-            Map Here
-          </figure>
-          <div className="grid-container">
-            {
-              images.map( (el, i) => (
-                <GridItem
-                  key={i}
-                  image={el} />
-              ))
-            }
-          </div>
-        </section>
+      <div id="explore-page">
+        <figure className="map-temp">
+          &nbsp;
+        </figure>
+        <div className="main-content-container">
+          <section className="map-section-container">
+            <div className="grid-container">
+              {
+                images.map( (el, i) => (
+                  <GridItem
+                    key={i}
+                    image={el} />
+                ))
+              }
+            </div>
+          </section>
+        </div>
       </div>
     );
 
