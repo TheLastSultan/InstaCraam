@@ -5,7 +5,7 @@ import { AuthRoute, ProtectedRoute } from 'util/route_util';
 import NavContainer from './nav/nav_container';
 import SessionFormContainer from './session_form/session_form_container';
 import FeedContainer from './feed/feed_container';
-import ProfileContainer from './profile/profile_container';
+import { ProfileContainer, EditProfileContainer } from './profile/profile_container';
 import Dummy from './dummy';
 import Footer from './footer';
 
@@ -17,7 +17,8 @@ const App = () => (
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <ProtectedRoute exact path="/" component={FeedContainer} />
-      <ProtectedRoute path='/user/:id' component={ProfileContainer} />
+      <ProtectedRoute exact path='/user/:id' component={ProfileContainer} />
+      <ProtectedRoute exact path='/user/:id/edit' component={EditProfileContainer} />
     </Switch>
     <Footer />
   </div>

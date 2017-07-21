@@ -1,0 +1,64 @@
+.edit-profile-container {
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+  display: flex;
+}
+.edit-options {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  li {
+    a {
+      padding: 16px 16px 16px 30px;
+      display: flex;
+      font-size: 16px;
+      line-height: 20px;
+      color: #262626;
+      border-left: 2px solid transparent;
+      &.active {
+        border-color: #262626;
+        font-weight: 600;
+      }
+    }
+  }
+}
+.edit-main {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  border-left: 1px solid #e6e6e6;
+  padding: 30px 32px;
+}
+
+@media (max-width: 640px) {
+  .edit-profile-container {
+    flex-direction: column;
+  }
+}
+
+
+.formatted-form {
+  label {
+    margin-right: 30px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  input {
+    border-radius: 3px;
+  }
+  div.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    aside {
+      flex: 0 1 170px;
+      text-align: right;
+    }
+    div {
+      flex: 0 1 350px;
+      input {
+        margin: 0px;
+      }
+    }
+  }
+}

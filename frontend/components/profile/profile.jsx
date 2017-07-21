@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import GridItem from '../grid/grid_item';
 
 class Profile extends React.Component {
@@ -23,7 +23,7 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { images, profile } = this.props;
+    const { images, profile, currentUser } = this.props;
 
     const notLoaded = (
       <div className="main-content-container">
@@ -44,7 +44,9 @@ class Profile extends React.Component {
           <div className="user-box">
             <div className="username-box">
               <span>{ profile.username }</span>
-              <button id="edit-profile">Edit Profile</button>
+              <Link to={`/user/${currentUser.id}/edit`}>
+                <button id="edit-profile">Edit Profile</button>
+              </Link>
             </div>
             <div className="stats">
               <strong>5 </strong>posts &nbsp;&nbsp;&nbsp; <strong>3 </strong>followers &nbsp;&nbsp;&nbsp; <strong>3 </strong>following
@@ -74,118 +76,3 @@ class Profile extends React.Component {
 }
 
 export default Profile;
-
-
-
-
-
-
-
-
-// <article className="feed-item-container">
-//   <header className="user-detail-container">
-//     avatar <span className="username">norris</span>
-// </header>
-// <figure className="item-image-container">
-//   <img src="http://unsplash.it/600/500" />
-// </figure>
-// <section className="item-goodies">
-//   <div className="image-actions-container">
-//     like : comment : message
-//   </div>
-//   <div className="comments-container">
-//     <ul>
-//       <li>
-//         <span className="username">bailey</span>
-//         &nbsp;
-//         <span className="comment">cool photo bro</span>
-//       </li>
-//       <li>
-//         <span className="username">bailey</span>
-//         &nbsp;
-//         <span className="comment">cool photo bro</span>
-//       </li>
-//       <li>
-//         <span className="username">bailey</span>
-//         &nbsp;
-//         <span className="comment">cool photo bro</span>
-//       </li>
-//     </ul>
-//   </div>
-//   <div className="add-comments-container">
-//     <input type="text" placeholder="Add a comment..." />
-//   </div>
-// </section>
-// </article>
-//
-// <article className="feed-item-container">
-//   <header className="user-detail-container">
-//     avatar <span className="username">bailey</span>
-// </header>
-// <figure className="item-image-container">
-//   <img src="http://unsplash.it/600/600" />
-// </figure>
-// <section className="item-goodies">
-//   <div className="image-actions-container">
-//     like : comment : message
-//   </div>
-//   <div className="comments-container">
-//     <ul>
-//       <li>
-//         <span className="username">bailey</span>
-//         &nbsp;
-//         <span className="comment">cool photo bro</span>
-//       </li>
-//       <li>
-//         <span className="username">bailey</span>
-//         &nbsp;
-//         <span className="comment">cool photo bro</span>
-//       </li>
-//       <li>
-//         <span className="username">bailey</span>
-//         &nbsp;
-//         <span className="comment">cool photo bro</span>
-//       </li>
-//     </ul>
-//   </div>
-//   <div className="add-comments-container">
-//     <input type="text" placeholder="Add a comment..." />
-//   </div>
-// </section>
-// </article>
-//
-// <article className="feed-item-container">
-//   <header className="user-detail-container">
-//     avatar <span className="username">batman</span>
-// </header>
-// <figure className="item-image-container">
-//   <img src="http://unsplash.it/600/750" />
-// </figure>
-// <section className="item-goodies">
-//   <div className="image-actions-container">
-//     <button className="icon icon-likes">like</button>
-//   </div>
-//   <div className="comments-container">
-//     <ul>
-//       <li>
-//         <span className="username">bailey</span>
-//         &nbsp;
-//         <span className="comment">cool photo bro</span>
-//       </li>
-//       <li>
-//         <span className="username">bailey</span>
-//         &nbsp;
-//         <span className="comment">cool photo bro</span>
-//       </li>
-//       <li>
-//         <span className="username">bailey</span>
-//         &nbsp;
-//         <span className="comment">cool photo bro</span>
-//       </li>
-//     </ul>
-//   </div>
-//   <div className="add-comments-container">
-//     <input type="text" placeholder="Add a comment..." />
-//   </div>
-// </section>
-// </article>

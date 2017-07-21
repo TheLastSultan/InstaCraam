@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Profile from './profile';
+import EditProfile from './edit_profile';
 import { requestAllImagesForUser } from '../../actions/image_actions';
 import { requestProfileInfo } from '../../actions/profile_actions';
 import { selectAllImages } from '../../reducers/selectors';
@@ -19,7 +20,12 @@ const mapDispatchToProps = dispatch => ({
   requestAllImagesForUser: userId => dispatch(requestAllImagesForUser(userId))
 });
 
-export default connect(
+export const ProfileContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Profile);
+
+export const EditProfileContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EditProfile);
