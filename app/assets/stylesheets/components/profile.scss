@@ -15,6 +15,7 @@
   height: 170px;
   overflow: hidden;
   border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.0975);
   img {
     width: 100%;
     height: 100%;
@@ -23,6 +24,7 @@
 }
 .user-box {
   flex: 2;
+  font-size: 17px;
 }
 div.user-box {
   .username-box {
@@ -42,29 +44,50 @@ div.user-box {
   .stats {
     margin-bottom: 20px;
   }
+  .description {
+    line-height: 24px;
+  }
 }
 .fullname,
 .username {
   font-weight: bold;
   margin-right: 0.3em;
-  font-size: 15px;
   a {
     color: #262626;
   }
 }
 
-#edit-profile {
+.profile-button {
   width: auto;
+  padding: 5px 25px;
+  font-weight: 500;
   background: transparent;
   color: #262626;
   border: 1px solid #dbdbdb;
-  padding: 5px 25px;
-  font-weight: 500;
   &:hover {
     box-shadow: 0px 0px 1px 0px #ccc;
   }
 }
-
+// .edit-profile {
+//   background: transparent;
+//   color: #262626;
+//   border: 1px solid #dbdbdb;
+// }
+.following {
+  background-color: #3897f0;
+  border: 1px solid #3897f0;
+  color: #fff;
+  &:after {
+    content: "Following";
+    position: relative;
+    top: -1px;
+  }
+}
+.follow:after {
+  content: "Follow";
+  position: relative;
+  top: -1px;
+}
 
 @media (max-width: 640px) {
   .user-profile.container {

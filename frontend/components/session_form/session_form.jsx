@@ -104,7 +104,7 @@ class SessionForm extends React.Component {
         <div className="splash-image-container">&nbsp;</div>
         <div className="splash-form-container">
           <div className="session-form splash-box">
-            <h1>Shootr</h1>
+            <h1 className="shootr">Shootr</h1>
             { greeting }
             <form className="">
               { fullname }

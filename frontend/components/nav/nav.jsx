@@ -13,7 +13,7 @@ const personalGreeting = (currentUser, logout) => {
             id="logo"
             src="http://res.cloudinary.com/norriskwan/image/upload/v1500594083/shootr_logo_rounded_n4zbkf.svg"
           />
-          <h1>Shootr</h1>
+        <h1 className='shootr'>Shootr</h1>
           </Link>
         </div>
 

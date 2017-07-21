@@ -17,7 +17,8 @@
     object-fit: cover;
     max-height: 275px;
     &:hover {
-      opacity: 0.75;
+      cursor: pointer;
+      opacity: 0.65;
     }
   }
 }

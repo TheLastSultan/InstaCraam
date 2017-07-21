@@ -26,12 +26,16 @@ class Profile extends React.Component {
   render() {
     const { images, profile, currentUser } = this.props;
 
-    let editCurrentUser;
+    let editCurrentUser, followButton;
     if (currentUser.id === profile.id) {
       editCurrentUser = (
         <Link to={`/user/${currentUser.id}/edit`}>
-          <button id="edit-profile">Edit Profile</button>
+          <button className="edit-profile profile-button">Edit Profile</button>
         </Link>
+      );
+    } else {
+      followButton = (
+        <button className="toggle-follow profile-button follow"></button>
       );
     }
 
@@ -54,7 +58,7 @@ class Profile extends React.Component {
           <div className="user-box">
             <div className="username-box">
               <span>{ profile.username }</span>
-              {editCurrentUser}
+              {editCurrentUser} {followButton}
             </div>
             <div className="stats">
               <strong>5 </strong>posts &nbsp;&nbsp;&nbsp; <strong>3 </strong>followers &nbsp;&nbsp;&nbsp; <strong>3 </strong>following
