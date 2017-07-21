@@ -82,7 +82,7 @@ class Profile extends React.Component {
     );
 
     // return notLoaded;
-    return (images.length > 0) ? loaded : notLoaded;
+    return (profile.id) ? loaded : notLoaded;
   }
 
 }
