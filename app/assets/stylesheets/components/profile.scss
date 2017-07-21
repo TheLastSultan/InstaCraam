@@ -42,12 +42,14 @@ div.user-box {
   .stats {
     margin-bottom: 20px;
   }
-  .fullname {
-    font-weight: bold;
-    margin-right: 0.3em;
-    a {
-      color: #262626;
-    }
+}
+.fullname,
+.username {
+  font-weight: bold;
+  margin-right: 0.3em;
+  font-size: 15px;
+  a {
+    color: #262626;
   }
 }
 

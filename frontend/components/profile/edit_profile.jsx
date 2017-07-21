@@ -65,7 +65,16 @@ class EditProfile extends React.Component {
 
               <div className="form-row">
                 <aside>
-                  <label htmlFor="name">Name</label>
+                  <label htmlFor="bio">Bio</label>
+                </aside>
+                <div>
+                  <textarea id="bio"></textarea>
+                </div>
+              </div>
+
+              <div className="form-row">
+                <aside>
+                  <label htmlFor="name">Username</label>
                 </aside>
                 <div>
                   <input id="name" type="text" />
@@ -74,7 +83,7 @@ class EditProfile extends React.Component {
 
               <div className="form-row">
                 <aside>
-                  <label htmlFor="name">Name</label>
+                  <label htmlFor="name">Password</label>
                 </aside>
                 <div>
                   <input id="name" type="text" />
@@ -83,16 +92,7 @@ class EditProfile extends React.Component {
 
               <div className="form-row">
                 <aside>
-                  <label htmlFor="name">Name</label>
-                </aside>
-                <div>
-                  <input id="name" type="text" />
-                </div>
-              </div>
-
-              <div className="form-row">
-                <aside>
-                  <label htmlFor="name">Name</label>
+                  <label htmlFor="name">Email</label>
                 </aside>
                 <div>
                   <input id="name" type="text" />

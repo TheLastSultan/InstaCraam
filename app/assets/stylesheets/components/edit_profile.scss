@@ -2,6 +2,8 @@
   border: 1px solid #e6e6e6;
   background-color: #fff;
   display: flex;
+  max-width: 935px;
+  margin: 0 auto;
 }
 .edit-options {
   display: flex;
@@ -29,22 +31,15 @@
   border-left: 1px solid #e6e6e6;
   padding: 30px 32px;
 }
-
-@media (max-width: 640px) {
-  .edit-profile-container {
-    flex-direction: column;
-  }
-}
-
-
 .formatted-form {
   label {
     margin-right: 30px;
     font-weight: bold;
     font-size: 18px;
   }
-  input {
+  input, textarea {
     border-radius: 3px;
+    font-size: 16px;
   }
   div.form-row {
     display: flex;
@@ -60,5 +55,13 @@
         margin: 0px;
       }
     }
+  }
+}
+@media (max-width: 640px) {
+  .edit-profile-container {
+    flex-direction: column;
+  }
+  .formatted-form div.form-row aside {
+    flex: 0 1 104px;
   }
 }

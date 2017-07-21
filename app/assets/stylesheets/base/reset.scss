@@ -7,7 +7,7 @@ ul {
   list-style: none;
 }
 
-input {
+input, textarea {
   font-size: 14px;
   font-weight: lighter;
   width: 100%;
@@ -16,10 +16,15 @@ input {
   line-height: 1em;
   padding: 10px 15px;
   margin-bottom: 15px;
+  box-sizing: border-box;
   &:focus {
     outline: none;
     border: 1px solid #b2b2b2;
   }
+}
+textarea {
+  min-height: 50px;
+  margin-bottom: 0px;
 }
 
 button {

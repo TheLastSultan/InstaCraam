@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const personalGreeting = (currentUser, logout) => {
+
+
   return (
     <div className="main-nav-container">
       <nav id="main-nav" role="navigation">
@@ -19,7 +21,7 @@ const personalGreeting = (currentUser, logout) => {
           <input
             id="search"
             type="text"
-            placeholder="Search"/>
+            placeholder="Search" />
         </div>
 
         <div className="dashboard">

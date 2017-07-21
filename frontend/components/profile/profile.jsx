@@ -19,11 +19,21 @@ class Profile extends React.Component {
           newId = nextProps.location.pathname.slice(-1);
     if (oldId !== newId) {
       nextProps.requestAllImagesForUser(newId);
+      nextProps.requestProfileInfo(newId);
     }
   }
 
   render() {
     const { images, profile, currentUser } = this.props;
+
+    let editCurrentUser;
+    if (currentUser.id === profile.id) {
+      editCurrentUser = (
+        <Link to={`/user/${currentUser.id}/edit`}>
+          <button id="edit-profile">Edit Profile</button>
+        </Link>
+      );
+    }
 
     const notLoaded = (
       <div className="main-content-container">
@@ -44,9 +54,7 @@ class Profile extends React.Component {
           <div className="user-box">
             <div className="username-box">
               <span>{ profile.username }</span>
-              <Link to={`/user/${currentUser.id}/edit`}>
-                <button id="edit-profile">Edit Profile</button>
-              </Link>
+              {editCurrentUser}
             </div>
             <div className="stats">
               <strong>5 </strong>posts &nbsp;&nbsp;&nbsp; <strong>3 </strong>followers &nbsp;&nbsp;&nbsp; <strong>3 </strong>following
