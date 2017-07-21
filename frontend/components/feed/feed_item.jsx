@@ -12,7 +12,12 @@ class FeedItem extends React.Component {
     return (
       <article className="feed-item-container">
         <header className="user-detail-container">
-            <span className="avatar" style={avatarStyle}></span>
+            <Link to={`/user/${image.userId}`}>
+              <span
+                className="avatar"
+                title={image.username}
+                style={avatarStyle}></span>
+            </Link>
             <div className="user-box">
               <span className="username">
                 <Link to={`/user/${image.userId}`}>

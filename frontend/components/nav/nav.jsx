@@ -11,15 +11,17 @@ const personalGreeting = (currentUser, logout) => {
           <Link to="/">
           <img
             id="logo"
+            title="Shootr"
             src="http://res.cloudinary.com/norriskwan/image/upload/v1500594083/shootr_logo_rounded_n4zbkf.svg"
           />
-        <h1 className='shootr'>Shootr</h1>
+        <h1 className='shootr' title="Shootr App">Shootr</h1>
           </Link>
         </div>
 
         <div className="search-container">
           <input
             id="search"
+            title="search"
             type="text"
             placeholder="Search" />
         </div>
@@ -27,17 +29,20 @@ const personalGreeting = (currentUser, logout) => {
         <div className="dashboard">
           <button
             id="nav-upload"
+            title="upload"
             className="icon icon-upload"
             onClick={logout}>Upload</button>
 
           <button
             id="nav-likes"
+            title="likes"
             className="icon icon-likes"
             onClick={logout}>Likes</button>
 
           <Link to={`/user/${currentUser.id}`}>
             <button
               id="nav-profile"
+              title="profile"
               className="icon icon-profile">User Profile</button>
           </Link>
         </div>

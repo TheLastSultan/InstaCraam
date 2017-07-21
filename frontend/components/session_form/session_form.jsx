@@ -48,13 +48,36 @@ class SessionForm extends React.Component {
 
   _demo(e) {
     e.preventDefault();
+    //
+    // const guest = {
+    //   username: 'guest',
+    //   password: 'password'
+    // };
 
-    const guest = {
-      username: 'guest',
-      password: 'password'
+    // this.props.guestLogin(guest);
+
+
+
+    const guest = "guest".split("");
+    const pw = "password".split("");
+
+    const autoType = (query, id, callback) => {
+      const promise = new Promise( (res, rej) => {
+        for (let i = 0; i < query.length; i++) {
+          setTimeout( () => {
+            document.getElementById(id).value += query[i];
+            i ++;
+          }, i*100);
+        }
+      });
+      return promise;
     };
 
-    this.props.guestLogin(guest);
+    autoType(guest, 'username')
+      .then(autoType(pw, 'password'))
+      .then(console.log('trigger'));
+
+
   }
 
   render() {
@@ -110,6 +133,7 @@ class SessionForm extends React.Component {
               { fullname }
 
               <input
+                id="username"
                 type="text"
                 value={ this.state.username }
                 onChange={ this._update('username') }
@@ -117,6 +141,7 @@ class SessionForm extends React.Component {
               />
 
               <input
+                id="password"
                 type="password"
                 value={ this.state.password }
                 onChange={ this._update('password') }
