@@ -66,6 +66,9 @@
     left: 55px;
   }
 }
+a.icon {
+  margin-right: 20px;
+}
 button.icon {
   width: 27px;
   height: 27px;
@@ -73,7 +76,7 @@ button.icon {
   background-color: transparent;
   background-position: 50%;
   background-size: cover;
-  margin-right: 30px;
+  margin-right: 20px;
   border: 0px;
   padding: 0px;
   &:hover {
@@ -91,6 +94,9 @@ button.icon {
 }
 .icon-profile {
   background-image: image-url('profile.svg');
+}
+.icon-explore {
+  background-image: url("http://res.cloudinary.com/norriskwan/image/upload/v1500677507/explore_pr2xs5.svg");
 }
 
 @media (max-width: 640px) {

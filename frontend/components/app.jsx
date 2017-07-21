@@ -5,6 +5,7 @@ import { AuthRoute, ProtectedRoute } from 'util/route_util';
 import NavContainer from './nav/nav_container';
 import SessionFormContainer from './session_form/session_form_container';
 import FeedContainer from './feed/feed_container';
+import ExploreContainer from './explore/explore_container';
 import { ProfileContainer, EditProfileContainer } from './profile/profile_container';
 import Dummy from './dummy';
 import Footer from './footer';
@@ -19,6 +20,7 @@ const App = () => (
       <ProtectedRoute exact path="/" component={FeedContainer} />
       <ProtectedRoute exact path='/user/:id' component={ProfileContainer} />
       <ProtectedRoute exact path='/user/:id/edit' component={EditProfileContainer} />
+      <ProtectedRoute exact path='/explore' component={ExploreContainer} />
     </Switch>
     <Footer />
   </div>

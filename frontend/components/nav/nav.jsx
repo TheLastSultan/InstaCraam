@@ -33,6 +33,14 @@ const personalGreeting = (currentUser, logout) => {
             className="icon icon-upload"
             onClick={logout}>Upload</button>
 
+          <Link to={`/explore`} className="icon">
+            <button
+              id="nav-explore"
+              title="explore"
+              className="icon icon-explore"
+              onClick={logout}>Explore</button>
+          </Link>
+
           <button
             id="nav-likes"
             title="likes"
