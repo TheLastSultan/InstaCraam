@@ -26,7 +26,8 @@ class Profile extends React.Component {
   render() {
     const { images, profile, currentUser } = this.props;
 
-    let editCurrentUser, followButton;
+    let editCurrentUser, followButton, noImages, gridContainer;
+
     if (currentUser.id === profile.id) {
       editCurrentUser = (
         <Link to={`/user/${currentUser.id}/edit`}>
@@ -46,6 +47,26 @@ class Profile extends React.Component {
         </div>
       </div>
     );
+
+    if (images.length === 0) {
+      noImages = (
+        <div className="center-text container">
+          <h2 className="shootr">You have no photos! Add some to your feed!</h2>
+        </div>
+      );
+    } else {
+      gridContainer = (
+        <div className="grid-container">
+          {
+            images.map( (el, i) => (
+              <GridItem
+                key={i}
+                image={el} />
+            ))
+          }
+        </div>
+      );
+    }
 
     const loaded = (
       <div className="main-content-container grid">
@@ -69,15 +90,9 @@ class Profile extends React.Component {
             </div>
           </div>
         </section>
-        <div className="grid-container">
-          {
-            images.map( (el, i) => (
-              <GridItem
-                key={i}
-                image={el} />
-            ))
-          }
-        </div>
+        {noImages}
+        {gridContainer}
+
       </div>
     );
 
