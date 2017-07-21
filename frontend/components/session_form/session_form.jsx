@@ -56,26 +56,44 @@ class SessionForm extends React.Component {
 
     // this.props.guestLogin(guest);
 
+    const fullname = "Bruce Wayne".split(""),
+          username = "Batman".split(""),
+          password = "password".split(""),
+          batman = {
+            fullname: 'Bruce Wayne',
+            username: 'Batman',
+            password: 'password'
+          };
+    const delayTime = 100;
 
-
-    const guest = "guest".split("");
-    const pw = "password".split("");
-
-    const autoType = (query, id, callback) => {
-      const promise = new Promise( (res, rej) => {
+    const autoType = (query, id) => {
+      const promise = new Promise( (resolve, reject) => {
         for (let i = 0; i < query.length; i++) {
           setTimeout( () => {
             document.getElementById(id).value += query[i];
             i ++;
-          }, i*100);
+            if (i === query.length-1) {
+              setTimeout( () => {
+                resolve();
+              }, delayTime * 3);
+            }
+          }, i*delayTime);
         }
       });
       return promise;
     };
 
-    autoType(guest, 'username')
-      .then(autoType(pw, 'password'))
-      .then(console.log('trigger'));
+    if  (this.props.formType === 'signup') {
+      autoType(fullname, 'fullname')
+        .then( () => autoType(username, 'username'))
+        .then( () => autoType(password, 'password'))
+        .then( () => this.props.guestLogin(batman));
+    } else {
+      autoType(username, 'username')
+      .then( () => autoType(password, 'password'))
+      .then( () => this.props.guestLogin(batman));
+    }
+
 
 
   }
@@ -87,6 +105,7 @@ class SessionForm extends React.Component {
     if  (formType === 'signup') {
       fullname = (
         <input
+          id="fullname"
           type="text"
           value={ this.state.fullname }
           onChange={ this._update('fullname') }

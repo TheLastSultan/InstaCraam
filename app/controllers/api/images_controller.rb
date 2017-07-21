@@ -20,11 +20,9 @@ class Api::ImagesController < ApplicationController
     end
   end
 
-  def update
-  end
+  def update; end
 
-  def destroy
-  end
+  def destroy; end
 
   def show
     @image = Image.find(params[:id])

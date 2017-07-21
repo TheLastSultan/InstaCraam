@@ -17,6 +17,9 @@ user5 = User.create!(username: 'raph',   password: 'password', fullname: 'Raphae
 user6 = User.create!(username: 'donnie', password: 'password', fullname: 'Donatello', description: "I'm the brains of this operation. I invent gadgets, weapons and awesome vehicles to keep me and my brothers safe.", avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500516176/donnie_oypjkw.jpg')
 guest = User.create!(username: 'guest',  password: 'password', fullname: 'Guest User', description: 'Gee, I really should sign up.', avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500518554/profile_bhxtpb.svg')
 
+batman = User.create!(username: 'Batman',  password: 'password', fullname: 'Bruce Wayne', description: '', avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500518554/profile_bhxtpb.svg')
+
+
 image01 = Image.create!(img_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500516176/750_l8vnrh.jpg', user_id: user1.id, caption: 'Who?',  location: 'houston')
 image02 = Image.create!(img_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500516174/600_udyvvy.jpg', user_id: user1.id, caption: 'What?',   location: 'new york')
 image03 = Image.create!(img_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500516174/550_sutkgj.jpg', user_id: user1.id, caption: 'Where?', location: 'hong kong')

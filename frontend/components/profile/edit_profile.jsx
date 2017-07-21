@@ -3,13 +3,17 @@ import React from 'react';
 class EditProfile extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
+    this.state = {
+      fullname: this.props.currentUser.fullname,
+      username: this.props.currentUser.username,
+      description: this.props.currentUser.description
+    };
   }
 
   componentWillMount() {
-    // const { location } = this.props;
-    // const userId = location.pathname.slice(-1);
-    // this.props.requestAllImagesForUser(userId);
-    // this.props.requestProfileInfo(userId);
+    const { currentUser } = this.props;
+    this.props.requestProfileInfo(currentUser.id);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -21,6 +25,7 @@ class EditProfile extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     const { currentUser } = this.props;
 
     const notLoaded = (
@@ -59,7 +64,7 @@ class EditProfile extends React.Component {
                   <label htmlFor="name">Name</label>
                 </aside>
                 <div>
-                  <input id="name" type="text" />
+                  <input id="name" type="text" value={this.state.fullname} />
                 </div>
               </div>
 
@@ -68,7 +73,7 @@ class EditProfile extends React.Component {
                   <label htmlFor="bio">Bio</label>
                 </aside>
                 <div>
-                  <textarea id="bio"></textarea>
+                  <textarea id="bio">{this.state.description}</textarea>
                 </div>
               </div>
 
@@ -77,22 +82,13 @@ class EditProfile extends React.Component {
                   <label htmlFor="name">Username</label>
                 </aside>
                 <div>
-                  <input id="name" type="text" />
+                  <input id="name" type="text" value={this.state.username} />
                 </div>
               </div>
 
               <div className="form-row">
                 <aside>
                   <label htmlFor="name">Password</label>
-                </aside>
-                <div>
-                  <input id="name" type="text" />
-                </div>
-              </div>
-
-              <div className="form-row">
-                <aside>
-                  <label htmlFor="name">Email</label>
                 </aside>
                 <div>
                   <input id="name" type="text" />
