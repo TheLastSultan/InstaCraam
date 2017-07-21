@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Profile from './profile';
 import EditProfile from './edit_profile';
 import { requestAllImagesForUser } from '../../actions/image_actions';
-import { requestProfileInfo } from '../../actions/profile_actions';
+import { requestProfileInfo, updateUserProfile } from '../../actions/profile_actions';
 import { selectAllImages } from '../../reducers/selectors';
 
 const mapStateToProps = ({ errors, images, session, profile }) => {
@@ -17,7 +17,8 @@ const mapStateToProps = ({ errors, images, session, profile }) => {
 
 const mapDispatchToProps = dispatch => ({
   requestProfileInfo: userId => dispatch(requestProfileInfo(userId)),
-  requestAllImagesForUser: userId => dispatch(requestAllImagesForUser(userId))
+  requestAllImagesForUser: userId => dispatch(requestAllImagesForUser(userId)),
+  updateUserProfile: user => dispatch(updateUserProfile(user))
 });
 
 export const ProfileContainer = connect(

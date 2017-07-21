@@ -48,14 +48,6 @@ class SessionForm extends React.Component {
 
   _demo(e) {
     e.preventDefault();
-    //
-    // const guest = {
-    //   username: 'guest',
-    //   password: 'password'
-    // };
-
-    // this.props.guestLogin(guest);
-
     const fullname = "Bruce Wayne".split(""),
           username = "Batman".split(""),
           password = "password".split(""),

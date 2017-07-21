@@ -3,12 +3,13 @@ import React from 'react';
 class EditProfile extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.state = {
+      id: this.props.currentUser.id,
       fullname: this.props.currentUser.fullname,
       username: this.props.currentUser.username,
       description: this.props.currentUser.description
     };
+    this._handleSubmit = this._handleSubmit.bind(this);
   }
 
   componentWillMount() {
@@ -17,15 +18,26 @@ class EditProfile extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // const oldId = this.props.location.pathname.slice(-1),
-    //       newId = nextProps.location.pathname.slice(-1);
-    // if (oldId !== newId) {
-    //   nextProps.requestAllImagesForUser(newId);
-    // }
+    const oldId = this.props.currentUser.id,
+          newId = nextProps.currentUser.id;
+    if (oldId !== newId) {
+      newId.props.requestProfileInfo(oldId);
+    }
+  }
+
+  _update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
+
+  _handleSubmit(e) {
+    e.preventDefault();
+    const user = this.state;
+    this.props.updateUserProfile(user);
   }
 
   render() {
-    console.log(this.props);
     const { currentUser } = this.props;
 
     const notLoaded = (
@@ -64,16 +76,11 @@ class EditProfile extends React.Component {
                   <label htmlFor="name">Name</label>
                 </aside>
                 <div>
-                  <input id="name" type="text" value={this.state.fullname} />
-                </div>
-              </div>
-
-              <div className="form-row">
-                <aside>
-                  <label htmlFor="bio">Bio</label>
-                </aside>
-                <div>
-                  <textarea id="bio">{this.state.description}</textarea>
+                  <input
+                    id="fullname"
+                    type="text"
+                    value={this.state.fullname}
+                    onChange={this._update('fullname')} />
                 </div>
               </div>
 
@@ -82,7 +89,24 @@ class EditProfile extends React.Component {
                   <label htmlFor="name">Username</label>
                 </aside>
                 <div>
-                  <input id="name" type="text" value={this.state.username} />
+                  <input
+                    id="username"
+                    type="text"
+                    onChange={this._update('username')}
+                    value={this.state.username} />
+                </div>
+              </div>
+
+              <div className="form-row">
+                <aside>
+                  <label htmlFor="bio">Bio</label>
+                </aside>
+                <div>
+                  <textarea
+                    id="description"
+                    onChange={this._update('description')}
+                    defaultValue={this.state.description} >
+                  </textarea>
                 </div>
               </div>
 
@@ -93,6 +117,12 @@ class EditProfile extends React.Component {
                 <div>
                   <input id="name" type="text" />
                 </div>
+              </div>
+
+              <div className="form-row">
+                <button id="update" onClick={ this._handleSubmit }>
+                  Update
+                </button>
               </div>
 
             </form>

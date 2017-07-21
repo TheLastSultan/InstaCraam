@@ -1,7 +1,6 @@
 import values from 'lodash/values';
 
 export const selectAllImages = (images) => (
-  // console.log(images.data)
   values(images.data)
 );
 
