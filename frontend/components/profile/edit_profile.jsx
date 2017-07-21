@@ -42,8 +42,8 @@ class EditProfile extends React.Component {
 
     const notLoaded = (
       <div className="main-content-container">
-        <div className="feed-container">
-          <h2 className="loading">Edit Loading...</h2>
+        <div className="center-text">
+          <h2 className="loading">Edit Profile Loading...</h2>
         </div>
       </div>
     );
@@ -118,17 +118,9 @@ class EditProfile extends React.Component {
               </div>
 
               <div className="form-row">
-                <aside>
-                  <label htmlFor="name">Password</label>
-                </aside>
-                <div>
-                  <input id="name" type="text" />
-                </div>
-              </div>
-
-              <div className="form-row">
-                <button id="update" onClick={ this._handleSubmit }>
-                  Update
+                <button
+                  id="update"
+                  onClick={ this._handleSubmit }>Update
                 </button>
               </div>
 
@@ -138,10 +130,19 @@ class EditProfile extends React.Component {
       </div>
     );
 
-    return loaded;
+    return notLoaded;
     // return (images.length > 0) ? loaded : notLoaded;
   }
 
 }
 
 export default EditProfile;
+//
+// <div className="form-row">
+//   <aside>
+//     <label htmlFor="name">Password</label>
+//   </aside>
+//   <div>
+//     <input id="name" type="text" />
+//   </div>
+// </div>

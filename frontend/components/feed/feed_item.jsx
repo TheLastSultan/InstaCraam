@@ -35,7 +35,11 @@ class FeedItem extends React.Component {
             <button className="icon icon-likes">like</button>
           </div>
           <div className="caption-container">
-            <span className="username">{image.username}</span>
+            <span className="username">
+              <Link to={`/user/${image.userId}`}>
+                {image.username}
+              </Link>
+            </span>
             <span className="caption">{image.caption}</span>
           </div>
           <div className="comments-container">

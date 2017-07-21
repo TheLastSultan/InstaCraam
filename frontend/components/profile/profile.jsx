@@ -42,7 +42,7 @@ class Profile extends React.Component {
 
     const notLoaded = (
       <div className="main-content-container">
-        <div className="feed-container">
+        <div className="center-text">
           <h2 className="loading">Loading...</h2>
         </div>
       </div>
@@ -96,7 +96,6 @@ class Profile extends React.Component {
       </div>
     );
 
-    // return notLoaded;
     return (profile.id) ? loaded : notLoaded;
   }
 
