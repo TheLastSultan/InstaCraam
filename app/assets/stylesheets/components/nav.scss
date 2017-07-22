@@ -32,10 +32,11 @@
   border: 1px solid #e6e6e6;
   position: absolute;
   bottom: -200%;
-  right: -15px;
+  right: 0px;
   z-index: 100;
   background: #fff;
   box-sizing: content-box;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975);
   &.show {
     display: flex;
     flex-direction: column;
