@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from 'util/route_util';
 
 import NavContainer from './nav/nav_container';
@@ -10,6 +10,9 @@ import { ProfileContainer, EditProfileContainer } from './profile/profile_contai
 import Dummy from './dummy';
 import Footer from './footer';
 
+$(document).click(function() {
+       $('#profile-options').removeClass('show'); //make all inactive
+   });
 
 const App = () => (
   <div className="App">
@@ -21,6 +24,7 @@ const App = () => (
       <ProtectedRoute exact path='/user/:id' component={ProfileContainer} />
       <ProtectedRoute exact path='/user/:id/edit' component={EditProfileContainer} />
       <ProtectedRoute path='/explore' component={ExploreContainer} />
+      <Redirect to="/" />
     </Switch>
     <Footer />
   </div>

@@ -46,3 +46,32 @@ body {
 .shootr {
   font-family: 'Lobster', cursive;
 }
+
+.profile-arrow {
+  position: absolute;
+  right: 20px;
+  top: -8px;
+}
+.profile-arrow-cover {
+  position: absolute;
+  right: 13px;
+  top: 0px;
+}
+
+.arrow-up {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  -webkit-box-shadow: 0 0 5px 1px rgba(0,0,0,.0975);
+  box-shadow: 0 0 5px 1px rgba(0,0,0,.0975);
+  height: 14px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 14px;
+  z-index: 1;
+}
+.arrow-up-cover {
+z-index: 10;
+background: #fff;
+display: block;
+padding: 8px 15px;
+}

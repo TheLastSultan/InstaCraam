@@ -13,8 +13,17 @@ class EditProfile extends React.Component {
   }
 
   componentWillMount() {
-    const { currentUser } = this.props;
-    this.props.requestProfileInfo(currentUser.id);
+    const { currentUser, location } = this.props;
+    const profileId = location.pathname.slice(6, -5);
+
+    if (currentUser.id === profileId) {
+      this.props.requestProfileInfo(currentUser.id);
+    }
+  }
+
+  componentWillUnMount() {
+    this.props.images.data = [];
+    this.props.profile = {};
   }
 
   componentWillReceiveProps(nextProps) {
@@ -38,12 +47,12 @@ class EditProfile extends React.Component {
   }
 
   render() {
-    const { currentUser } = this.props;
+    const { currentUser, profile } = this.props;
 
-    const notLoaded = (
+    const notAuthorized = (
       <div className="main-content-container">
         <div className="center-text">
-          <h2 className="loading">Edit Profile Loading...</h2>
+          <h2 className="loading">You're not authorized to edit this profile.</h2>
         </div>
       </div>
     );
@@ -130,8 +139,9 @@ class EditProfile extends React.Component {
       </div>
     );
 
-    return notLoaded;
-    // return (images.length > 0) ? loaded : notLoaded;
+    const paramUserId = parseInt(this.props.location.pathname.slice(6, -5));
+
+    return (currentUser.id === paramUserId) ? loaded : notAuthorized;
   }
 
 }

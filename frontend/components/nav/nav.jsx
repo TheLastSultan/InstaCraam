@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ProfileOptions from './profile_options';
 
 const personalGreeting = (currentUser, logout) => {
 
+  const toggleShow = () => {
+    const el = document.getElementById('profile-options');
+    $(el).toggleClass('show');
+    // document.getElementById('profile-options').classList.toggle("show");
+  };
 
   return (
     <div className="main-nav-container">
@@ -30,8 +36,7 @@ const personalGreeting = (currentUser, logout) => {
           <button
             id="nav-upload"
             title="upload"
-            className="icon icon-upload"
-            onClick={logout}>Upload</button>
+            className="icon icon-upload">Upload</button>
 
           <Link to={`/explore`} className="icon">
             <button
@@ -46,12 +51,25 @@ const personalGreeting = (currentUser, logout) => {
             className="icon icon-likes"
             onClick={logout}>Likes</button>
 
-          <Link to={`/user/${currentUser.id}`}>
+
             <button
               id="nav-profile"
               title="profile"
-              className="icon icon-profile">User Profile</button>
-          </Link>
+              className="icon icon-profile"
+              onClick={toggleShow}>User Profile</button>
+
+
+          <ul id="profile-options">
+            <span className="arrow-up profile-arrow"></span>
+            <span className="arrow-up-cover profile-arrow-cover"></span>
+            <Link to={`/user/${currentUser.id}`}>
+              <li>Profile</li>
+            </Link>
+            <Link to={`/user/${currentUser.id}/edit`}>
+              <li>Edit Profile</li>
+            </Link>
+            <li onClick={logout}>Log Out</li>
+          </ul>
         </div>
       </nav>
     </div>

@@ -21,8 +21,42 @@
   padding: 0px 15px;
   display: flex;
   justify-content: space-between;
+  position: relative;
   .dashboard {
 
+  }
+}
+#profile-options {
+  display: none;
+  width: 30%;
+  border: 1px solid #e6e6e6;
+  position: absolute;
+  bottom: -200%;
+  right: -15px;
+  z-index: 100;
+  background: #fff;
+  box-sizing: content-box;
+  &.show {
+    display: flex;
+    flex-direction: column;
+  }
+  a {
+    color: #262626;
+  }
+  li {
+    padding: 15px;
+    border-left: 2px solid transparent;
+    cursor: pointer;
+    &:hover {
+      border-color: #262626;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  #profile-options {
+    width: 100%;
+    right: 0px
   }
 }
 .logo-container {
