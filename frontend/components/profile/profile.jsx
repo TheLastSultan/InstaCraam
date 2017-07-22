@@ -35,7 +35,7 @@ class Profile extends React.Component {
         </Link>
       );
     } else {
-      followButton = (
+        followButton = (
         <button className="toggle-follow profile-button follow"></button>
       );
     }
@@ -97,6 +97,7 @@ class Profile extends React.Component {
     );
 
     return (profile.id) ? loaded : notLoaded;
+    // return (profile.id) ? loaded : (<span></span>);
   }
 
 }

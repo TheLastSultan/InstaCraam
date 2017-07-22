@@ -11,8 +11,7 @@ class FeedIndex extends React.Component {
     this.props.requestAllImages();
   }
 
-  componentWillUnMount() {
-    this.props.images.data = [];
+  componentWillUnmount() {
   }
 
   render() {
