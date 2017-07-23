@@ -8,6 +8,7 @@
 
 User.destroy_all
 Image.destroy_all
+Comment.destroy_all
 
 user1 = User.create!(username: 'norris', password: 'password', fullname: 'Norris Kwan', description: 'Born and bred in Houston. Trained and polished in SF.', avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500518717/norris.jpg')
 user2 = User.create!(username: 'bailey', password: 'password', fullname: 'Bailey Boy', description: "Woof woof, bark bark, sniff sniff. ~ I'm Norris' dog!", avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500518662/baiey_epjd2k.jpg')
@@ -61,3 +62,35 @@ image32 = Image.create!(img_url: 'https://res.cloudinary.com/norriskwan/image/up
 image33 = Image.create!(img_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500516173/546_fxlcy3.jpg', user_id: guest.id, caption: 'too', location: 'hong kong')
 image34 = Image.create!(img_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500516172/496_oapazg.jpg', user_id: guest.id, caption: 'zoo', location: 'los angeles')
 image35 = Image.create!(img_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500516175/696_d8flix.jpg', user_id: guest.id, caption: 'foo', location: 'san francisco')
+
+t.text     "body",       null: false
+t.integer  "author_id",  null: false
+t.integer  "post_id",    null: false
+
+comment01 = Comment.create!(author_id: user1.id, post_id: image12.id, body: "Awesome photo! Keep on shooting!")
+comment02 = Comment.create!(author_id: user1.id, post_id: image23.id, body: "Spectacular composition.")
+comment03 = Comment.create!(author_id: user1.id, post_id: image34.id, body: "Absolutely stunning!.")
+
+comment04 = Comment.create!(author_id: user2.id, post_id: image11.id, body: "woof woof woof!")
+comment05 = Comment.create!(author_id: user2.id, post_id: image22.id, body: "bark bark bark!")
+comment06 = Comment.create!(author_id: user2.id, post_id: image33.id, body: "sniff sniff sniff!")
+
+comment07 = Comment.create!(author_id: user3.id, post_id: image30.id, body: "Cool photo bro")
+comment08 = Comment.create!(author_id: user3.id, post_id: image10.id, body: "Radical shot bruh")
+comment09 = Comment.create!(author_id: user3.id, post_id: image20.id, body: "Gnar dude. Gnar.")
+
+comment10 = Comment.create!(author_id: user4.id, post_id: image30.id, body: "That's a great photo.")
+comment11 = Comment.create!(author_id: user4.id, post_id: image03.id, body: "Very nice lighting!")
+comment12 = Comment.create!(author_id: user4.id, post_id: image06.id, body: "Top notch!")
+
+comment13 = Comment.create!(author_id: user5.id, post_id: image21.id, body: "It's alright. Could be tougher.")
+comment14 = Comment.create!(author_id: user5.id, post_id: image17.id, body: "Wanna take this outside?!")
+comment15 = Comment.create!(author_id: user5.id, post_id: image13.id, body: "I've had better pizza than this.")
+
+comment16 = Comment.create!(author_id: user6.id, post_id: image29.id, body: "What kind of aperature did you use?")
+comment17 = Comment.create!(author_id: user6.id, post_id: image19.id, body: "Great application of the rule of thirds!")
+comment18 = Comment.create!(author_id: user6.id, post_id: image09.id, body: "You may want to adjust the ISO and shutter speed.")
+
+comment19 = Comment.create!(author_id: guest.id, post_id: image29.id, body: "I don't know you... but bravo.")
+comment20 = Comment.create!(author_id: guest.id, post_id: image11.id, body: "Dig your feed!")
+comment21 = Comment.create!(author_id: guest.id, post_id: image34.id, body: "I gotta sign up after seeing this!")

@@ -9,6 +9,17 @@ class Api::CommentsController < ApplicationController
     end
   end
 
+  def index
+    id = params[:post_id].to_i
+
+
+    if id.zero?
+      @comments = Comment.all
+    else
+      @comments = Comment.all.select { |comment| comment.post_id == id }
+    end
+  end
+
   def destroy
   end
 

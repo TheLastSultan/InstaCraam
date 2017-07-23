@@ -12,7 +12,6 @@ class Api::ImagesController < ApplicationController
   def index
     id = params[:user_id].to_i
 
-
     if id.zero?
       @images = Image.all
     else

@@ -48,14 +48,6 @@ class FeedItem extends React.Component {
                 <span className="username">bailey</span>
                 <span className="comment">cool photo bro</span>
               </li>
-              <li>
-                <span className="username">bailey</span>
-                <span className="comment">cool photo bro</span>
-              </li>
-              <li>
-                <span className="username">bailey</span>
-                <span className="comment">cool photo bro</span>
-              </li>
             </ul>
           </div>
           <div className="add-comments-container">
