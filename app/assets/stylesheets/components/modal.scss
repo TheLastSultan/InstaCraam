@@ -1,0 +1,79 @@
+body.ReactModal__Body--open {
+  overflow-y: hidden;
+}
+.modal-overlay {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  z-index: 20;
+}
+.modal {
+  min-width: 300px;
+  height: auto;
+  background: #fff;
+  outline: none;
+}
+button.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: url("http://res.cloudinary.com/norriskwan/image/upload/v1500764881/close_lrpfyb.svg") transparent;
+  background-size: cover;
+  text-indent: 999px;
+  width: 30px;
+  height: 30px;
+  border: 0px;
+  color: #fff;
+  box-shadow: none;
+  &:hover {
+    outline: none;
+  }
+}
+
+.modal-content-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 860px;
+}
+
+.modal-media-box {
+  max-height: 600px;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.modal-details-box {
+  padding: 15px;
+  width: 335px;
+  .user-profile {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  .user-box {
+    margin-right: 15px;
+    font-size: 15px;
+    span {
+      display: flex;
+    }
+  }
+  .avatar-box {
+    margin-right: 15px;
+  }
+  .avatar-container {
+    width: 50px;
+    height: 50px;
+  }
+}

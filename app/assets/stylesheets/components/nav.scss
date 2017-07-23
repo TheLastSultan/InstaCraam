@@ -9,7 +9,7 @@
   top: 0px;
   left: 0px;
   right: 0px;
-  z-index: 100;
+  z-index: 10;
   nav > div {
     display: flex;
     align-items: center;
@@ -33,7 +33,7 @@
   position: absolute;
   bottom: -200%;
   right: 0px;
-  z-index: 100;
+  z-index: 11;
   background: #fff;
   box-sizing: content-box;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975);

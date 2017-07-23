@@ -4,12 +4,13 @@ import { requestAllImages } from '../../actions/image_actions';
 import { selectAllImages } from '../../reducers/selectors';
 import shuffle from 'lodash/shuffle';
 
-const mapStateToProps = ({ errors, images, session }) => {
+const mapStateToProps = ({ errors, images, session, profile }) => {
   const allImages = selectAllImages(images);
   return ({
     images: shuffle(allImages),
     currentUser: session.currentUser,
-    errors
+    errors,
+    profile
   });
 };
 

@@ -17,7 +17,7 @@ class Explore extends React.Component {
   }
 
   render() {
-    const { images } = this.props;
+    const { images, profile, currentUser } = this.props;
 
     const notLoaded = (
       <div className="main-content-container">
@@ -39,7 +39,9 @@ class Explore extends React.Component {
                 images.map( (el, i) => (
                   <GridItem
                     key={i}
-                    image={el} />
+                    image={el}
+                    profile={profile}
+                    currentUser={currentUser} />
                 ))
               }
             </div>

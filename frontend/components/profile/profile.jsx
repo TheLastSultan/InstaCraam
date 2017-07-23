@@ -61,7 +61,9 @@ class Profile extends React.Component {
             images.map( (el, i) => (
               <GridItem
                 key={i}
-                image={el} />
+                image={el}
+                profile={profile}
+                currentUser={currentUser} />
             ))
           }
         </div>
