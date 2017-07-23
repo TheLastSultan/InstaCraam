@@ -7,7 +7,6 @@ const personalGreeting = (currentUser, logout) => {
   const toggleShow = () => {
     const el = document.getElementById('profile-options');
     $(el).toggleClass('show');
-    // document.getElementById('profile-options').classList.toggle("show");
   };
 
   return (
@@ -48,8 +47,7 @@ const personalGreeting = (currentUser, logout) => {
           <button
             id="nav-likes"
             title="likes"
-            className="icon icon-likes"
-            onClick={logout}>Likes</button>
+            className="icon icon-likes">Likes</button>
 
 
             <button

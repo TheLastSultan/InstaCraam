@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import { Link, withRouter } from 'react-router-dom';
+import Comments from '../comment/comments';
+
+import requestAllCommentsForPost from '../../actions/comment_actions';
 
 class GridItem extends React.Component {
   constructor(props) {
@@ -13,6 +16,23 @@ class GridItem extends React.Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
+  componentWillMount() {
+    const { id } = this.props;
+    this.props.requestAllCommentsForPost(id);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // const oldId = this.props.id,
+    //       newId = nextProps.id;
+    //       console.log(oldId);
+    //       console.log(newId);
+    // if (oldId !== newId) {
+    //   nextProps.requestAllCommentsForPost(newId);
+    // }
+    // const { id } = this.props;
+    // this.props.requestAllCommentsForPost(id);
+  }
+
   handleOpenModal () {
     this.setState({ showModal: true });
   }
@@ -23,22 +43,19 @@ class GridItem extends React.Component {
 
   render() {
 
-    const { image, profile, currentUser } = this.props,
-          avatarStyle = {backgroundImage: `url(${image.avatarUrl})`};
-
-          console.log(this.props);
+    const { image, profile, currentUser, comments } = this.props;
 
     let editCurrentUser, followButton;
 
-    if (currentUser.id === profile.id) {
+    if (currentUser.id !== profile.id) {
+      followButton = (
+        <button className="toggle-follow profile-button follow"></button>
+      );
+    } else {
       editCurrentUser = (
         <Link to={`/user/${currentUser.id}/edit`}>
           <button className="edit-profile profile-button">Edit Profile</button>
         </Link>
-      );
-    } else {
-        followButton = (
-        <button className="toggle-follow profile-button follow"></button>
       );
     }
 
@@ -85,6 +102,7 @@ class GridItem extends React.Component {
                       {image.location}</span>
                   </div>
                   {followButton}
+                  {editCurrentUser}
                 </section>
               </section>
 
@@ -98,6 +116,9 @@ class GridItem extends React.Component {
                   <span className="caption">{image.caption}</span>
                 </div>
               </section>
+
+              <Comments postComments={comments} postId={image.id}/>
+
             </aside>
 
           </div>
@@ -108,10 +129,3 @@ class GridItem extends React.Component {
 }
 
 export default GridItem;
-
-
-// <article className="grid-item">
-//   <figure className="item-image-container">
-//     <img src={image.imgUrl} />
-//   </figure>
-// </article>

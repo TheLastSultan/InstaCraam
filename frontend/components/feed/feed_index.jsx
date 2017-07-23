@@ -9,13 +9,17 @@ class FeedIndex extends React.Component {
 
   componentWillMount() {
     this.props.requestAllImages();
+    this.props.requestAllComments();
   }
 
   componentWillUnmount() {
+    this.setState({
+      comments: {}
+    });
   }
 
   render() {
-    const { images } = this.props;
+    const { images, comments } = this.props;
 
     const notLoaded = (
       <div className="main-content-container">
@@ -29,11 +33,20 @@ class FeedIndex extends React.Component {
       <div className="main-content-container">
         <div className="feed-container list">
           {
-            images.map( (el, i) => (
-              <FeedItem
-                key={i}
-                image={el} />
-            ))
+            images.map( (el) => {
+
+              const postComments = comments.filter( (comment) => (
+                comment.postId === el.id
+              ));
+
+              return (
+                <FeedItem
+                  key={el.id}
+                  image={el}
+                  postComments={postComments}
+                />
+              );
+            })
           }
         </div>
       </div>

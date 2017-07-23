@@ -1,13 +1,13 @@
-export const fetchAllImages = () => {
+export const fetchAllComments = () => {
   return $.ajax({
     method: 'GET',
-    url: '/api/images'
+    url: '/api/comments'
   });
 };
 
-export const fetchAllCommentsForPost = post => {
+export const fetchAllCommentsForPost = postId => {
   return $.ajax({
     method: 'GET',
-    url: `/api/images/${post.id}/comments`
+    url: `/api/images/${postId}/comments`
   });
 };

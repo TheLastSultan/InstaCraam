@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :update, :show] do
       resources :images, only: [:index]
     end
+    resources :comments, only: [:index]
     resource :session, only: [:create, :destroy]
   end
 end

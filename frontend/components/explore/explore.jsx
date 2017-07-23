@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import GridItem from '../grid/grid_item';
+import GridContainer from '../grid/grid_container';
+// import GridItem from '../grid/grid_item';
 
 class Explore extends React.Component {
   constructor(props) {
@@ -37,11 +38,13 @@ class Explore extends React.Component {
             <div className="grid-container">
               {
                 images.map( (el, i) => (
-                  <GridItem
-                    key={i}
-                    image={el}
-                    profile={profile}
-                    currentUser={currentUser} />
+
+                  <GridContainer
+                      image={el}
+                      currentUser={currentUser}
+                      id={el.id}
+                      key={el.id}
+                      />
                 ))
               }
             </div>
@@ -57,3 +60,9 @@ class Explore extends React.Component {
 }
 
 export default Explore;
+//
+// <GridItem
+//   key={i}
+//   image={el}
+//   profile={profile}
+//   currentUser={currentUser} />

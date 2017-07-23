@@ -10,9 +10,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def index
-    id = params[:post_id].to_i
-
-
+    id = params[:image_id].to_i
     if id.zero?
       @comments = Comment.all
     else
@@ -29,6 +27,6 @@ class Api::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permits(:body, :author_id, :post_id)
+    params.require(:comment).permits(:body, :author_id, :image_id)
   end
 end

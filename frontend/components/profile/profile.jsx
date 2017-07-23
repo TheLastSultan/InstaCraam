@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import GridItem from '../grid/grid_item';
+// import GridItem from '../grid/grid_item';
+import GridContainer from '../grid/grid_container';
+import requestAllCommentsForPost from '../../actions/comment_actions';
+import {selectAllCommentIds} from 'reducers/selectors';
+
 
 class Profile extends React.Component {
   constructor(props) {
@@ -10,8 +14,17 @@ class Profile extends React.Component {
   componentWillMount() {
     const { location } = this.props;
     const userId = location.pathname.slice(-1);
-    this.props.requestAllImagesForUser(userId);
     this.props.requestProfileInfo(userId);
+    this.props.requestAllImagesForUser(userId);
+      // .then( (res) => {
+      //   const { images } = res;
+      //   const imageIdsForUser = selectAllCommentIds(images);
+      //   const imageIdsInt = imageIdsForUser.map( (el) => parseInt(el) );
+      //   console.log( imageIdsInt);
+      //   return (
+      //     this.props.requestAllCommentsForPost(...imageIdsInt)
+      //   );
+      // });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -58,13 +71,15 @@ class Profile extends React.Component {
       gridContainer = (
         <div className="grid-container">
           {
-            images.map( (el, i) => (
-              <GridItem
-                key={i}
+            images.map( (el) => {
+              return (<GridContainer
                 image={el}
-                profile={profile}
-                currentUser={currentUser} />
-            ))
+                currentUser={currentUser}
+                id={el.id}
+                key={el.id}
+                />
+              );
+            })
           }
         </div>
       );
@@ -84,7 +99,11 @@ class Profile extends React.Component {
               {editCurrentUser} {followButton}
             </div>
             <div className="stats">
-              <strong>5 </strong>posts &nbsp;&nbsp;&nbsp; <strong>3 </strong>followers &nbsp;&nbsp;&nbsp; <strong>3 </strong>following
+              <strong>5 </strong>
+              posts &nbsp;&nbsp;&nbsp;
+              <strong>3 </strong>
+              followers &nbsp;&nbsp;&nbsp;
+              <strong>3 </strong>following
             </div>
             <div className="description">
               <span className="fullname">{ profile.fullname }</span>

@@ -5,6 +5,7 @@ import { requestAllImagesForUser } from '../../actions/image_actions';
 import { requestProfileInfo, updateUserProfile } from '../../actions/profile_actions';
 import { selectAllImages } from '../../reducers/selectors';
 
+
 const mapStateToProps = ({ errors, images, session, profile }) => {
   const allImages = selectAllImages(images);
   return ({
