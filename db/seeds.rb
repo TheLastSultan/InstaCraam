@@ -63,10 +63,6 @@ image33 = Image.create!(img_url: 'https://res.cloudinary.com/norriskwan/image/up
 image34 = Image.create!(img_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500516172/496_oapazg.jpg', user_id: guest.id, caption: 'zoo', location: 'los angeles')
 image35 = Image.create!(img_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500516175/696_d8flix.jpg', user_id: guest.id, caption: 'foo', location: 'san francisco')
 
-t.text     "body",       null: false
-t.integer  "author_id",  null: false
-t.integer  "post_id",    null: false
-
 comment01 = Comment.create!(author_id: user1.id, post_id: image12.id, body: "Awesome photo! Keep on shooting!")
 comment02 = Comment.create!(author_id: user1.id, post_id: image23.id, body: "Spectacular composition.")
 comment03 = Comment.create!(author_id: user1.id, post_id: image34.id, body: "Absolutely stunning!.")
