@@ -1,5 +1,4 @@
 import React from 'react';
-
 import FeedItem from './feed_item';
 
 class FeedIndex extends React.Component {
@@ -12,18 +11,25 @@ class FeedIndex extends React.Component {
     this.props.requestAllComments();
   }
 
+  componentWillReceiveProps(nextProps) {
+    const oldId = this.props.currentUser.id,
+          newId = nextProps.currentUser.id;
+    if (oldId !== newId) {
+      nextProps.requestAllImages();
+      nextProps.requestAllComments()
+        .then(res => console.log('done'));
+    }
+  }
+
   componentWillUnmount() {
-    this.setState({
-      comments: {}
-    });
   }
 
   render() {
-    const { images, comments } = this.props;
-
+    const { imageIds, images } = this.props;
+    const testStyle = {'position': 'relative', 'top': '-30px'};
     const notLoaded = (
       <div className="main-content-container">
-        <div className="center-text">
+        <div className="center-text" style={testStyle}>
           <h2 className="loading">Loading...</h2>
         </div>
       </div>
@@ -33,18 +39,12 @@ class FeedIndex extends React.Component {
       <div className="main-content-container">
         <div className="feed-container list">
           {
-            images.map( (el) => {
-
-              const postComments = comments.filter( (comment) => (
-                comment.postId === el.id
-              ));
-
+            imageIds.map( (id) => {
               return (
                 <FeedItem
-                  key={el.id}
-                  image={el}
-                  postComments={postComments}
-                />
+                  key={id}
+                  image={images[id]}
+                  />
               );
             })
           }
@@ -52,8 +52,7 @@ class FeedIndex extends React.Component {
       </div>
     );
 
-    // return notLoaded;
-    return (images.length > 0) ? loaded : notLoaded;
+    return (imageIds.length > 0) ? loaded : notLoaded;
   }
 
 }

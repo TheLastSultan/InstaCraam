@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import Explore from './explore';
 import { requestAllImages } from '../../actions/image_actions';
-import { selectAllImages } from '../../reducers/selectors';
+import { selectAllObjects } from '../../reducers/selectors';
 import shuffle from 'lodash/shuffle';
 
 const mapStateToProps = ({ errors, images, session, profile }) => {
-  const allImages = selectAllImages(images);
+  const allImages = selectAllObjects(images);
   return ({
     images: shuffle(allImages),
     currentUser: session.currentUser,

@@ -6,25 +6,35 @@ import {
   receiveErrors,
   clearErrors } from './error_actions';
 
-export const RECEIVE_ALL_COMMENTS_FOR_POST = 'RECEIVE_ALL_COMMENTS_FOR_POST';
 export const RECEIVE_ALL_COMMENTS = 'RECEIVE_ALL_COMMENTS';
+// export const RECEIVE_ALL_COMMENTS_FOR_POST = 'RECEIVE_ALL_COMMENTS_FOR_POST';
 
-export const receiveAllCommentsForPost = comments => ({
-  type: RECEIVE_ALL_COMMENTS_FOR_POST,
-  comments
-});
 
 export const receiveAllComments = comments => ({
   type: RECEIVE_ALL_COMMENTS,
   comments
 });
 
-export const requestAllCommentsForPost = postId => dispatch => {
-  return APIUtil.fetchAllCommentsForPost(postId)
-    .then( res => dispatch(receiveAllCommentsForPost(res)) );
-};
+// export const receiveAllCommentsForPost = comments => ({
+//   type: RECEIVE_ALL_COMMENTS_FOR_POST,
+//   comments
+// });
+
+//
+// export const requestAllCommentsForPost = post => dispatch => {
+//   return APIUtil.fetchAllCommentsForPost(post)
+//     .then( res => dispatch(receiveAllCommentsForPost(res)) );
+// };
+
+
 
 export const requestAllComments = () => dispatch => {
   return APIUtil.fetchAllComments()
-    .then( res => dispatch(receiveAllComments(res)) );
+  .then( res => dispatch(receiveAllComments(res)) );
+};
+
+
+export const postComment = comment => dispatch => {
+  return APIUtil.postComment(comment);
+    // .then( res => dispatch(receiveAllComments(res)) );
 };

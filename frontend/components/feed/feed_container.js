@@ -2,22 +2,24 @@ import { connect } from 'react-redux';
 import FeedIndex from './feed_index';
 import { requestAllImages } from '../../actions/image_actions';
 import { requestAllComments } from '../../actions/comment_actions';
-import { selectAllImages, selectAllComments } from '../../reducers/selectors';
+import { selectAllObjects } from '../../reducers/selectors';
 import shuffle from 'lodash/shuffle';
 
-const mapStateToProps = ({ errors, images, session, comments }) => {
-  const allImages = selectAllImages(images);
+const mapStateToProps = ({ comments , images, errors, session   }) => {
+  const shuffledImageIds = shuffle(images.allIds);
   return ({
-    images: shuffle(allImages),
+    imageIds: shuffledImageIds,
+    images: images.byId,
+    comments,
     currentUser: session.currentUser,
-    comments: selectAllComments(comments),
-    errors
+    errors,
   });
 };
 
 const mapDispatchToProps = dispatch => ({
-  requestAllImages: () => dispatch(requestAllImages()),
-  requestAllComments: () => dispatch(requestAllComments())
+  requestAllComments: () => dispatch(requestAllComments()),
+  requestAllImages: () => dispatch(requestAllImages())
+
 });
 
 export default connect(

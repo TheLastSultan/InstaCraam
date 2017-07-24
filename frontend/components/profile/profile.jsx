@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import GridItem from '../grid/grid_item';
 import GridContainer from '../grid/grid_container';
-import requestAllCommentsForPost from '../../actions/comment_actions';
 import {selectAllCommentIds} from 'reducers/selectors';
 
 
@@ -16,16 +15,10 @@ class Profile extends React.Component {
     const userId = location.pathname.slice(-1);
     this.props.requestProfileInfo(userId);
     this.props.requestAllImagesForUser(userId);
-      // .then( (res) => {
-      //   const { images } = res;
-      //   const imageIdsForUser = selectAllCommentIds(images);
-      //   const imageIdsInt = imageIdsForUser.map( (el) => parseInt(el) );
-      //   console.log( imageIdsInt);
-      //   return (
-      //     this.props.requestAllCommentsForPost(...imageIdsInt)
-      //   );
-      // });
+    this.props.requestAllComments();
   }
+
+
 
   componentWillReceiveProps(nextProps) {
     const oldId = this.props.location.pathname.slice(-1),
@@ -36,12 +29,24 @@ class Profile extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.setState({
+      images: {
+        byUser: {}
+      }
+    });
+  }
+
   render() {
-    const { images, profile, currentUser } = this.props;
+
+    // console.log(this.props);
+    // return <div></div>;
+
+    const { images, currentProfile, currentUser, comments } = this.props;
 
     let editCurrentUser, followButton, noImages, gridContainer;
 
-    if (currentUser.id === profile.id) {
+    if (currentUser.id === currentProfile.id) {
       editCurrentUser = (
         <Link to={`/user/${currentUser.id}/edit`}>
           <button className="edit-profile profile-button">Edit Profile</button>
@@ -53,9 +58,10 @@ class Profile extends React.Component {
       );
     }
 
+    const testStyle = {'position': 'relative', 'top': '-30px'};
     const notLoaded = (
       <div className="main-content-container">
-        <div className="center-text">
+        <div className="center-text" style={testStyle}>
           <h2 className="loading">Loading...</h2>
         </div>
       </div>
@@ -72,11 +78,12 @@ class Profile extends React.Component {
         <div className="grid-container">
           {
             images.map( (el) => {
-              return (<GridContainer
-                image={el}
-                currentUser={currentUser}
-                id={el.id}
-                key={el.id}
+              return (
+                <GridContainer
+                  image={el}
+                  currentUser={currentUser}
+                  id={el.id}
+                  key={el.id}
                 />
               );
             })
@@ -90,12 +97,12 @@ class Profile extends React.Component {
         <section className="user-profile container">
           <div className="avatar-box">
             <figure className="avatar-container">
-              <img src={profile.avatarUrl} className="profile-avatar" />
+              <img src={currentProfile.avatarUrl} className="profile-avatar" />
             </figure>
           </div>
           <div className="user-box">
             <div className="username-box">
-              <span>{ profile.username }</span>
+              <span>{ currentProfile.username }</span>
               {editCurrentUser} {followButton}
             </div>
             <div className="stats">
@@ -106,8 +113,8 @@ class Profile extends React.Component {
               <strong>3 </strong>following
             </div>
             <div className="description">
-              <span className="fullname">{ profile.fullname }</span>
-              <span>{ profile.description }</span>
+              <span className="fullname">{ currentProfile.fullname }</span>
+              <span>{ currentProfile.description }</span>
             </div>
           </div>
         </section>
@@ -117,7 +124,7 @@ class Profile extends React.Component {
       </div>
     );
 
-    return (profile.id) ? loaded : notLoaded;
+    return (currentProfile.id) ? loaded : notLoaded;
     // return (profile.id) ? loaded : (<span></span>);
   }
 

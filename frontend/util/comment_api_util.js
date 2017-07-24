@@ -11,3 +11,18 @@ export const fetchAllCommentsForPost = postId => {
     url: `/api/images/${postId}/comments`
   });
 };
+
+export const postComment = comment => {
+  console.log(comment);
+  return $.ajax({
+    method: 'POST',
+    url: `/api/images/${comment.postId}/comments`,
+    data: {
+      comment: {
+        body: comment.body,
+        author_id: comment.authorId,
+        post_id: comment.postId
+      }
+    }
+  });
+};

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import Comments from '../comment/comments';
+import CommentsContainer from '../comment/comments_container';
 
 class FeedItem extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class FeedItem extends React.Component {
   }
 
   render() {
-    const { image, postComments } = this.props,
+    const { image } = this.props,
           avatarStyle = {backgroundImage: `url(${image.avatarUrl})`};
     return (
       <article className="feed-item-container">
@@ -44,11 +44,8 @@ class FeedItem extends React.Component {
             <span className="caption">{image.caption}</span>
           </div>
 
-          <Comments postComments={postComments} postId={image.id} />
+          <CommentsContainer post={image} />
 
-          <div className="add-comments-container">
-            <input type="text" placeholder="Add a comment..." />
-          </div>
         </section>
       </article>
     );

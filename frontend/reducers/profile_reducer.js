@@ -5,13 +5,19 @@ import {
 } from 'actions/profile_actions';
 
 const defaultState = () => ({
+
 });
 
 const ProfileReducer = (state = defaultState(), action) => {
   Object.freeze(state);
 
   switch (action.type) {
+
     case RECEIVE_USER_INFO:
+      state = {};
+      console.log(state);
+      state = action.user;
+      console.log(state);
       return action.user;
     default:
       return state;

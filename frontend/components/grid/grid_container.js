@@ -7,16 +7,16 @@ import { selectAllComments } from '../../reducers/selectors';
 
 const mapStateToProps = ({ errors, comments, profile }) => {
   return ({
-    comments: selectAllComments(comments),
+    // comments: selectAllComments(comments),
     profile,
     errors
   });
 };
 
 const mapDispatchToProps = dispatch => ({
-  requestAllCommentsForPost: postId => (
-    dispatch(requestAllCommentsForPost(postId))
-  )
+  // requestAllCommentsForPost: postId => (
+  //   dispatch(requestAllCommentsForPost(postId))
+  // )
 });
 
 export default connect(

@@ -2,12 +2,30 @@ import values from 'lodash/values';
 import keysIn from 'lodash/keysIn';
 
 
-export const selectAllImages = (images) => (
-  values(images.data)
+export const selectAllObjects = objs => (
+  values(objs)
 );
 
+export const selectAllId = objs => (
+  keysIn(objs).map(el => parseInt(el))
+);
+
+
+
+
+
+
+
+
+
+// export const selectAllObjects = images => (
+//   values(images.byId)
+// );
+
+
+
 export const selectAllComments = (comments) => (
-  values(comments)
+  values(comments.byId)
 );
 
 export const selectCommentsForPost = (comments, postId) => (

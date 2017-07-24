@@ -60,19 +60,21 @@ article.feed-item-container {
         margin-bottom: 6px;
       }
     }
-    div.add-comments-container {
-      border-top: 1px solid #e6e6e6;
-      padding-top: 20px;
-      input {
-        border: 0px;
-        padding: 0px;
-        font-weight: normal;
-        font-size: 16px;
-        margin-bottom: 5px;
-      }
-    }
   }
 }
+
+.add-comments-container {
+  border-top: 1px solid #e6e6e6;
+  padding-top: 20px;
+  input {
+    border: 0px;
+    padding: 0px;
+    font-weight: normal;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+}
+
 span.avatar {
   display: inline-block;
   width: 30px;

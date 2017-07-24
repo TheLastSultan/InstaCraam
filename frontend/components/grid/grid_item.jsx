@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import { Link, withRouter } from 'react-router-dom';
-import Comments from '../comment/comments';
+import CommentsContainer from '../comment/comments_container';
 
 import requestAllCommentsForPost from '../../actions/comment_actions';
 
@@ -17,20 +17,17 @@ class GridItem extends React.Component {
   }
 
   componentWillMount() {
-    const { id } = this.props;
-    this.props.requestAllCommentsForPost(id);
+    // const { id } = this.props;
+    // this.props.requestAllCommentsForPost(id);
   }
 
   componentWillReceiveProps(nextProps) {
     // const oldId = this.props.id,
     //       newId = nextProps.id;
-    //       console.log(oldId);
-    //       console.log(newId);
     // if (oldId !== newId) {
     //   nextProps.requestAllCommentsForPost(newId);
     // }
-    // const { id } = this.props;
-    // this.props.requestAllCommentsForPost(id);
+
   }
 
   handleOpenModal () {
@@ -58,6 +55,10 @@ class GridItem extends React.Component {
         </Link>
       );
     }
+
+    // const postComments = comments.filter( (comment) => (
+    //   comment.postId === image.id
+    // ));
 
     return (
       <figure className="grid-item">
@@ -117,7 +118,8 @@ class GridItem extends React.Component {
                 </div>
               </section>
 
-              <Comments postComments={comments} postId={image.id}/>
+              <CommentsContainer post={image}/>
+
 
             </aside>
 
@@ -129,3 +131,5 @@ class GridItem extends React.Component {
 }
 
 export default GridItem;
+
+// <CommentsContainer postComments={comments} postId={image.id}/>
