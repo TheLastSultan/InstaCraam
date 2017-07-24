@@ -47,5 +47,4 @@ ActiveRecord::Schema.define(version: 20170721222734) do
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
-  add_foreign_key "images", "users"
 end
