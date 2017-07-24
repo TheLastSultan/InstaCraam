@@ -6,7 +6,7 @@ export const selectAllObjects = objs => (
   values(objs)
 );
 
-export const selectAllId = objs => (
+export const selectIds = objs => (
   keysIn(objs).map(el => parseInt(el))
 );
 

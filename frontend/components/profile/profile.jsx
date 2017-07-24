@@ -15,7 +15,6 @@ class Profile extends React.Component {
     const userId = location.pathname.slice(-1);
     this.props.requestProfileInfo(userId);
     this.props.requestAllImagesForUser(userId);
-    this.props.requestAllComments();
   }
 
 
@@ -30,11 +29,7 @@ class Profile extends React.Component {
   }
 
   componentWillUnmount() {
-    this.setState({
-      images: {
-        byUser: {}
-      }
-    });
+    this.props.clearProfile();
   }
 
   render() {
@@ -42,9 +37,18 @@ class Profile extends React.Component {
     // console.log(this.props);
     // return <div></div>;
 
-    const { images, currentProfile, currentUser, comments } = this.props;
+    const {
+      postById,
+      postByProfile,
+      currentProfile,
+      currentUser,
+      comments,
+      errors } = this.props;
 
-    let editCurrentUser, followButton, noImages, gridContainer;
+    let editCurrentUser,
+        followButton,
+        noImages,
+        gridContainer;
 
     if (currentUser.id === currentProfile.id) {
       editCurrentUser = (
@@ -58,16 +62,15 @@ class Profile extends React.Component {
       );
     }
 
-    const testStyle = {'position': 'relative', 'top': '-30px'};
     const notLoaded = (
       <div className="main-content-container">
-        <div className="center-text" style={testStyle}>
+        <div className="center-text">
           <h2 className="loading">Loading...</h2>
         </div>
       </div>
     );
 
-    if (images.length === 0) {
+    if (postByProfile.length === 0) {
       noImages = (
         <div className="center-text container">
           <h2 className="shootr">You have no photos! Add some to your feed!</h2>
@@ -77,13 +80,13 @@ class Profile extends React.Component {
       gridContainer = (
         <div className="grid-container">
           {
-            images.map( (el) => {
+            postByProfile.map( (postId) => {
               return (
                 <GridContainer
-                  image={el}
+                  image={postById[postId]}
                   currentUser={currentUser}
-                  id={el.id}
-                  key={el.id}
+                  id={postId}
+                  key={postId}
                 />
               );
             })

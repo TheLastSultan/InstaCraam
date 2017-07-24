@@ -7,6 +7,7 @@ import {
 import { receiveCurrentUser } from './session_actions';
 
 export const RECEIVE_USER_INFO = 'RECEIVE_USER_INFO';
+export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 
 // Sync
 export const receiveUserInfo = user => ({
@@ -14,7 +15,12 @@ export const receiveUserInfo = user => ({
   user
 });
 
+export const clearProfile = () => ({
+  type: CLEAR_PROFILE
+});
+
 // Async
+
 export const requestProfileInfo = userId => dispatch => {
   return APIUtil.fetchProfileInfo(userId)
     .then( res => dispatch(receiveUserInfo(res)) );

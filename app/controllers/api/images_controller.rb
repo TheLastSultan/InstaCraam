@@ -17,6 +17,8 @@ class Api::ImagesController < ApplicationController
     else
       @images = Image.all.select { |img| img.user_id == id }
     end
+
+    # @images = Image.where(user_id: params[:user_id])
   end
 
   def update; end

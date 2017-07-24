@@ -38,8 +38,9 @@ class GridItem extends React.Component {
   }
 
   _deletePost() {
-    console.log('delete clicked!');
     this.props.deletePost(this.props.id);
+    this.handleCloseModal();
+    this.props.requestAllImagesForUser(this.props.profile.id);
   }
 
   render() {

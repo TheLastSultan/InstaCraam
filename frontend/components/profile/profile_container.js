@@ -1,16 +1,20 @@
 import { connect } from 'react-redux';
 import Profile from './profile';
 import EditProfile from './edit_profile';
-import { requestAllImagesForUser } from '../../actions/image_actions';
-import { requestProfileInfo, updateUserProfile } from '../../actions/profile_actions';
+import {
+  requestProfileInfo,
+  updateUserProfile,
+  clearProfile } from '../../actions/profile_actions';
 import { selectAllObjects } from '../../reducers/selectors';
-
+import { requestAllImagesForUser } from '../../actions/image_actions';
 import { requestAllComments } from '../../actions/comment_actions';
+
 
 
 const mapStateToProps = (state) => {
   return ({
-    images: selectAllObjects(state.images.byUser),
+    postById: state.images.byId,
+    postByProfile: state.images.byProfile,
     currentProfile: state.profile,
     currentUser: state.session.currentUser,
     comments: state.comments.byPost,
@@ -20,6 +24,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   requestAllComments: () => dispatch(requestAllComments()),
+
+  clearProfile: () => dispatch(clearProfile()),
+
   requestAllImagesForUser: userId => dispatch(requestAllImagesForUser(userId)),
   requestProfileInfo: userId => dispatch(requestProfileInfo(userId)),
   updateUserProfile: user => dispatch(updateUserProfile(user))

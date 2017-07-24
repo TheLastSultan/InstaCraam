@@ -8,7 +8,7 @@ class FeedIndex extends React.Component {
 
   componentWillMount() {
     this.props.requestAllImages();
-    this.props.requestAllComments();
+    // this.props.requestAllComments();
   }
 
   componentWillReceiveProps(nextProps) {

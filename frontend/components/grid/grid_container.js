@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import GridItem from './grid_item';
-
-// import { requestAllCommentsForPost } from '../../actions/comment_actions';
-import { deletePost } from '../../actions/image_actions';
+import { deletePost,
+        requestAllImagesForUser } from '../../actions/image_actions';
 import { selectAllComments } from '../../reducers/selectors';
 
 const mapStateToProps = ({ errors, comments, profile }) => {
@@ -17,6 +16,7 @@ const mapDispatchToProps = dispatch => ({
   // requestAllCommentsForPost: postId => (
   //   dispatch(requestAllCommentsForPost(postId))
   // )
+  requestAllImagesForUser: userId => dispatch(requestAllImagesForUser(userId)),
   deletePost: post => dispatch(deletePost(post)),
 });
 

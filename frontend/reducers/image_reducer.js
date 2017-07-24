@@ -5,53 +5,35 @@ import {
   RECEIVE_ALL_IMAGES_FOR_USER,
   REMOVE_POST
 } from 'actions/image_actions';
-import { selectAllId } from './selectors';
+import { selectIds } from './selectors';
 
 const defaultState = () => ({
   byId: {},
-  allIds: [],
-  byUser: {}
+  byProfile: [],
+  byFollowing: []
 });
 
 const ImageReducer = (state = defaultState(), action) => {
   Object.freeze(state);
 
   switch (action.type) {
-    case REMOVE_POST:
-      console.log('image reducer remove post');
-      let nextState = merge({}, state);
-      delete nextState.byUser[action.postId];
-      return nextState;
-    case RECEIVE_ALL_IMAGES:
-      return {
-        byId: action.images,
-        allIds: selectAllId(action.images),
-        byUser: {}
-      };
-      // return merge({}, state, {
-      //   byId: action.images,
-      //   allIds: selectAllId(action.images),
-      //   byUser: {}
-      // });
 
     case RECEIVE_ALL_IMAGES_FOR_USER:
-      return {
-        // byId: {},
-        // allIds: [],
-        byUser: action.images
-      };
-      // return merge({}, state, {
-      //   byUser: action.images
-      // });
+    let ids = selectIds(action.images);
 
-    // case RECEIVE_SINGLE_IMAGE:
-    //   const image = action.image;
-    //
-    //   return merge({}, state, {
-    //     currentImage: {
-    //       [image.id]: image
-    //     }
-    //   });
+    return merge({}, state, {
+      byId: action.images,
+      byProfile: ids
+    });
+
+
+
+    case REMOVE_POST:
+      let nextState = merge({}, state);
+      console.log(nextState);
+      debugger;
+      delete nextState.byId[action.postId];
+      return nextState;
 
     default:
       return state;
