@@ -2,7 +2,8 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_ALL_IMAGES,
   RECEIVE_SINGLE_IMAGE,
-  RECEIVE_ALL_IMAGES_FOR_USER
+  RECEIVE_ALL_IMAGES_FOR_USER,
+  REMOVE_POST
 } from 'actions/image_actions';
 import { selectAllId } from './selectors';
 
@@ -16,6 +17,11 @@ const ImageReducer = (state = defaultState(), action) => {
   Object.freeze(state);
 
   switch (action.type) {
+    case REMOVE_POST:
+      console.log('image reducer remove post');
+      let nextState = merge({}, state);
+      delete nextState.byUser[action.postId];
+      return nextState;
     case RECEIVE_ALL_IMAGES:
       return {
         byId: action.images,

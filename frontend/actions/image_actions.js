@@ -9,6 +9,7 @@ import {
 export const RECEIVE_ALL_IMAGES = 'RECEIVE_ALL_IMAGES';
 export const RECEIVE_ALL_IMAGES_FOR_USER = 'RECEIVE_ALL_IMAGES_FOR_USER';
 export const RECEIVE_SINGLE_IMAGE = 'RECEIVE_SINGLE_IMAGE';
+export const REMOVE_POST = 'REMOVE_POST';
 
 
 // Sync
@@ -27,6 +28,11 @@ export const receiveSingleImage = image => ({
   image
 });
 
+export const removePost = postId => ({
+  type: REMOVE_POST,
+  postId
+});
+
 // Async
 export const requestAllImages = () => dispatch => {
   return APIUtil.fetchAllImages()
@@ -41,4 +47,9 @@ export const requestSingleImage = image => dispatch => {
 export const requestAllImagesForUser = userId => dispatch => {
   return APIUtil.fetchAllImagesForUser(userId)
     .then( res => dispatch(receiveAllImagesForUser(res)) );
+};
+
+export const deletePost = postId => dispatch => {
+  return APIUtil.destroyPost(postId)
+    .then( () => dispatch(removePost(postId)) );
 };

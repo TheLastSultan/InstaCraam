@@ -3,8 +3,6 @@ import ReactModal from 'react-modal';
 import { Link, withRouter } from 'react-router-dom';
 import CommentsContainer from '../comment/comments_container';
 
-import requestAllCommentsForPost from '../../actions/comment_actions';
-
 class GridItem extends React.Component {
   constructor(props) {
     super(props);
@@ -14,6 +12,7 @@ class GridItem extends React.Component {
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    this._deletePost = this._deletePost.bind(this);
   }
 
   componentWillMount() {
@@ -38,21 +37,24 @@ class GridItem extends React.Component {
     this.setState({ showModal: false });
   }
 
+  _deletePost() {
+    console.log('delete clicked!');
+    this.props.deletePost(this.props.id);
+  }
+
   render() {
 
     const { image, profile, currentUser, comments } = this.props;
 
-    let editCurrentUser, followButton;
+    let deleteButton, followButton;
 
     if (currentUser.id !== profile.id) {
       followButton = (
         <button className="toggle-follow profile-button follow"></button>
       );
     } else {
-      editCurrentUser = (
-        <Link to={`/user/${currentUser.id}/edit`}>
-          <button className="edit-profile profile-button">Edit Profile</button>
-        </Link>
+      deleteButton = (
+        <button onClick={this._deletePost} className="delete-post profile-button">Delete</button>
       );
     }
 
@@ -103,7 +105,7 @@ class GridItem extends React.Component {
                       {image.location}</span>
                   </div>
                   {followButton}
-                  {editCurrentUser}
+                  {deleteButton}
                 </section>
               </section>
 

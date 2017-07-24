@@ -21,7 +21,15 @@ class Api::ImagesController < ApplicationController
 
   def update; end
 
-  def destroy; end
+  def destroy
+    @image = Image.find(params[:id])
+
+    if @image.destroy
+      render 'api/users/show'
+    else
+      render json: ["Failed to destroy image"], status: 401
+    end
+  end
 
   def show
     @image = Image.find(params[:id])

@@ -18,3 +18,10 @@ export const fetchAllImagesForUser = id => {
     url: `/api/users/${id}/images`
   });
 };
+
+export const destroyPost = postId => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/images/${postId}`
+  });
+};
