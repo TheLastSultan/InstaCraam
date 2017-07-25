@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import GridItem from '../grid/grid_item';
+import Loading from '../loading/loading';
 import GridContainer from '../grid/grid_container';
 import {selectAllCommentIds} from 'reducers/selectors';
 
@@ -8,20 +8,21 @@ import {selectAllCommentIds} from 'reducers/selectors';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      loaded: false
+    };
   }
 
   componentWillMount() {
     const { location } = this.props;
     const userId = location.pathname.slice(6);
-
-    this.props.requestProfileInfo(userId);
-    this.props.requestAllImagesForUser(userId);
+    this.props.requestProfileInfo(userId)
+      .then( () => this.props.requestAllImagesForUser(userId))
+      .then( () => this.setState({loaded: true})
+    );
   }
 
-
-
   componentWillReceiveProps(nextProps) {
-
     const oldId = this.props.location.pathname.slice(6),
           newId = nextProps.location.pathname.slice(6);
     if (oldId !== newId) {
@@ -33,6 +34,25 @@ class Profile extends React.Component {
   componentWillUnmount() {
   }
 
+  toggleUserButtons() {
+    const { currentUser, currentProfile } = this.props;
+
+    if (currentUser) {
+
+      let editButton = (
+        <Link to={`/user/${currentUser.id}/edit`}>
+          <button className="edit-profile profile-button">Edit Profile</button>
+        </Link>
+      );
+
+      let followButton = (
+        <button className="toggle-follow profile-button follow"></button>
+      );
+
+      return (currentUser.id === currentProfile.id) ? editButton : followButton;
+    }
+  }
+
   render() {
     const {
       postById,
@@ -42,30 +62,9 @@ class Profile extends React.Component {
       comments,
       errors } = this.props;
 
-    let editCurrentUser,
-        followButton,
-        noImages,
+
+    let noImages,
         gridContainer;
-
-    if (currentUser.id === currentProfile.id) {
-      editCurrentUser = (
-        <Link to={`/user/${currentUser.id}/edit`}>
-          <button className="edit-profile profile-button">Edit Profile</button>
-        </Link>
-      );
-    } else {
-        followButton = (
-        <button className="toggle-follow profile-button follow"></button>
-      );
-    }
-
-    const notLoaded = (
-      <div className="main-content-container">
-        <div className="center-text">
-          <h2 className="loading">Loading...</h2>
-        </div>
-      </div>
-    );
 
     if (postByProfile.length === 0) {
       noImages = (
@@ -92,7 +91,9 @@ class Profile extends React.Component {
       );
     }
 
-    const loaded = (
+    if (!this.state.loaded) return <Loading />;
+
+    return (
       <div className="main-content-container grid">
         <section className="user-profile container">
           <div className="avatar-box">
@@ -103,7 +104,7 @@ class Profile extends React.Component {
           <div className="user-box">
             <div className="username-box">
               <span>{ currentProfile.username }</span>
-              {editCurrentUser} {followButton}
+              { this.toggleUserButtons() }
             </div>
             <div className="stats">
               <strong>5 </strong>
@@ -120,12 +121,8 @@ class Profile extends React.Component {
         </section>
         {noImages}
         {gridContainer}
-
       </div>
     );
-
-    return (currentProfile.id) ? loaded : (<div></div>);
-    // return (currentProfile.id) ? loaded : notLoaded;
   }
 
 }

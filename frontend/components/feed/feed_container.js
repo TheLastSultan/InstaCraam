@@ -3,12 +3,10 @@ import FeedIndex from './feed_index';
 import { requestAllImages } from '../../actions/image_actions';
 import { requestAllComments } from '../../actions/comment_actions';
 import { selectAllObjects } from '../../reducers/selectors';
-import shuffle from 'lodash/shuffle';
 
 const mapStateToProps = ({ comments , images, errors, session   }) => {
-  const shuffledImageIds = shuffle(images.allIds);
   return ({
-    imageIds: shuffledImageIds,
+    imageIds: images.allIds,
     images: images.byId,
     comments,
     currentUser: session.currentUser,

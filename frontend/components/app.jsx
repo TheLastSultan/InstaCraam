@@ -21,7 +21,10 @@ const App = () => (
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <ProtectedRoute exact path="/" component={FeedContainer} />
+
+      <Route exact path='/user/:id' component={ProfileContainer} />
       <ProtectedRoute exact path='/user/:id' component={ProfileContainer} />
+
       <ProtectedRoute exact path='/user/:id/edit' component={EditProfileContainer} />
       <ProtectedRoute path='/explore' component={ExploreContainer} />
       <Redirect to="/" />

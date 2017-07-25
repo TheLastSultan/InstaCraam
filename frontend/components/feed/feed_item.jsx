@@ -28,9 +28,11 @@ class FeedItem extends React.Component {
               <span className="location">{image.location}</span>
             </div>
         </header>
+
         <figure className="item-image-container">
           <img src={image.imgUrl} />
         </figure>
+
         <section className="item-goodies">
           <div className="image-actions-container">
             <button className="icon icon-likes">like</button>

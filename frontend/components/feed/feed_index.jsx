@@ -1,28 +1,37 @@
 import React from 'react';
 import FeedItem from './feed_item';
+import shuffle from 'lodash/shuffle';
 
 class FeedIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      loaded: false
+    };
   }
 
   componentWillMount() {
-    this.props.requestAllImages();
-    // this.props.requestAllComments();
+    console.log(this.state.loaded);
+    this.props.requestAllImages()
+    .then(
+      this.props.requestAllComments()
+      .then( () => this.setState({ loaded: true})) );
   }
 
   componentWillReceiveProps(nextProps) {
-    const oldId = this.props.currentUser.id,
-          newId = nextProps.currentUser.id;
-    if (oldId !== newId) {
-      nextProps.requestAllImages();
-    }
+    // const oldId = this.props.currentUser.id,
+    //       newId = nextProps.currentUser.id;
+    // if (oldId !== newId) {
+    //   nextProps.requestAllImages();
+    // }
   }
 
   componentWillUnmount() {
   }
 
   render() {
+    console.log(this.state.loaded);
+    console.log(this.props);
     const { imageIds, images } = this.props;
 
     const notLoaded = (
@@ -50,7 +59,7 @@ class FeedIndex extends React.Component {
       </div>
     );
 
-    return (imageIds.length > 0) ? loaded : notLoaded;
+    return (this.state.loaded) ? loaded : notLoaded;
   }
 
 }

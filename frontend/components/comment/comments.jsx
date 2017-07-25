@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router';
+import Loading from '../loading/loading';
 
 class Comments extends React.Component {
   constructor(props) {
@@ -8,19 +10,27 @@ class Comments extends React.Component {
       postId: this.props.post,
       body: "",
       username: this.props.currentUser.username,
+      commentsByPost: this.props.commentsByPost,
+      loading: true
     };
 
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
   componentWillMount() {
-    this.props.requestCommentsForPost(this.props.post);
+    this.props.requestCommentsForPost(this.props.post)
+      .then( () => this.setState({ loading: false }) );
   }
 
   componentWillUnMount() {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (this.props.commentsByPost !== nextProps.commentsByPost) {
+      this.setState({
+        commentsByPost: nextProps.commentsByPost,
+      });
+    }
 
   }
 
@@ -39,51 +49,28 @@ class Comments extends React.Component {
     });
   }
 
+
   render() {
-    const { commentsById, commentsByPost, currentUser, post } = this.props;
+    const { commentsById, currentUser, allCommentIds, post } = this.props;
+    // const { commentsById, commentsByPost, currentUser, allCommentIds, post } = this.props;
+    const { commentsByPost } = this.state;
 
-    const notAuthorized = (
-      <div className="comments-container">
-        <section className="comments-display-container">
-          <ul>
-            {
-              commentsByPost.map( commentId => {
-                if (commentsById[commentId].postId === post) {
-                  return  (
-                    <li key={commentId}>
-                      <span className="username">
-                        {commentsById[commentId].username}
-                      </span>
-                      <span className="comment">
-                        {commentsById[commentId].body}
-                      </span>
-                    </li>
-                  );
-                }
-              })
-            }
-          </ul>
-        </section>
-        <section className="add-comments-container">
-            <form
-              className="comment-form">
-                <input
-                  id="fullname"
-                  type="text"
-                  placeholder="Log in to like or comment."
-                  />
-            </form>
-        </section>
+    let commentsHolder = (this.props.location.pathname === "/") ?
+      allCommentIds : commentsByPost;
 
-      </div>
-    );
+    let placeholder = (currentUser) ?
+      "Add a comment..." :
+      "Log in to like or comment.";
 
-    const loaded = (
+
+    if (this.state.loading) return <Loading />;
+
+    return (
       <div className="comments-container">
         <section className="comments-display-container" >
           <ul>
             {
-              commentsByPost.map( commentId => {
+              commentsHolder.map( commentId => {
                 if (commentsById[commentId].postId === post) {
                   return  (
                     <li key={commentId}>
@@ -107,7 +94,7 @@ class Comments extends React.Component {
                 <input
                   id="comment-body"
                   type="text"
-                  placeholder="Add a comment..."
+                  placeholder={placeholder}
                   value={this.state.body}
                   onChange={this._update('body')} />
             </form>
@@ -115,12 +102,8 @@ class Comments extends React.Component {
 
       </div>
     );
-
-    // return (currentUser.id && commentsByPost.length > 0) ? loaded : notAuthorized;
-    return (currentUser.id) ? loaded : notAuthorized;
-    // return loaded;
   }
 
 }
 
-export default Comments;
+export default withRouter(Comments);

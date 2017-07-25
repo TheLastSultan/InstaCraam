@@ -13,7 +13,7 @@ class Api::ImagesController < ApplicationController
     id = params[:user_id].to_i
 
     if id.zero?
-      @images = Image.all
+      @images = Image.limit(5).order("RANDOM()")
     else
       @images = Image.all.select { |img| img.user_id == id }
     end
