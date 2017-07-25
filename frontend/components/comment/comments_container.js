@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Comments from './comments';
-import { postComment } from '../../actions/comment_actions';
+import { postComment, destroyComment } from '../../actions/comment_actions';
 import { requestCommentsForPost } from '../../actions/comment_actions';
 import { selectAllObjects } from '../../reducers/selectors';
 
@@ -16,6 +16,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   requestCommentsForPost: post => dispatch(requestCommentsForPost(post)),
   postComment: comment => dispatch(postComment(comment)),
+  destroyComment: comment => dispatch(destroyComment(comment))
 });
 
 export default connect(

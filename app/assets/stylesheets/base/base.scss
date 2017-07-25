@@ -1,0 +1,14 @@
+button.delete-comment {
+  background: transparent;
+  color: #c7c7c7;
+  float: right;
+  width: auto;
+  padding: 0px;
+  border: 0px;
+  &:before {
+    content: '\2715';
+  }
+  &:hover {
+    box-shadow: none;
+  }
+}

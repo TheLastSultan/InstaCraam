@@ -15,7 +15,6 @@ class Api::CommentsController < ApplicationController
       @comments = Comment.all
     else
       @comments = Comment.where(post_id: id)
-      p @comments
     end
   end
 

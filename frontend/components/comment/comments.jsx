@@ -21,9 +21,8 @@ class Comments extends React.Component {
         loading: true
       };
     }
-
-
     this._handleSubmit = this._handleSubmit.bind(this);
+    this.deleteComment = this.deleteComment.bind(this);
   }
 
   componentWillMount() {
@@ -35,7 +34,10 @@ class Comments extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(this.props.commentsByPost);
+    console.log(nextProps.commentsByPost);
     if (this.props.commentsByPost !== nextProps.commentsByPost) {
+      console.log(this.state);
       this.setState({
         commentsByPost: nextProps.commentsByPost,
       });
@@ -57,6 +59,46 @@ class Comments extends React.Component {
     });
   }
 
+  toggleCommentInput() {
+    let commentInput;
+
+    if (this.props.currentUser) {
+      return (
+        <input
+          id="comment-body"
+          type="text"
+          placeholder="Add a comment..."
+          value={this.state.body}
+          onChange={this._update('body')}
+          />
+      );
+    } else {
+      return (
+        <input
+          id="comment-body"
+          type="text"
+          placeholder="Log in to like or comment."
+          disabled/>
+      );
+    }
+  }
+
+  deleteComment(e) {
+    e.preventDefault();
+    const commentId = e.currentTarget.getAttribute('data-comment-id');
+    console.log(typeof(commentId));
+    this.props.destroyComment(commentId);
+  }
+
+  deleteCommentToggle(authorId, currentUserId, commentId) {
+    let deleteButton = (
+      <button
+        className="delete-comment"
+        onClick={this.deleteComment}
+        data-comment-id={commentId}></button>
+    );
+    return (authorId === currentUserId) ? deleteButton : null;
+  }
 
   render() {
     const { commentsById, currentUser, allCommentIds, post } = this.props;
@@ -64,27 +106,6 @@ class Comments extends React.Component {
 
     let commentsHolder = (this.props.location.pathname === "/") ?
       allCommentIds : commentsByPost;
-
-    let commentInput;
-    if (currentUser) {
-      commentInput = (
-        <input
-          id="comment-body"
-          type="text"
-          placeholder="Add a comment..."
-          value={this.state.body}
-          onChange={this._update('body')}
-          />);
-    } else {
-      commentInput = (
-        <input
-          id="comment-body"
-          type="text"
-          placeholder="Log in to like or comment."
-          disabled/>);
-    }
-    console.log(commentInput);
-
 
     if (this.state.loading) return <Loading />;
 
@@ -94,7 +115,9 @@ class Comments extends React.Component {
           <ul>
             {
               commentsHolder.map( commentId => {
+                let currentCommentById = commentsById[commentId];
                 if (commentsById[commentId].postId === post) {
+
                   return  (
                     <li key={commentId}>
                       <span className="username">
@@ -102,6 +125,9 @@ class Comments extends React.Component {
                       </span>
                       <span className="comment">
                         {commentsById[commentId].body}
+                        { this.deleteCommentToggle(
+                          commentsById[commentId].authorId,
+                          currentUser.id, commentId) }
                       </span>
                     </li>
                   );
@@ -114,7 +140,7 @@ class Comments extends React.Component {
             <form
               className="comment-form"
               onSubmit={this._handleSubmit}>
-              {commentInput}
+              { this.toggleCommentInput() }
             </form>
         </section>
 

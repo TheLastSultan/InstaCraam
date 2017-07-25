@@ -36,13 +36,11 @@ const ImageReducer = (state = defaultState(), action) => {
           byId: action.images
       });
 
-
     case REMOVE_POST:
       nextState = merge({}, state);
       const idx = nextState.byProfile.indexOf(action.postId);
       delete nextState.byProfile[idx];
       delete nextState.byId[action.postId];
-      console.log(nextState);
       return nextState;
 
 

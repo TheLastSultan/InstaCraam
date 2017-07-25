@@ -25,3 +25,10 @@ export const postComment = comment => {
     }
   });
 };
+
+export const destroyComment = commentId => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/comments/${commentId}`
+  });
+};

@@ -9,6 +9,7 @@ import {
 export const RECEIVE_ALL_COMMENTS = 'RECEIVE_ALL_COMMENTS';
 export const RECEIVE_COMMENTS_FOR_POST = 'RECEIVE_COMMENTS_FOR_POST';
 export const RECEIVE_SINGLE_COMMENT = 'RECEIVE_SINGLE_COMMENT';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
 
 export const receiveSingleComment = comment => ({
@@ -26,13 +27,15 @@ export const receiveAllCommentsForPost = comments => ({
   comments
 });
 
+export const removeComment = comment => ({
+  type: REMOVE_COMMENT,
+  comment
+});
 
 export const requestCommentsForPost = post => dispatch => {
   return APIUtil.fetchCommentsForPost(post)
     .then( res => dispatch(receiveAllCommentsForPost(res)) );
 };
-
-
 
 export const requestAllComments = () => dispatch => {
   return APIUtil.fetchAllComments()
@@ -43,4 +46,10 @@ export const requestAllComments = () => dispatch => {
 export const postComment = comment => dispatch => {
   return APIUtil.postComment(comment)
     .then( res => dispatch(receiveSingleComment(res)) );
+};
+
+export const destroyComment = comment => dispatch => {
+  return APIUtil.destroyComment(comment)
+  .then( res => dispatch(removeComment(res)) )
+  .then( res => console.log(res) );
 };

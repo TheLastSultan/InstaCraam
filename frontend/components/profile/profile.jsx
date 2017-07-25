@@ -9,7 +9,8 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false
+      loading: false,
+      postCount: this.props.postByProfile.length
     };
   }
 
@@ -25,9 +26,19 @@ class Profile extends React.Component {
   componentWillReceiveProps(nextProps) {
     const oldId = this.props.location.pathname.slice(6),
           newId = nextProps.location.pathname.slice(6);
+
     if (oldId !== newId) {
       nextProps.requestAllImagesForUser(newId);
       nextProps.requestProfileInfo(newId);
+    }
+
+    if(this.props.postByProfile !== nextProps.postByProfile) {
+      console.log('postByProfile changed, recalculate post count');
+      // console.log(this.state);
+      nextProps.requestProfileInfo(newId);
+      this.setState({
+        postCount: nextProps.postByProfile.length
+      });
     }
   }
 
@@ -108,7 +119,7 @@ class Profile extends React.Component {
               { this.toggleUserButtons() }
             </div>
             <div className="stats">
-              <strong>{this.props.postByProfile.length}&nbsp;</strong>
+              <strong>{this.state.postCount}&nbsp;</strong>
               posts &nbsp;&nbsp;&nbsp;
               <strong>3 </strong>
               followers &nbsp;&nbsp;&nbsp;

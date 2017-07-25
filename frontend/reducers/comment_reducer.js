@@ -2,7 +2,8 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_ALL_COMMENTS,
   RECEIVE_SINGLE_COMMENT,
-  RECEIVE_COMMENTS_FOR_POST
+  RECEIVE_COMMENTS_FOR_POST,
+  REMOVE_COMMENT
 } from 'actions/comment_actions';
 import { selectIds } from './selectors';
 
@@ -46,6 +47,13 @@ const CommentReducer = (state = defaultState(), action) => {
       return merge(nextState, {
         byId: action.comments
       });
+
+    case REMOVE_COMMENT:
+      nextState = merge({}, state);
+      const idx = nextState.byPost.indexOf(action.comment.id);
+      nextState.byPost.splice(idx,1);
+      delete nextState.byId[action.comment.id];
+      return nextState;
 
     default:
       return state;
