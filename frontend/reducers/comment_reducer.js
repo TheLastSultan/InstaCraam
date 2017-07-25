@@ -26,11 +26,6 @@ const CommentReducer = (state = defaultState(), action) => {
         allIds: ids
       });
 
-    // case RECEIVE_ALL_COMMENTS:
-    // return merge({}, state, {
-    //   allIds: selectIds(action.comments)
-    // });
-
     case RECEIVE_SINGLE_COMMENT:
       const id = action.comment.id;
       const byPost = state.byPost.concat(action.comment.id);

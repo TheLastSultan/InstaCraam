@@ -38,24 +38,20 @@ class GridItem extends React.Component {
   }
 
   render() {
-
-    const { image, profile, currentUser, comments } = this.props;
-
+    const { image, currentProfile, currentUser, comments } = this.props;
     let deleteButton, followButton;
 
-    if (currentUser.id !== profile.id) {
+    if ( !currentUser || currentUser.id !== currentProfile.id) {
       followButton = (
         <button className="toggle-follow profile-button follow"></button>
       );
     } else {
       deleteButton = (
-        <button onClick={this._deletePost} className="delete-post profile-button">Delete</button>
+        <button
+          onClick={this._deletePost}
+          className="delete-post profile-button">Delete</button>
       );
     }
-
-    // const postComments = comments.filter( (comment) => (
-    //   comment.postId === image.id
-    // ));
 
     return (
       <figure className="grid-item">
@@ -87,7 +83,7 @@ class GridItem extends React.Component {
                 <section className="user-profile">
                   <div className="avatar-box">
                     <figure className="avatar-container">
-                      <img src={profile.avatarUrl} className="profile-avatar" />
+                      <img src={currentProfile.avatarUrl} className="profile-avatar" />
                     </figure>
                   </div>
                   <div className="user-box">

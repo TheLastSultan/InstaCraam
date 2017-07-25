@@ -12,13 +12,13 @@ Comment.destroy_all
 
 user1 = User.create!(username: 'norris', password: 'password', fullname: 'Norris Kwan', description: 'Born and bred in Houston. Trained and polished in SF.', avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500518717/norris.jpg')
 user2 = User.create!(username: 'bailey', password: 'password', fullname: 'Bailey Boy', description: "Woof woof, bark bark, sniff sniff. ~ I'm Norris' dog!", avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500518662/baiey_epjd2k.jpg')
-user3 = User.create!(username: 'mickey', password: 'password', fullname: 'Michelangelo', description: 'You think your tough enough to stand up to my HOT NUNCHUCK FURY?! BOOYAKASHA!!', avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500518433/mikey_xkosgd.png')
+user3 = User.create!(username: 'mikey', password: 'password', fullname: 'Michelangelo', description: 'You think your tough enough to stand up to my HOT NUNCHUCK FURY?! BOOYAKASHA!!', avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500518433/mikey_xkosgd.png')
 user4 = User.create!(username: 'leo',    password: 'password', fullname: 'Leonardo', description: 'I eat, sleep and breath Ninjustu.', avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500516177/leo_bzo1lu.jpg')
 user5 = User.create!(username: 'raph',   password: 'password', fullname: 'Raphael', description: "Name's Raph. If there's a brawl, count me in.", avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500516176/raph_j5ale2.jpg')
 user6 = User.create!(username: 'donnie', password: 'password', fullname: 'Donatello', description: "I'm the brains of this operation. I invent gadgets, weapons and awesome vehicles to keep me and my brothers safe.", avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500516176/donnie_oypjkw.jpg')
 guest = User.create!(username: 'guest',  password: 'password', fullname: 'Guest User', description: 'Gee, I really should sign up.', avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500518554/profile_bhxtpb.svg')
 
-batman = User.create!(username: 'Batman',  password: 'password', fullname: 'Bruce Wayne', description: '', avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500518554/profile_bhxtpb.svg')
+batman = User.create!(username: 'Batman',  password: 'password', fullname: 'Bruce Wayne', description: 'Welcome, Master Wayne.', avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500518554/profile_bhxtpb.svg')
 
 
 image01 = Image.create!(img_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500516176/750_l8vnrh.jpg', user_id: user1.id, caption: 'Who?',  location: 'houston')

@@ -33,5 +33,5 @@ export const login = user => dispatch => (
 export const logout = () => dispatch => (
   APIUtil.logout().then( res => (
     dispatch(receiveCurrentUser(null))
-  ))
+  )).then( () => (document.location.href="/") )
 );

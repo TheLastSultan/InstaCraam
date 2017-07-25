@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 
-
 import { login, logout, signup } from 'actions/session_actions';
 import { clearErrors } from 'actions/error_actions';
 

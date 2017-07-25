@@ -4,11 +4,14 @@ import { deletePost,
         requestAllImagesForUser } from '../../actions/image_actions';
 import { selectAllComments } from '../../reducers/selectors';
 
-const mapStateToProps = ({ errors, comments, profile }) => {
+const mapStateToProps = (state) => {
+// const mapStateToProps = ({ errors, comments, profile }) => {
   return ({
-    // comments: selectAllComments(comments),
-    profile,
-    errors
+    // profile,
+    // errors
+    currentUser: state.session.currentUser,
+    currentProfile: state.profile,
+    errors: state.errors
   });
 };
 

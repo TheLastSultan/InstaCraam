@@ -15,10 +15,9 @@ class Api::ImagesController < ApplicationController
     if id.zero?
       @images = Image.limit(5).order("RANDOM()")
     else
-      @images = Image.all.select { |img| img.user_id == id }
+      @images = Image.where(user_id: params[:user_id])
     end
 
-    # @images = Image.where(user_id: params[:user_id])
   end
 
   def update; end

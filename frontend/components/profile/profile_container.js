@@ -15,14 +15,11 @@ const mapStateToProps = (state) => {
     postByProfile: state.images.byProfile,
     currentProfile: state.profile,
     currentUser: state.session.currentUser,
-    // comments: state.comments.byPost,
     errors: state.errors
   });
 };
 
 const mapDispatchToProps = dispatch => ({
-
-
   requestAllImagesForUser: userId => dispatch(requestAllImagesForUser(userId)),
   requestProfileInfo: userId => dispatch(requestProfileInfo(userId)),
   updateUserProfile: user => dispatch(updateUserProfile(user)),

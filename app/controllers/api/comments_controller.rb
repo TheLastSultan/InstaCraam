@@ -14,15 +14,22 @@ class Api::CommentsController < ApplicationController
     if id.zero?
       @comments = Comment.all
     else
-      @comments = Comment.all.select { |comment| comment.post_id == id }
+      @comments = Comment.where(post_id: id)
+      p @comments
     end
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+
+    if @comment.destroy
+      render @comment
+    else
+      render json: ["Failed to destroy comment"], status: 401
+    end
   end
 
-  def show
-  end
+
 
   private
 

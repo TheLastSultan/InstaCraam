@@ -18,7 +18,14 @@ class SessionForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const { history } = this.props;
+
+    if (this.props.formType !== nextProps.formType) {
+      nextProps.clearErrors();
+    }
     return nextProps.loggedIn ? this.props.history.push('/') : null;
+  }
+
+  componentWillUnmount() {
   }
 
   _update(field) {

@@ -9,17 +9,12 @@ const mapStateToProps = state => {
     allCommentIds: state.comments.allIds,
     commentsById: state.comments.byId,
     commentsByPost: state.comments.byPost,
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
   });
 };
 
 const mapDispatchToProps = dispatch => ({
   requestCommentsForPost: post => dispatch(requestCommentsForPost(post)),
-
-
-
-  // requestCommentsForPost: post => dispatch(requestCommentsForPost(post)),
-  // requestAllComments: () => dispatch(requestAllComments()),
   postComment: comment => dispatch(postComment(comment)),
 });
 

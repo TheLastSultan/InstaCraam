@@ -1,48 +1,32 @@
 import React from 'react';
 import FeedItem from './feed_item';
-import shuffle from 'lodash/shuffle';
+import Loading from '../loading/loading';
 
 class FeedIndex extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      loaded: false
+      loading: true
     };
   }
 
   componentWillMount() {
-    console.log(this.state.loaded);
     this.props.requestAllImages()
     .then(
       this.props.requestAllComments()
-      .then( () => this.setState({ loaded: true})) );
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // const oldId = this.props.currentUser.id,
-    //       newId = nextProps.currentUser.id;
-    // if (oldId !== newId) {
-    //   nextProps.requestAllImages();
-    // }
-  }
-
-  componentWillUnmount() {
+      .then(
+        () => (this.setState({ loading: false}))
+      )
+    );
   }
 
   render() {
-    console.log(this.state.loaded);
-    console.log(this.props);
     const { imageIds, images } = this.props;
 
-    const notLoaded = (
-      <div className="main-content-container">
-        <div className="center-text">
-          <h2 className="loading">Loading...</h2>
-        </div>
-      </div>
-    );
+    if (this.state.loading) return <Loading />;
 
-    const loaded = (
+    return (
       <div className="main-content-container">
         <div className="feed-container list">
           {
@@ -58,8 +42,6 @@ class FeedIndex extends React.Component {
         </div>
       </div>
     );
-
-    return (this.state.loaded) ? loaded : notLoaded;
   }
 
 }

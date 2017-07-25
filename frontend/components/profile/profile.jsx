@@ -9,7 +9,7 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loaded: false
+      loading: false
     };
   }
 
@@ -18,7 +18,7 @@ class Profile extends React.Component {
     const userId = location.pathname.slice(6);
     this.props.requestProfileInfo(userId)
       .then( () => this.props.requestAllImagesForUser(userId))
-      .then( () => this.setState({loaded: true})
+      .then( () => this.setState({loading: false})
     );
   }
 
@@ -51,6 +51,7 @@ class Profile extends React.Component {
 
       return (currentUser.id === currentProfile.id) ? editButton : followButton;
     }
+
   }
 
   render() {
@@ -91,7 +92,7 @@ class Profile extends React.Component {
       );
     }
 
-    if (!this.state.loaded) return <Loading />;
+    if (this.state.loading) return <Loading />;
 
     return (
       <div className="main-content-container grid">
@@ -107,7 +108,7 @@ class Profile extends React.Component {
               { this.toggleUserButtons() }
             </div>
             <div className="stats">
-              <strong>5 </strong>
+              <strong>{this.props.postByProfile.length}&nbsp;</strong>
               posts &nbsp;&nbsp;&nbsp;
               <strong>3 </strong>
               followers &nbsp;&nbsp;&nbsp;
