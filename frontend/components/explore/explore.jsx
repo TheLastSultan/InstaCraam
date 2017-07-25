@@ -19,15 +19,7 @@ class Explore extends React.Component {
 
   render() {
     const { images, profile, currentUser } = this.props;
-
-    const notLoaded = (
-      <div className="main-content-container">
-        <div className="center-text">
-          <h2 className="loading">Loading...</h2>
-        </div>
-      </div>
-    );
-
+    console.log(images);
     const loaded = (
       <div id="explore-page">
         <figure className="map-temp">
@@ -53,7 +45,6 @@ class Explore extends React.Component {
       </div>
     );
 
-    // return (profile.id) ? loaded : notLoaded;
     return loaded;
   }
 

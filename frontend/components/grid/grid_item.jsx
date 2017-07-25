@@ -34,11 +34,10 @@ class GridItem extends React.Component {
   _deletePost() {
     this.props.deletePost(this.props.id);
     this.handleCloseModal();
-    // this.props.requestAllImagesForUser(this.props.profile.id);
   }
 
   render() {
-    const { image, currentProfile, currentUser, comments } = this.props;
+    const { image, currentProfile, currentUser } = this.props;
     let deleteButton, followButton;
 
     if ( !currentUser || currentUser.id !== currentProfile.id) {

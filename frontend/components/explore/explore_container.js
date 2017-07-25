@@ -7,7 +7,8 @@ import shuffle from 'lodash/shuffle';
 const mapStateToProps = ({ errors, images, session, profile }) => {
   const allImages = selectAllObjects(images);
   return ({
-    images: shuffle(allImages),
+    // images: shuffle(allImages),
+    images: selectAllObjects(images.byId),
     currentUser: session.currentUser,
     errors,
     profile

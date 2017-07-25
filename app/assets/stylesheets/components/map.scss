@@ -2,6 +2,13 @@
   .main-content-container {
     margin-top: 0px;
   }
+  .grid-item{
+    display: inline-block;
+    img {
+      max-height: 100%;
+      display: block;
+    }
+  }
 }
 .map-temp {
   background: url("http://res.cloudinary.com/norriskwan/image/upload/v1500679858/temp-map_wvavp4.png");
