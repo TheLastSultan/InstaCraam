@@ -12,7 +12,8 @@ class Profile extends React.Component {
 
   componentWillMount() {
     const { location } = this.props;
-    const userId = location.pathname.slice(-1);
+    const userId = location.pathname.slice(6);
+
     this.props.requestProfileInfo(userId);
     this.props.requestAllImagesForUser(userId);
   }
@@ -20,8 +21,9 @@ class Profile extends React.Component {
 
 
   componentWillReceiveProps(nextProps) {
-    const oldId = this.props.location.pathname.slice(-1),
-          newId = nextProps.location.pathname.slice(-1);
+
+    const oldId = this.props.location.pathname.slice(6),
+          newId = nextProps.location.pathname.slice(6);
     if (oldId !== newId) {
       nextProps.requestAllImagesForUser(newId);
       nextProps.requestProfileInfo(newId);
@@ -29,14 +31,9 @@ class Profile extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.clearProfile();
   }
 
   render() {
-
-    // console.log(this.props);
-    // return <div></div>;
-
     const {
       postById,
       postByProfile,
@@ -127,8 +124,8 @@ class Profile extends React.Component {
       </div>
     );
 
-    return (currentProfile.id) ? loaded : notLoaded;
-    // return (profile.id) ? loaded : (<span></span>);
+    return (currentProfile.id) ? loaded : (<div></div>);
+    // return (currentProfile.id) ? loaded : notLoaded;
   }
 
 }

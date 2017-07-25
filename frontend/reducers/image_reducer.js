@@ -9,6 +9,7 @@ import { selectIds } from './selectors';
 
 const defaultState = () => ({
   byId: {},
+  allIds: [],
   byProfile: [],
   byFollowing: []
 });
@@ -16,24 +17,34 @@ const defaultState = () => ({
 const ImageReducer = (state = defaultState(), action) => {
   Object.freeze(state);
 
+  let ids, nextState;
+
   switch (action.type) {
 
+    case RECEIVE_ALL_IMAGES:
+      ids = selectIds(action.images);
+      return merge({}, state, {
+        byId: action.images,
+        allIds: ids
+      });
+
     case RECEIVE_ALL_IMAGES_FOR_USER:
-    let ids = selectIds(action.images);
+      ids = selectIds(action.images);
+      nextState = Object.assign({}, state, { byProfile: ids });
 
-    return merge({}, state, {
-      byId: action.images,
-      byProfile: ids
-    });
-
+      return merge(nextState, {
+          byId: action.images
+      });
 
 
     case REMOVE_POST:
-      let nextState = merge({}, state);
-      console.log(nextState);
-      debugger;
+      nextState = merge({}, state);
+      const idx = nextState.byProfile.indexOf(action.postId);
+      delete nextState.byProfile[idx];
       delete nextState.byId[action.postId];
+      console.log(nextState);
       return nextState;
+
 
     default:
       return state;

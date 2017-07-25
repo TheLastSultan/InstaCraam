@@ -3,7 +3,7 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      render 'api/comments/show'
+      render @comment
     else
       render json: ["Failed to post comment"], status: 401
     end

@@ -27,7 +27,7 @@ class Api::ImagesController < ApplicationController
     @image = Image.find(params[:id])
 
     if @image.destroy
-      render 'api/users/show'
+      render @image
     else
       render json: ["Failed to destroy image"], status: 401
     end

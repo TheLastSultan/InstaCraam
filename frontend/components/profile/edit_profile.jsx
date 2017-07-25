@@ -62,8 +62,6 @@ class EditProfile extends React.Component {
         <section className="edit-profile-container">
           <ul className="edit-options">
             <li><a className="active">Edit Profile</a></li>
-            <li><a>Delete Photos</a></li>
-            <li><a>About Creator</a></li>
           </ul>
           <article className="edit-main">
             <section className="user-profile container">

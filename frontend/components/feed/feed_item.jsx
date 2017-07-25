@@ -44,7 +44,7 @@ class FeedItem extends React.Component {
             <span className="caption">{image.caption}</span>
           </div>
 
-          <CommentsContainer post={image} />
+          <CommentsContainer post={image.id} />
 
         </section>
       </article>

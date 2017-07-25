@@ -16,8 +16,6 @@ class FeedIndex extends React.Component {
           newId = nextProps.currentUser.id;
     if (oldId !== newId) {
       nextProps.requestAllImages();
-      nextProps.requestAllComments()
-        .then(res => console.log('done'));
     }
   }
 
@@ -26,10 +24,10 @@ class FeedIndex extends React.Component {
 
   render() {
     const { imageIds, images } = this.props;
-    const testStyle = {'position': 'relative', 'top': '-30px'};
+
     const notLoaded = (
       <div className="main-content-container">
-        <div className="center-text" style={testStyle}>
+        <div className="center-text">
           <h2 className="loading">Loading...</h2>
         </div>
       </div>

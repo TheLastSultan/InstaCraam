@@ -5,7 +5,7 @@ export const fetchAllComments = () => {
   });
 };
 
-export const fetchAllCommentsForPost = postId => {
+export const fetchCommentsForPost = postId => {
   return $.ajax({
     method: 'GET',
     url: `/api/images/${postId}/comments`
@@ -13,7 +13,6 @@ export const fetchAllCommentsForPost = postId => {
 };
 
 export const postComment = comment => {
-  console.log(comment);
   return $.ajax({
     method: 'POST',
     url: `/api/images/${comment.postId}/comments`,

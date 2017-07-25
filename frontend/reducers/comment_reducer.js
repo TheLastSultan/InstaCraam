@@ -1,41 +1,40 @@
 import merge from 'lodash/merge';
 import {
-  RECEIVE_ALL_COMMENTS,
-  // RECEIVE_ALL_COMMENTS_FOR_POST
+  RECEIVE_SINGLE_COMMENT,
+  RECEIVE_COMMENTS_FOR_POST
 } from 'actions/comment_actions';
-import { selectAllId } from './selectors';
+import { selectIds } from './selectors';
 
 const defaultState = () => ({
   byId: {},
-  allIds: [],
-  // byPost: {}
+  byPost: []
 });
 
 const CommentReducer = (state = defaultState(), action) => {
   Object.freeze(state);
 
+  let ids, nextState;
+
   switch (action.type) {
 
-    case RECEIVE_ALL_COMMENTS:
-      return {
-        byId: action.comments,
-        allIds: selectAllId(action.comments)
-        // byPost: {}
-      };
-      // return merge({}, state, {
-      //   byId: action.comments,
-      //   allIds: selectAllId(action.comments)
-      // });
+    case RECEIVE_SINGLE_COMMENT:
+      const id = action.comment.id;
+      const byPost = state.byPost.concat(action.comment.id);
 
-    // case RECEIVE_ALL_COMMENTS_FOR_POST:
-      // return {
-      //   byId: {},
-      //   allIds: [],
-      //   byPost: action.comments
-      // };
-      // return merge({}, defaultState, {
-      //   byPost: action.comments
-      // });
+      return merge({}, state, {
+        byId: {
+          [id]: action.comment
+        },
+        byPost: byPost
+      });
+
+    case RECEIVE_COMMENTS_FOR_POST:
+      ids = selectIds(action.comments);
+      nextState = Object.assign({}, state, { byPost: ids });
+
+      return merge(nextState, {
+        byId: action.comments
+      });
 
     default:
       return state;

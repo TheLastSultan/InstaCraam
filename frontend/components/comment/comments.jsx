@@ -5,13 +5,16 @@ class Comments extends React.Component {
     super(props);
     this.state = {
       authorId: this.props.currentUser.id,
-      postId: this.props.post.id,
-      body: ""
+      postId: this.props.post,
+      body: "",
+      username: this.props.currentUser.username,
     };
+
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
   componentWillMount() {
+    this.props.requestCommentsForPost(this.props.post);
   }
 
   componentWillUnMount() {
@@ -31,23 +34,29 @@ class Comments extends React.Component {
     e.preventDefault();
     const comment = this.state;
     this.props.postComment(comment);
+    this.setState({
+      body: ""
+    });
   }
 
   render() {
-
-    const { currentUser, comments, post } = this.props;
+    const { commentsById, commentsByPost, currentUser, post } = this.props;
 
     const notAuthorized = (
       <div className="comments-container">
         <section className="comments-display-container">
           <ul>
             {
-              comments.map( comment => {
-                if (comment.postId === post.id) {
+              commentsByPost.map( commentId => {
+                if (commentsById[commentId].postId === post) {
                   return  (
-                    <li key={comment.id}>
-                      <span className="username">{comment.username}</span>
-                      <span className="comment">{comment.body}</span>
+                    <li key={commentId}>
+                      <span className="username">
+                        {commentsById[commentId].username}
+                      </span>
+                      <span className="comment">
+                        {commentsById[commentId].body}
+                      </span>
                     </li>
                   );
                 }
@@ -71,15 +80,19 @@ class Comments extends React.Component {
 
     const loaded = (
       <div className="comments-container">
-        <section className="comments-display-container">
+        <section className="comments-display-container" >
           <ul>
             {
-              comments.map( comment => {
-                if (comment.postId === post.id) {
+              commentsByPost.map( commentId => {
+                if (commentsById[commentId].postId === post) {
                   return  (
-                    <li key={comment.id}>
-                      <span className="username">{comment.username}</span>
-                      <span className="comment">{comment.body}</span>
+                    <li key={commentId}>
+                      <span className="username">
+                        {commentsById[commentId].username}
+                      </span>
+                      <span className="comment">
+                        {commentsById[commentId].body}
+                      </span>
                     </li>
                   );
                 }
@@ -103,8 +116,9 @@ class Comments extends React.Component {
       </div>
     );
 
+    // return (currentUser.id && commentsByPost.length > 0) ? loaded : notAuthorized;
     return (currentUser.id) ? loaded : notAuthorized;
-    // return (<div></div>);
+    // return loaded;
   }
 
 }

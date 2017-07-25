@@ -16,16 +16,10 @@ class GridItem extends React.Component {
   }
 
   componentWillMount() {
-    // const { id } = this.props;
-    // this.props.requestAllCommentsForPost(id);
+
   }
 
   componentWillReceiveProps(nextProps) {
-    // const oldId = this.props.id,
-    //       newId = nextProps.id;
-    // if (oldId !== newId) {
-    //   nextProps.requestAllCommentsForPost(newId);
-    // }
 
   }
 
@@ -40,7 +34,7 @@ class GridItem extends React.Component {
   _deletePost() {
     this.props.deletePost(this.props.id);
     this.handleCloseModal();
-    this.props.requestAllImagesForUser(this.props.profile.id);
+    // this.props.requestAllImagesForUser(this.props.profile.id);
   }
 
   render() {
@@ -121,8 +115,7 @@ class GridItem extends React.Component {
                 </div>
               </section>
 
-              <CommentsContainer post={image}/>
-
+              <CommentsContainer post={image.id}/>
 
             </aside>
 

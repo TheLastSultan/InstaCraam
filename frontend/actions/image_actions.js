@@ -49,10 +49,7 @@ export const requestAllImagesForUser = userId => dispatch => {
     .then( res => dispatch(receiveAllImagesForUser(res)) );
 };
 
-export const deletePost = (postId, userId) => dispatch => {
+export const deletePost = (postId) => dispatch => {
   return APIUtil.destroyPost(postId)
-    .then( () => {
-      dispatch(removePost(postId));
-      dispatch(receiveAllImagesForUser(userId));
-    });
+    .then( (res) => dispatch(removePost(postId)) );
 };

@@ -86,5 +86,7 @@ button.close-modal {
   flex-grow: 1;
   .comments-display-container {
     flex-grow: 1;
+    max-height: 420px;
+    overflow: scroll;
   }
 }
