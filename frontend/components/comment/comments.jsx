@@ -1,11 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import autoBind from 'react-autobind';
 import Loading from '../loading/loading';
 
 class Comments extends React.Component {
   constructor(props) {
     super(props);
-
     if (this.props.currentUser) {
       this.state = {
         authorId: this.props.currentUser.id,
@@ -21,23 +21,18 @@ class Comments extends React.Component {
         loading: true
       };
     }
-    this._handleSubmit = this._handleSubmit.bind(this);
-    this.deleteComment = this.deleteComment.bind(this);
+    autoBind(this);
   }
 
   componentWillMount() {
-    this.props.requestCommentsForPost(this.props.post)
-      .then( () => this.setState({ loading: false }) );
-  }
-
-  componentWillUnMount() {
+    const { requestCommentsForPost, post } = this.props;
+    requestCommentsForPost(post)
+      .then( () => this.setState({ loading: false }));
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.commentsByPost !== nextProps.commentsByPost) {
-      this.setState({
-        commentsByPost: nextProps.commentsByPost,
-      });
+      this.setState({ commentsByPost: nextProps.commentsByPost });
     }
   }
 
@@ -51,9 +46,7 @@ class Comments extends React.Component {
     e.preventDefault();
     const comment = this.state;
     this.props.postComment(comment);
-    this.setState({
-      body: ""
-    });
+    this.setState({ body: "" });
   }
 
   toggleCommentInput() {
@@ -66,8 +59,7 @@ class Comments extends React.Component {
           type="text"
           placeholder="Add a comment..."
           value={this.state.body}
-          onChange={this._update('body')}
-          />
+          onChange={this._update('body')} />
       );
     } else {
       return (
@@ -75,71 +67,66 @@ class Comments extends React.Component {
           id="comment-body"
           type="text"
           placeholder="Log in to like or comment."
-          disabled/>
+          disabled />
       );
     }
   }
 
-  deleteComment(e) {
+  destroyComment(e) {
     e.preventDefault();
     const commentId = e.currentTarget.getAttribute('data-comment-id');
     this.props.destroyComment(commentId);
   }
 
-  deleteCommentToggle(authorId, currentUserId, commentId) {
+  deleteComment(authorId, currentUserId, commentId) {
     let deleteButton = (
       <button
         className="delete-comment"
-        onClick={this.deleteComment}
+        onClick={this.destroyComment}
         data-comment-id={commentId}></button>
     );
     return (authorId === currentUserId) ? deleteButton : null;
   }
 
+  displayComments() {
+    const { commentsById, currentUser, allCommentIds, location } = this.props;
+    const { commentsByPost, postId } = this.state;
+    let comments = (location.pathname === "/") ? allCommentIds : commentsByPost;
+
+    return (
+      <ul>
+        {comments.map( cid => {
+          let comment = commentsById[cid];
+
+          if ( comment && comment.postId === postId) {
+            return (
+              <li key={cid}>
+                <span className="username">{comment.username}</span>
+                <span className="comment">
+                  {comment.body}
+                  {this.deleteComment( comment.authorId, currentUser.id, cid)}
+                </span>
+              </li>
+            );
+          }
+        })}
+      </ul>
+    );
+  }
+
   render() {
-    const { commentsById, currentUser, allCommentIds, post } = this.props;
-    const { commentsByPost } = this.state;
-
-    let commentsHolder = (this.props.location.pathname === "/") ?
-      allCommentIds : commentsByPost;
-
-    if (this.state.loading) return <Loading />;
+    if (this.state.loading) return <span></span>;
 
     return (
       <div className="comments-container">
         <section className="comments-display-container" >
-          <ul>
-            {
-              commentsHolder.map( cid => {
-                if ( commentsById[cid] && commentsById[cid].postId === post) {
-                  return  (
-                    <li key={cid}>
-                      <span className="username">
-                        {commentsById[cid].username}
-                      </span>
-                      <span className="comment">
-                        {commentsById[cid].body}
-
-                        { this.deleteCommentToggle(
-                          commentsById[cid].authorId,
-                          currentUser.id, cid) }
-                          
-                      </span>
-                    </li>
-                  );
-                }
-              })
-            }
-          </ul>
+          { this.displayComments() }
         </section>
         <section className="add-comments-container">
-            <form
-              className="comment-form"
-              onSubmit={this._handleSubmit}>
+            <form className="comment-form" onSubmit={this._handleSubmit}>
               { this.toggleCommentInput() }
             </form>
         </section>
-
       </div>
     );
   }

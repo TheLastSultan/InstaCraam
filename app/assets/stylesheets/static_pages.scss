@@ -38,6 +38,13 @@ body {
   width: 100%;
   font-size: 2em;
 }
+.react-spinners--bar {
+  margin-bottom: 45px;
+  &>div {
+    margin: 0 auto;
+    border-radius: 3px;
+  }
+}
 
 .center-text {
   text-align: center;

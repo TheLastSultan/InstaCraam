@@ -8,8 +8,11 @@ class FeedItem extends React.Component {
   }
 
   render() {
-    const { image } = this.props,
-          avatarStyle = {backgroundImage: `url(${image.avatarUrl})`};
+    const { image } = this.props;
+    const avatarStyle = {
+      backgroundImage: `url(${image.avatarUrl})`
+    };
+
     return (
       <article className="feed-item-container">
         <header className="user-detail-container">

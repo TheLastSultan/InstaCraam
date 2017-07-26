@@ -17,8 +17,7 @@ const personalGreeting = (currentUser, logout) => {
           <img
             id="logo"
             title="Shootr"
-            src="http://res.cloudinary.com/norriskwan/image/upload/v1500594083/shootr_logo_rounded_n4zbkf.svg"
-          />
+            src="http://res.cloudinary.com/norriskwan/image/upload/v1500594083/shootr_logo_rounded_n4zbkf.svg" />
         <h1 className='shootr' title="Shootr App">Shootr</h1>
           </Link>
         </div>
@@ -74,10 +73,8 @@ const personalGreeting = (currentUser, logout) => {
   );
 };
 
-const Nav = ({ currentUser, logout }) => {
-  return (
-    currentUser ? personalGreeting(currentUser, logout) : (<div></div>)
-  );
-};
+const Nav = ({ currentUser, logout }) => (
+  currentUser ? personalGreeting(currentUser, logout) : (<div></div>)
+);
 
 export default Nav;

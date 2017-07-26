@@ -9,7 +9,7 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
+      loading: true,
       postCount: this.props.postByProfile.length
     };
   }
@@ -24,8 +24,8 @@ class Profile extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const oldId = this.props.location.pathname.slice(6),
-          newId = nextProps.location.pathname.slice(6);
+    const oldId = this.props.location.pathname.slice(6);
+    const newId = nextProps.location.pathname.slice(6);
 
     if (oldId !== newId) {
       nextProps.requestAllImagesForUser(newId);
@@ -86,8 +86,7 @@ class Profile extends React.Component {
                   image={postById[postId]}
                   currentUser={currentUser}
                   id={postId}
-                  key={postId}
-                />
+                  key={postId} />
               );
             })
           }
@@ -95,7 +94,7 @@ class Profile extends React.Component {
       );
     }
 
-    if (this.state.loading) return <Loading />;
+    if (this.state.loading) return <Loading loading={this.state.loading}/>;
 
     return (
       <div className="main-content-container grid">

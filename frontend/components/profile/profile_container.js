@@ -1,13 +1,9 @@
 import { connect } from 'react-redux';
 import Profile from './profile';
 import EditProfile from './edit_profile';
-import {
-  requestProfileInfo,
-  updateUserProfile } from '../../actions/profile_actions';
+import { requestProfileInfo, updateUserProfile } from '../../actions/profile_actions';
 import { selectAllObjects } from '../../reducers/selectors';
 import { requestAllImagesForUser } from '../../actions/image_actions';
-
-
 
 const mapStateToProps = (state) => {
   return ({

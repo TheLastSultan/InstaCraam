@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import { Link, withRouter } from 'react-router-dom';
+import autoBind from 'react-autobind';
 import CommentsContainer from '../comment/comments_container';
 
 class GridItem extends React.Component {
@@ -9,18 +10,7 @@ class GridItem extends React.Component {
     this.state = {
       showModal: false
     };
-
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-    this._deletePost = this._deletePost.bind(this);
-  }
-
-  componentWillMount() {
-
-  }
-
-  componentWillReceiveProps(nextProps) {
-
+    autoBind(this);
   }
 
   handleOpenModal () {
@@ -36,22 +26,22 @@ class GridItem extends React.Component {
     this.handleCloseModal();
   }
 
+  toggleActionButton() {
+    const { currentProfile, currentUser } = this.props;
+    let deleteButton;
+    let followButton;
+
+    return (!currentUser || currentUser.id !== currentProfile.id) ? (
+      <button className="toggle-follow profile-button follow"></button>
+    ) : (
+      <button
+        onClick={this._deletePost}
+        className="delete-post profile-button">Delete</button>
+    );
+  }
+
   render() {
-    const { image, currentProfile, currentUser } = this.props;
-    let deleteButton, followButton;
-
-    if ( !currentUser || currentUser.id !== currentProfile.id) {
-      followButton = (
-        <button className="toggle-follow profile-button follow"></button>
-      );
-    } else {
-      deleteButton = (
-        <button
-          onClick={this._deletePost}
-          className="delete-post profile-button">Delete</button>
-      );
-    }
-
+    const { image, currentProfile } = this.props;
     return (
       <figure className="grid-item">
         <img src={image.imgUrl} onClick={this.handleOpenModal} />
@@ -94,8 +84,7 @@ class GridItem extends React.Component {
                     <span className="location">
                       {image.location}</span>
                   </div>
-                  {followButton}
-                  {deleteButton}
+                  {this.toggleActionButton()}
                 </section>
               </section>
 
@@ -109,11 +98,8 @@ class GridItem extends React.Component {
                   <span className="caption">{image.caption}</span>
                 </div>
               </section>
-
               <CommentsContainer post={image.id}/>
-
             </aside>
-
           </div>
         </ReactModal>
       </figure>

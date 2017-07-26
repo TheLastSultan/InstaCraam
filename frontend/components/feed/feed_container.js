@@ -4,21 +4,14 @@ import { requestAllImages } from '../../actions/image_actions';
 import { requestAllComments,requestCommentsForPost } from '../../actions/comment_actions';
 import { selectAllObjects } from '../../reducers/selectors';
 
-// const mapStateToProps = ({ comments , images, errors, session   }) => {
-const mapStateToProps = (state) => {
-  console.log(state);
+const mapStateToProps = ({ images , comments, session, errors }) => {
+// const mapStateToProps = (state) => {
   return ({
-    state,
-    imageIds: state.images.allIds,
-    // imageIds: images.allIds,
-    images: state.images.byId,
-    // images: images.byId,
-    comments: state.comments,
-    // comments,
-    currentUser: state.session.currentUser,
-    // currentUser: session.currentUser,
-    errors: state.errors
-    // errors,
+    imageIds: images.allIds,
+    images: images.byId,
+    currentUser: session.currentUser,
+    comments,
+    errors,
   });
 };
 
