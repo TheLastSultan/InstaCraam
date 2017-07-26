@@ -87,6 +87,7 @@ button.close-modal {
   .comments-display-container {
     flex-grow: 1;
     max-height: 420px;
-    overflow: scroll;
+    overflow-y: inherit;
+    overflow-x: hidden;
   }
 }

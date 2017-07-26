@@ -42,30 +42,23 @@ class Profile extends React.Component {
     }
   }
 
-  componentWillUnmount() {
-  }
-
   toggleUserButtons() {
     const { currentUser, currentProfile } = this.props;
-
     if (currentUser) {
-
       let editButton = (
         <Link to={`/user/${currentUser.id}/edit`}>
           <button className="edit-profile profile-button">Edit Profile</button>
         </Link>
       );
-
       let followButton = (
         <button className="toggle-follow profile-button follow"></button>
       );
-
       return (currentUser.id === currentProfile.id) ? editButton : followButton;
     }
-
   }
 
   render() {
+
     const {
       postById,
       postByProfile,
@@ -73,7 +66,6 @@ class Profile extends React.Component {
       currentUser,
       comments,
       errors } = this.props;
-
 
     let noImages,
         gridContainer;

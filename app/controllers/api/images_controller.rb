@@ -14,6 +14,7 @@ class Api::ImagesController < ApplicationController
 
     if id.zero?
       @images = Image.limit(12).order("RANDOM()")
+      # @images = Image.limit(3)
     else
       @images = Image.where(user_id: params[:user_id])
     end

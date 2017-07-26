@@ -34,10 +34,7 @@ class Comments extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(this.props.commentsByPost);
-    console.log(nextProps.commentsByPost);
     if (this.props.commentsByPost !== nextProps.commentsByPost) {
-      console.log(this.state);
       this.setState({
         commentsByPost: nextProps.commentsByPost,
       });
@@ -86,7 +83,6 @@ class Comments extends React.Component {
   deleteComment(e) {
     e.preventDefault();
     const commentId = e.currentTarget.getAttribute('data-comment-id');
-    console.log(typeof(commentId));
     this.props.destroyComment(commentId);
   }
 
@@ -114,20 +110,18 @@ class Comments extends React.Component {
         <section className="comments-display-container" >
           <ul>
             {
-              commentsHolder.map( commentId => {
-                let currentCommentById = commentsById[commentId];
-                if (commentsById[commentId].postId === post) {
-
+              commentsHolder.map( cid => {
+                if ( commentsById[cid] && commentsById[cid].postId === post) {
                   return  (
-                    <li key={commentId}>
+                    <li key={cid}>
                       <span className="username">
-                        {commentsById[commentId].username}
+                        {commentsById[cid].username}
                       </span>
                       <span className="comment">
-                        {commentsById[commentId].body}
+                        {commentsById[cid].body}
                         { this.deleteCommentToggle(
-                          commentsById[commentId].authorId,
-                          currentUser.id, commentId) }
+                          commentsById[cid].authorId,
+                          currentUser.id, cid) }
                       </span>
                     </li>
                   );
