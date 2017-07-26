@@ -5,6 +5,8 @@ button.delete-comment {
   width: auto;
   padding: 0px;
   border: 0px;
+  font-size: 14px;
+  margin-top: 5px;
   &:before {
     content: '\2715';
   }

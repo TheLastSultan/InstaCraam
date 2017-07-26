@@ -18,6 +18,9 @@ article.feed-item-container {
     padding: 15px;
     display: flex;
     align-items: center;
+    &>a {
+      display: flex;
+    }
     .user-box {
       display: flex;
       flex-direction: column;

@@ -27,9 +27,7 @@ class Api::CommentsController < ApplicationController
       render json: ["Failed to destroy comment"], status: 401
     end
   end
-
-
-
+  
   private
 
   def comment_params

@@ -119,9 +119,11 @@ class Comments extends React.Component {
                       </span>
                       <span className="comment">
                         {commentsById[cid].body}
+
                         { this.deleteCommentToggle(
                           commentsById[cid].authorId,
                           currentUser.id, cid) }
+                          
                       </span>
                     </li>
                   );

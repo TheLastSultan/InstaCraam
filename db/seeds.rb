@@ -90,3 +90,35 @@ comment18 = Comment.create!(author_id: user6.id, post_id: image09.id, body: "You
 comment19 = Comment.create!(author_id: guest.id, post_id: image29.id, body: "I don't know you... but bravo.")
 comment20 = Comment.create!(author_id: guest.id, post_id: image11.id, body: "Dig your feed!")
 comment21 = Comment.create!(author_id: guest.id, post_id: image34.id, body: "I gotta sign up after seeing this!")
+
+comment22 = Comment.create!(author_id: user1.id, post_id: image35.id, body: "Lorem ipsum dolor sit amet!")
+comment23 = Comment.create!(author_id: user1.id, post_id: image33.id, body: "consectetur adipisicing elit, sed do!")
+comment24 = Comment.create!(author_id: user1.id, post_id: image31.id, body: "eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+
+comment25 = Comment.create!(author_id: user2.id, post_id: image34.id, body: "Ut enim ad minim veniam!")
+comment26 = Comment.create!(author_id: user2.id, post_id: image32.id, body: "quis nostrud exercitation ullamco laboris nisi?")
+comment27 = Comment.create!(author_id: user2.id, post_id: image30.id, body: "Duis aute irure dolor in reprehenderit")
+
+comment28 = Comment.create!(author_id: user3.id, post_id: image29.id, body: "veniam! veniam!")
+comment29 = Comment.create!(author_id: user3.id, post_id: image27.id, body: "ullamco quis nostrud exercitation laboris nisi?")
+comment30 = Comment.create!(author_id: user3.id, post_id: image25.id, body: "dolor aute dolor in dolor")
+
+comment31 = Comment.create!(author_id: user4.id, post_id: image28.id, body: "This BART ride...")
+comment32 = Comment.create!(author_id: user4.id, post_id: image26.id, body: "Makes me want to sleep!")
+comment33 = Comment.create!(author_id: user4.id, post_id: image24.id, body: "zzz")
+
+comment34 = Comment.create!(author_id: user5.id, post_id: image23.id, body: "You're just too good to be true")
+comment35 = Comment.create!(author_id: user5.id, post_id: image21.id, body: "can't take my eyes off of you")
+comment36 = Comment.create!(author_id: user5.id, post_id: image19.id, body: "I want to hold you so much.")
+
+comment37 = Comment.create!(author_id: user6.id, post_id: image22.id, body: "EZ, Neo, the remix, ayo!")
+comment38 = Comment.create!(author_id: user6.id, post_id: image20.id, body: "I think its time...")
+comment39 = Comment.create!(author_id: user6.id, post_id: image18.id, body: "to hit em with the Mace flow!")
+
+comment40 = Comment.create!(author_id: guest.id, post_id: image17.id, body: "It's a vibe")
+comment41 = Comment.create!(author_id: guest.id, post_id: image15.id, body: "Yea, it's a vibe")
+comment42 = Comment.create!(author_id: guest.id, post_id: image13.id, body: "yeah yeah yeah")
+
+comment43 = Comment.create!(author_id: user1.id, post_id: image17.id, body: "Seems like yesterday")
+comment44 = Comment.create!(author_id: user1.id, post_id: image15.id, body: "we used to rock the show")
+comment45 = Comment.create!(author_id: user1.id, post_id: image13.id, body: "I lace the track, you lock the flow.")
