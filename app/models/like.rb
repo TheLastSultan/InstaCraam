@@ -12,7 +12,6 @@
 
 class Like < ApplicationRecord
   validates :likable_type, :likable_id, :liker_id, presence: true
-  validates_uniqueness_of :liker
 
   belongs_to :liker,
     primary_key: :id,

@@ -33,4 +33,9 @@ class Image < ApplicationRecord
     class_name: :Comment
 
   has_many :likes, as: :likable
+
+  has_many :likers,
+    through: :likes,
+    source: :liker
+
 end

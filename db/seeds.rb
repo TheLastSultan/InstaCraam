@@ -9,6 +9,7 @@
 User.destroy_all
 Image.destroy_all
 Comment.destroy_all
+Like.destroy_all
 
 user1 = User.create!(username: 'norris', password: 'password', fullname: 'Norris Kwan', description: 'Born and bred in Houston. Trained and polished in SF.', avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500518717/norris.jpg')
 user2 = User.create!(username: 'bailey', password: 'password', fullname: 'Bailey Boy', description: "Woof woof, bark bark, sniff sniff. ~ I'm Norris' dog!", avatar_url: 'https://res.cloudinary.com/norriskwan/image/upload/v1500518662/baiey_epjd2k.jpg')
@@ -122,3 +123,42 @@ comment42 = Comment.create!(author_id: guest.id, post_id: image13.id, body: "yea
 comment43 = Comment.create!(author_id: user1.id, post_id: image17.id, body: "Seems like yesterday")
 comment44 = Comment.create!(author_id: user1.id, post_id: image15.id, body: "we used to rock the show")
 comment45 = Comment.create!(author_id: user1.id, post_id: image13.id, body: "I lace the track, you lock the flow.")
+
+
+# Test uniqu
+# like00 = Like.create!(likable_type: image01.class.to_s, likable_id: image01.id, liker_id: user2.id)
+like01 = Like.create!(likable_type: image01.class.to_s, likable_id: image01.id, liker_id: user2.id)
+like02 = Like.create!(likable_type: image01.class.to_s, likable_id: image01.id, liker_id: user3.id)
+like03 = Like.create!(likable_type: image01.class.to_s, likable_id: image01.id, liker_id: user4.id)
+like04 = Like.create!(likable_type: image01.class.to_s, likable_id: image01.id, liker_id: user5.id)
+like05 = Like.create!(likable_type: image01.class.to_s, likable_id: image01.id, liker_id: user6.id)
+
+like06 = Like.create!(likable_type: image06.class.to_s, likable_id: image06.id, liker_id: user1.id)
+like07 = Like.create!(likable_type: image06.class.to_s, likable_id: image06.id, liker_id: user3.id)
+like08 = Like.create!(likable_type: image06.class.to_s, likable_id: image06.id, liker_id: user4.id)
+like09 = Like.create!(likable_type: image06.class.to_s, likable_id: image06.id, liker_id: user5.id)
+like10 = Like.create!(likable_type: image06.class.to_s, likable_id: image06.id, liker_id: user6.id)
+
+like11 = Like.create!(likable_type: image11.class.to_s, likable_id: image11.id, liker_id: user1.id)
+like12 = Like.create!(likable_type: image11.class.to_s, likable_id: image11.id, liker_id: user2.id)
+like13 = Like.create!(likable_type: image11.class.to_s, likable_id: image11.id, liker_id: user4.id)
+like14 = Like.create!(likable_type: image11.class.to_s, likable_id: image11.id, liker_id: user5.id)
+like15 = Like.create!(likable_type: image11.class.to_s, likable_id: image11.id, liker_id: user6.id)
+
+like16 = Like.create!(likable_type: image16.class.to_s, likable_id: image16.id, liker_id: user1.id)
+like17 = Like.create!(likable_type: image16.class.to_s, likable_id: image16.id, liker_id: user2.id)
+like18 = Like.create!(likable_type: image16.class.to_s, likable_id: image16.id, liker_id: user3.id)
+like19 = Like.create!(likable_type: image16.class.to_s, likable_id: image16.id, liker_id: user5.id)
+like20 = Like.create!(likable_type: image16.class.to_s, likable_id: image16.id, liker_id: user6.id)
+
+like21 = Like.create!(likable_type: image21.class.to_s, likable_id: image21.id, liker_id: user1.id)
+like22 = Like.create!(likable_type: image21.class.to_s, likable_id: image21.id, liker_id: user2.id)
+like23 = Like.create!(likable_type: image21.class.to_s, likable_id: image21.id, liker_id: user3.id)
+like24 = Like.create!(likable_type: image21.class.to_s, likable_id: image21.id, liker_id: user4.id)
+like25 = Like.create!(likable_type: image21.class.to_s, likable_id: image21.id, liker_id: user6.id)
+
+like26 = Like.create!(likable_type: image26.class.to_s, likable_id: image26.id, liker_id: user1.id)
+like27 = Like.create!(likable_type: image26.class.to_s, likable_id: image26.id, liker_id: user2.id)
+like28 = Like.create!(likable_type: image26.class.to_s, likable_id: image26.id, liker_id: user3.id)
+like29 = Like.create!(likable_type: image26.class.to_s, likable_id: image26.id, liker_id: user4.id)
+like30 = Like.create!(likable_type: image26.class.to_s, likable_id: image26.id, liker_id: user5.id)

@@ -14,7 +14,7 @@ class Api::CommentsController < ApplicationController
     if id.zero?
       @comments = Comment.all
     else
-      @comments = Comment.where(post_id: id)
+      @comments = Comment.includes(:post, :author, :likes).where(post_id: id)
     end
   end
 
@@ -27,7 +27,7 @@ class Api::CommentsController < ApplicationController
       render json: ["Failed to destroy comment"], status: 401
     end
   end
-  
+
   private
 
   def comment_params
