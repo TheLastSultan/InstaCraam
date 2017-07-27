@@ -8,14 +8,18 @@
   column-rule: 0px;
 }
 .grid-item {
-  display: inline-flex;
+  // display: inline-flex;
+  display: block;
   margin-bottom: 1em;
   background: #000;
+  height: 275px;
+  overflow: hidden;
   img {
     width: 100%;
+    min-height: 100%;
     height: auto;
     object-fit: cover;
-    max-height: 275px;
+    // max-height: 275px;
     &:hover {
       cursor: pointer;
       opacity: 0.65;
@@ -39,13 +43,6 @@
   }
   .grid-item {
     margin-bottom: 0px;
-    img {
-      max-height: 140px;
-    }
-  }
-}
-@media (max-width: 420px) {
-  .grid-item img {
-    max-height: 128px;
+    max-height: 125px;
   }
 }

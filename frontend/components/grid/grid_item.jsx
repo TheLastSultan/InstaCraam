@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import autoBind from 'react-autobind';
 import CommentsContainer from '../comment/comments_container';
 

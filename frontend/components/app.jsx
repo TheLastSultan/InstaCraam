@@ -7,6 +7,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import FeedContainer from './feed/feed_container';
 import ExploreContainer from './explore/explore_container';
 import { ProfileContainer, EditProfileContainer } from './profile/profile_container';
+import { UploadContainer } from './upload/upload_container';
 import Dummy from './dummy';
 import Footer from './footer';
 
@@ -21,10 +22,9 @@ const App = () => (
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <ProtectedRoute exact path="/" component={FeedContainer} />
-
       <Route exact path='/user/:id' component={ProfileContainer} />
       <ProtectedRoute exact path='/user/:id' component={ProfileContainer} />
-
+      <ProtectedRoute exact path='/upload' component={UploadContainer} />
       <ProtectedRoute exact path='/user/:id/edit' component={EditProfileContainer} />
       <ProtectedRoute path='/explore' component={ExploreContainer} />
       <Redirect to="/" />

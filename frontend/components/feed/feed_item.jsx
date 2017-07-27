@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CommentsContainer from '../comment/comments_container';
 
 class FeedItem extends React.Component {

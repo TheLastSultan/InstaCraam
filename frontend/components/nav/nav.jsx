@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import ProfileOptions from './profile_options';
 
 const personalGreeting = (currentUser, logout) => {
@@ -31,10 +31,13 @@ const personalGreeting = (currentUser, logout) => {
         </div>
 
         <div className="dashboard">
-          <button
-            id="nav-upload"
-            title="upload"
-            className="icon icon-upload">Upload</button>
+          <Link to={`/upload`} className='icon'>
+            <button
+              id="nav-upload"
+              title="upload"
+              className="icon icon-upload">Upload</button>
+          </Link>
+
 
           <Link to={`/explore`} className="icon">
             <button
@@ -59,9 +62,9 @@ const personalGreeting = (currentUser, logout) => {
           <ul id="profile-options">
             <span className="arrow-up profile-arrow"></span>
             <span className="arrow-up-cover profile-arrow-cover"></span>
-            <Link to={`/user/${currentUser.id}`}>
+            <NavLink to={`/user/${currentUser.id}`}>
               <li>Profile</li>
-            </Link>
+            </NavLink>
             <Link to={`/user/${currentUser.id}/edit`}>
               <li>Edit Profile</li>
             </Link>

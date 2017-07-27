@@ -3,6 +3,7 @@ class Api::ImagesController < ApplicationController
     @image = Image.new(image_params)
 
     if @image.save
+      @user = @image.poster
       render 'api/users/show'
     else
       render json: ["Failed to upload image"], status: 401
@@ -40,6 +41,6 @@ class Api::ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:image_url, :user_id, :caption, :location)
+    params.require(:image).permit(:img_url, :user_id, :caption, :location, :image)
   end
 end
