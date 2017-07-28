@@ -67,6 +67,11 @@ image36 = Image.create!(img_url: 'x', image: 'https://s3-us-west-2.amazonaws.com
 image37 = Image.create!(img_url: 'x', image: 'https://s3-us-west-2.amazonaws.com/shootr-dev/batmobile.jpg', user_id: batman.id, caption: '0-60 in 3.0 seconds', location: 'The Batcave')
 
 comment01 = Comment.create!(author_id: user1.id, post_id: image12.id, body: "Awesome photo! Keep on shooting!")
+comment01 = Comment.create!(author_id: user2.id, post_id: image12.id, body: "So pretty!")
+comment01 = Comment.create!(author_id: user3.id, post_id: image12.id, body: "Look at that!")
+comment01 = Comment.create!(author_id: user4.id, post_id: image12.id, body: "very cool")
+comment01 = Comment.create!(author_id: user5.id, post_id: image12.id, body: "remember that one time...")
+comment01 = Comment.create!(author_id: user6.id, post_id: image12.id, body: "excellent")
 comment02 = Comment.create!(author_id: user1.id, post_id: image23.id, body: "Spectacular composition.")
 comment03 = Comment.create!(author_id: user1.id, post_id: image34.id, body: "Absolutely stunning!.")
 
@@ -80,15 +85,26 @@ comment09 = Comment.create!(author_id: user3.id, post_id: image20.id, body: "Gna
 
 comment10 = Comment.create!(author_id: user4.id, post_id: image30.id, body: "That's a great photo.")
 comment11 = Comment.create!(author_id: user4.id, post_id: image03.id, body: "Very nice lighting!")
-comment12 = Comment.create!(author_id: user4.id, post_id: image06.id, body: "Top notch!")
+comment12 = Comment.create!(author_id: user1.id, post_id: image06.id, body: "Top notch!")
+comment12 = Comment.create!(author_id: user2.id, post_id: image06.id, body: "where was this taken?")
+comment12 = Comment.create!(author_id: user3.id, post_id: image06.id, body: "I was there!")
+comment12 = Comment.create!(author_id: user4.id, post_id: image06.id, body: "hahahaha")
+comment12 = Comment.create!(author_id: user4.id, post_id: image06.id, body: "umm.. really?")
+comment12 = Comment.create!(author_id: batman.id, post_id: image06.id, body: "Look at me!")
 
 comment13 = Comment.create!(author_id: user5.id, post_id: image21.id, body: "It's alright. Could be tougher.")
 comment14 = Comment.create!(author_id: user5.id, post_id: image17.id, body: "Wanna take this outside?!")
 comment15 = Comment.create!(author_id: user5.id, post_id: image13.id, body: "I've had better pizza than this.")
 
 comment16 = Comment.create!(author_id: user6.id, post_id: image29.id, body: "What kind of aperature did you use?")
-comment17 = Comment.create!(author_id: user6.id, post_id: image19.id, body: "Great application of the rule of thirds!")
 comment18 = Comment.create!(author_id: user6.id, post_id: image09.id, body: "You may want to adjust the ISO and shutter speed.")
+comment17 = Comment.create!(author_id: user1.id, post_id: image19.id, body: "Shootr!")
+comment17 = Comment.create!(author_id: user2.id, post_id: image19.id, body: "Great application of the rule of thirds!")
+comment17 = Comment.create!(author_id: user3.id, post_id: image19.id, body: "This is making me hungry")
+comment17 = Comment.create!(author_id: user4.id, post_id: image19.id, body: "I haven't slept in days")
+comment17 = Comment.create!(author_id: user5.id, post_id: image19.id, body: "lego!")
+comment17 = Comment.create!(author_id: user6.id, post_id: image19.id, body: "dude.")
+comment17 = Comment.create!(author_id: batman.id, post_id: image19.id, body: "danananananana batman!")
 
 comment19 = Comment.create!(author_id: user3.id, post_id: image29.id, body: "I don't know you... but bravo.")
 comment20 = Comment.create!(author_id: user3.id, post_id: image11.id, body: "Dig your feed!")
@@ -96,6 +112,8 @@ comment21 = Comment.create!(author_id: user3.id, post_id: image34.id, body: "I g
 
 comment22 = Comment.create!(author_id: user1.id, post_id: image35.id, body: "Lorem ipsum dolor sit amet!")
 comment23 = Comment.create!(author_id: user1.id, post_id: image33.id, body: "consectetur adipisicing elit, sed do!")
+comment23 = Comment.create!(author_id: user3.id, post_id: image33.id, body: "what does that mean?!")
+comment23 = Comment.create!(author_id: user4.id, post_id: image33.id, body: "It's Lorem!")
 comment24 = Comment.create!(author_id: user1.id, post_id: image31.id, body: "eiusmod tempor incididunt ut labore et dolore magna aliqua.")
 
 comment25 = Comment.create!(author_id: user2.id, post_id: image34.id, body: "Ut enim ad minim veniam!")
@@ -106,9 +124,14 @@ comment28 = Comment.create!(author_id: user3.id, post_id: image29.id, body: "ven
 comment29 = Comment.create!(author_id: user3.id, post_id: image27.id, body: "ullamco quis nostrud exercitation laboris nisi?")
 comment30 = Comment.create!(author_id: user3.id, post_id: image25.id, body: "dolor aute dolor in dolor")
 
-comment31 = Comment.create!(author_id: user4.id, post_id: image28.id, body: "This BART ride...")
-comment32 = Comment.create!(author_id: user4.id, post_id: image26.id, body: "Makes me want to sleep!")
 comment33 = Comment.create!(author_id: user4.id, post_id: image24.id, body: "zzz")
+comment31 = Comment.create!(author_id: user4.id, post_id: image28.id, body: "This BART ride...")
+comment32 = Comment.create!(author_id: user1.id, post_id: image26.id, body: "Makes me want to sleep!")
+comment32 = Comment.create!(author_id: user2.id, post_id: image26.id, body: "Makes me want to sleep!")
+comment32 = Comment.create!(author_id: user3.id, post_id: image26.id, body: "Makes me want to sleep!")
+comment32 = Comment.create!(author_id: user4.id, post_id: image26.id, body: "Makes me want to sleep!")
+comment32 = Comment.create!(author_id: user5.id, post_id: image26.id, body: "Makes me want to sleep!")
+comment32 = Comment.create!(author_id: user6.id, post_id: image26.id, body: "Makes me want to sleep!")
 
 comment34 = Comment.create!(author_id: user5.id, post_id: image23.id, body: "You're just too good to be true")
 comment35 = Comment.create!(author_id: user5.id, post_id: image21.id, body: "can't take my eyes off of you")
@@ -164,3 +187,33 @@ like27 = Like.create!(likable_type: image26.class.to_s, likable_id: image26.id, 
 like28 = Like.create!(likable_type: image26.class.to_s, likable_id: image26.id, liker_id: user3.id)
 like29 = Like.create!(likable_type: image26.class.to_s, likable_id: image26.id, liker_id: user4.id)
 like30 = Like.create!(likable_type: image26.class.to_s, likable_id: image26.id, liker_id: user5.id)
+
+like31 = Like.create!(likable_type: image17.class.to_s, likable_id: image17.id, liker_id: user2.id)
+like32 = Like.create!(likable_type: image17.class.to_s, likable_id: image17.id, liker_id: user3.id)
+like33 = Like.create!(likable_type: image17.class.to_s, likable_id: image17.id, liker_id: user4.id)
+like34 = Like.create!(likable_type: image17.class.to_s, likable_id: image17.id, liker_id: user5.id)
+like35 = Like.create!(likable_type: image17.class.to_s, likable_id: image17.id, liker_id: user6.id)
+
+like36 = Like.create!(likable_type: image02.class.to_s, likable_id: image02.id, liker_id: user2.id)
+like37 = Like.create!(likable_type: image02.class.to_s, likable_id: image02.id, liker_id: user3.id)
+like38 = Like.create!(likable_type: image02.class.to_s, likable_id: image02.id, liker_id: user4.id)
+like39 = Like.create!(likable_type: image02.class.to_s, likable_id: image02.id, liker_id: user5.id)
+like40 = Like.create!(likable_type: image02.class.to_s, likable_id: image02.id, liker_id: user6.id)
+
+like41 = Like.create!(likable_type: image03.class.to_s, likable_id: image03.id, liker_id: user2.id)
+like42 = Like.create!(likable_type: image03.class.to_s, likable_id: image03.id, liker_id: user3.id)
+like43 = Like.create!(likable_type: image03.class.to_s, likable_id: image03.id, liker_id: user4.id)
+like44 = Like.create!(likable_type: image03.class.to_s, likable_id: image03.id, liker_id: user5.id)
+like45 = Like.create!(likable_type: image03.class.to_s, likable_id: image03.id, liker_id: user6.id)
+
+like46 = Like.create!(likable_type: image19.class.to_s, likable_id: image19.id, liker_id: user2.id)
+like47 = Like.create!(likable_type: image19.class.to_s, likable_id: image19.id, liker_id: user3.id)
+like48 = Like.create!(likable_type: image19.class.to_s, likable_id: image19.id, liker_id: user4.id)
+like49 = Like.create!(likable_type: image19.class.to_s, likable_id: image19.id, liker_id: user5.id)
+like50 = Like.create!(likable_type: image19.class.to_s, likable_id: image19.id, liker_id: user6.id)
+
+like51 = Like.create!(likable_type: image12.class.to_s, likable_id: image12.id, liker_id: user2.id)
+like52 = Like.create!(likable_type: image12.class.to_s, likable_id: image12.id, liker_id: user3.id)
+like53 = Like.create!(likable_type: image12.class.to_s, likable_id: image12.id, liker_id: user4.id)
+like54 = Like.create!(likable_type: image12.class.to_s, likable_id: image12.id, liker_id: user5.id)
+like55 = Like.create!(likable_type: image12.class.to_s, likable_id: image12.id, liker_id: user6.id)
