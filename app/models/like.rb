@@ -14,9 +14,9 @@ class Like < ApplicationRecord
   validates :likable_type, :likable_id, :liker_id, presence: true
 
   belongs_to :liker,
-    primary_key: :id,
-    foreign_key: :liker_id,
-    class_name: :User
+             primary_key: :id,
+             foreign_key: :liker_id,
+             class_name: :User
 
   belongs_to :likable, polymorphic: true
 end

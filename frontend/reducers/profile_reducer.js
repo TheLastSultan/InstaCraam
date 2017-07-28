@@ -3,11 +3,14 @@ import merge from 'lodash/merge';
 import { RECEIVE_USER_INFO } from 'actions/profile_actions';
 
 const defaultState = () => ({
-
 });
 
 const ProfileReducer = (state = defaultState(), action) => {
   Object.freeze(state);
+
+  const copyState = Object.assign({}, state);
+
+  let nextState;
 
   switch (action.type) {
 

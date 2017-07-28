@@ -3,12 +3,13 @@ import ReactModal from 'react-modal';
 import { Link } from 'react-router-dom';
 import autoBind from 'react-autobind';
 import CommentsContainer from '../comment/comments_container';
+import FollowingContainer from '../following/following_container';
 
 class GridItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false
+      showModal: false,
     };
     autoBind(this);
   }
@@ -26,13 +27,18 @@ class GridItem extends React.Component {
     this.handleCloseModal();
   }
 
+  handleFollow(e) {
+    e.preventDefault();
+    const { currentProfile } = this.props;
+    this.props.addFollow(currentProfile.id);
+  }
+
   toggleActionButton() {
     const { currentProfile, currentUser } = this.props;
     let deleteButton;
-    let followButton;
 
     return (!currentUser || currentUser.id !== currentProfile.id) ? (
-      <button className="toggle-follow profile-button follow"></button>
+      <FollowingContainer />
     ) : (
       <button
         onClick={this._deletePost}
@@ -61,13 +67,11 @@ class GridItem extends React.Component {
           onRequestClose={this.handleCloseModal}
           shouldCloseOnOverlayClick={true}>
           <button onClick={this.handleCloseModal} className="close-modal">Close</button>
-
           <div className="modal-content-container">
             <figure className="modal-media-box">
               <img src={image.url} />
             </figure>
             <aside className="modal-details-box">
-
               <section className="media-details">
                 <section className="user-profile">
                   <div className="avatar-box">
@@ -87,7 +91,6 @@ class GridItem extends React.Component {
                   {this.toggleActionButton()}
                 </section>
               </section>
-
               <section className="media-comments">
                 <div className="caption-container">
                   <span className="username">
@@ -108,5 +111,3 @@ class GridItem extends React.Component {
 }
 
 export default GridItem;
-
-// <CommentsContainer postComments={comments} postId={image.id}/>

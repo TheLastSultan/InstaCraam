@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Loading from '../loading/loading';
+import autoBind from 'react-autobind';
 import GridContainer from '../grid/grid_container';
 import {selectAllCommentIds} from 'reducers/selectors';
+import FollowingContainer from '../following/following_container';
 
 
 class Profile extends React.Component {
@@ -10,8 +12,10 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       loading: true,
-      postCount: this.props.postByProfile.length
+      postCount: this.props.postByProfile.length,
+      followingCount: this.props.followingCount
     };
+    autoBind(this);
   }
 
   componentWillMount() {
@@ -43,40 +47,32 @@ class Profile extends React.Component {
 
   toggleUserButtons() {
     const { currentUser, currentProfile } = this.props;
+
     if (currentUser) {
       let editButton = (
         <Link to={`/user/${currentUser.id}/edit`}>
           <button className="edit-profile profile-button">Edit Profile</button>
         </Link>
       );
-      let followButton = (
-        <button className="toggle-follow profile-button follow"></button>
-      );
-      return (currentUser.id === currentProfile.id) ? editButton : followButton;
+
+      if (currentUser.id === currentProfile.id) {
+        return editButton;
+      } else {
+        return <FollowingContainer />;
+      }
     }
   }
 
-  render() {
-
-    const {
-      postById,
-      postByProfile,
-      currentProfile,
-      currentUser,
-      comments,
-      errors } = this.props;
-
-    let noImages,
-        gridContainer;
-
+  displayGrid() {
+    const { postByProfile, postById, currentUser } = this.props;
     if (postByProfile.length === 0) {
-      noImages = (
+      return (
         <div className="center-text container">
           <h2 className="shootr">You have no photos! Add some to your feed!</h2>
         </div>
       );
     } else {
-      gridContainer = (
+      return (
         <div className="grid-container">
           {
             postByProfile.map( (postId) => {
@@ -92,6 +88,22 @@ class Profile extends React.Component {
         </div>
       );
     }
+  }
+
+  tempCheckForStats() {
+    const { currentUser, currentProfile } = this.props;
+    if (currentUser.id === currentProfile.id) {
+      return (
+        <span>
+          <strong>{this.state.followingCount}&nbsp;</strong>following
+        </span>
+      );
+    }
+  }
+
+  render() {
+
+    const { currentProfile } = this.props;
 
     if (this.state.loading) return <Loading loading={this.state.loading}/>;
 
@@ -111,9 +123,7 @@ class Profile extends React.Component {
             <div className="stats">
               <strong>{this.state.postCount}&nbsp;</strong>
               posts &nbsp;&nbsp;&nbsp;
-              <strong>3 </strong>
-              followers &nbsp;&nbsp;&nbsp;
-              <strong>3 </strong>following
+              {this.tempCheckForStats()}
             </div>
             <div className="description">
               <span className="fullname">{ currentProfile.fullname }</span>
@@ -121,8 +131,7 @@ class Profile extends React.Component {
             </div>
           </div>
         </section>
-        {noImages}
-        {gridContainer}
+        {this.displayGrid()}
       </div>
     );
   }

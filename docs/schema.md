@@ -43,6 +43,6 @@
 | column name   | data type | details                                                         |
 | --------------|-----------| ----------------------------------------------------------------|
 | id            | integer   | not null, primary key                                           |
-| follower_id   | integer   | not null, foreign key (ref users), indexed, unique[followee_id] |
-| followee_id   | integer   | not null, foreign key (ref users), indexed                      |
-| unique_index[follower_id, followee_id]                                                      |
+| follower_id   | integer   | not null, foreign key (ref users), indexed, unique[followed_id] |
+| followed_id   | integer   | not null, foreign key (ref users), indexed                      |
+| unique_index[follower_id, followed_id]                                                      |

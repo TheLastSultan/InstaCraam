@@ -23,19 +23,19 @@ class Image < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :poster,
-    primary_key: :id,
-    foreign_key: :user_id,
-    class_name: :User
+             primary_key: :id,
+             foreign_key: :user_id,
+             class_name: :User
 
   has_many :comments,
-    primary_key: :id,
-    foreign_key: :post_id,
-    class_name: :Comment
+           primary_key: :id,
+           foreign_key: :post_id,
+           class_name: :Comment
 
   has_many :likes, as: :likable
 
   has_many :likers,
-    through: :likes,
-    source: :liker
+           through: :likes,
+           source: :liker
 
 end

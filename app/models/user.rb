@@ -6,7 +6,7 @@
 #  username        :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  avatar_url      :string           default("http://res.cloudinary.com/norriskwan/image/upload/v1500518554/profile_bhxtpb.svg")
+#  avatar_url      :string           default("https://s3-us-west-2.amazonaws.com/shootr-dev/profile.svg")
 #  description     :text
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -24,14 +24,32 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   has_many :images,
-    primary_key: :id,
-    foreign_key: :user_id,
-    class_name: :Image
+           primary_key: :id,
+           foreign_key: :user_id,
+           class_name: :Image
 
   has_many :comments,
-    primary_key: :id,
-    foreign_key: :author_id,
-    class_name: :Comment
+           primary_key: :id,
+           foreign_key: :author_id,
+           class_name: :Comment
+
+  has_many :followings,
+           primary_key: :id,
+           foreign_key: :follower_id,
+           class_name: :Follow
+
+  has_many :follows,
+           primary_key: :id,
+           foreign_key: :followed_id,
+           class_name: :Follow
+
+  has_many :followers,
+           through: :follows,
+           source: :follower
+
+  has_many :followees,
+           through: :followings,
+           source: :followed
 
   def self.find_by_creds(username, password)
     user = User.find_by(username: username)

@@ -8,7 +8,9 @@ class EditProfile extends React.Component {
       id: this.props.currentUser.id,
       fullname: this.props.currentUser.fullname,
       username: this.props.currentUser.username,
-      description: this.props.currentUser.description
+      description: this.props.currentUser.description,
+      postCount: this.props.postByProfile.length,
+      followingCount: this.props.followingCount
     };
     this._handleSubmit = this._handleSubmit.bind(this);
   }
@@ -77,7 +79,9 @@ class EditProfile extends React.Component {
 
                 </div>
                 <div className="stats">
-                  <strong>5 </strong>posts &nbsp;&nbsp;&nbsp; <strong>3 </strong>followers &nbsp;&nbsp;&nbsp; <strong>3 </strong>following
+                  <strong>{this.state.postCount}&nbsp;</strong>
+                  posts &nbsp;&nbsp;&nbsp;
+                  <strong>{this.state.followingCount}&nbsp;</strong>following
                 </div>
                 <div className="description">
                   <span className="fullname">{ currentUser.fullname }</span>

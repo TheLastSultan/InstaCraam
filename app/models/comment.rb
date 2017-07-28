@@ -14,14 +14,14 @@ class Comment < ApplicationRecord
   validates :body, :post, :author, presence: true
 
   belongs_to :post,
-    primary_key: :id,
-    foreign_key: :post_id,
-    class_name: :Image
+             primary_key: :id,
+             foreign_key: :post_id,
+             class_name: :Image
 
   belongs_to :author,
-    primary_key: :id,
-    foreign_key: :author_id,
-    class_name: :User
+             primary_key: :id,
+             foreign_key: :author_id,
+             class_name: :User
 
   has_many :likes, as: :likable
 end

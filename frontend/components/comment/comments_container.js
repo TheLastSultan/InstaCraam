@@ -7,16 +7,14 @@ import { selectAllObjects } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   const currentUserId = state.session.currentUser.id;
-
   return ({
     allCommentIds: state.comments.allIds,
     commentsById: state.comments.byId,
     commentsByPost: state.comments.byPost,
     currentUser: state.session.currentUser,
+    currentProfile: state.profile,
     likesCount: ownProps.post.likesCount,
-    liked: ownProps.post.likedBy.includes(currentUserId),
-    // likesCount
-    // imagesById: state.images.byId
+    liked: ownProps.post.likedBy.includes(currentUserId)
   });
 };
 

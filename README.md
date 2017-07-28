@@ -38,7 +38,7 @@ Media queries and SVGs were used to create a smooth transition between desktop a
 ## Technologies used
 ### Backend
 [Ruby on Rails](http://rubyonrails.org/) was used to serve the backend. [PostgreSQL](https://postgresql.org/) database to store data.
-Active Records used for Object-relational Mapping.
+`ActiveRecords` used for Object-relational Mapping.
 
 ```
 belongs_to :poster,
@@ -65,7 +65,7 @@ has_many :likers,
 - BCrypt for password hashing and privacy
 
 ### Frontend
-Facebook's [React](https://facebook.github.io/react/) frontend framework was used for speedy rendering. [Redux](http://redux.js.org) architecture was used for unidirectional dat
+Facebook's [React](https://facebook.github.io/react/) frontend framework was used for speedy rendering. [Redux](http://redux.js.org) architecture was used for unidirectional data flow.
 
 - Webpack for bundling
 - Guard for live reloading
@@ -83,11 +83,10 @@ componentWillReceiveProps(nextProps) {
     this.setState({ commentsByPost: nextProps.commentsByPost });
   }
   if (this.props.likesCount !== nextProps.likesCount) {
-    this.setState({
-      liked: nextProps.liked
-      });
+    this.setState({ liked: nextProps.liked });
     }
   }
+}
 ```
 - SCSS and CSS styling based on [SMACSS](https://smacss.com/) style guide
 
