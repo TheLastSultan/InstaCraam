@@ -9,11 +9,17 @@ class Comments extends React.Component {
     if (this.props.currentUser) {
       this.state = {
         authorId: this.props.currentUser.id,
-        postId: this.props.post,
+        postId: this.props.post.id,
         body: "",
         username: this.props.currentUser.username,
         commentsByPost: this.props.commentsByPost,
-        loading: true
+        loading: true,
+        like: {
+          likeType: 'Image',
+          likableId: this.props.post.id,
+          likerId: this.props.currentUser.id
+        },
+        liked: this.props.liked
       };
     } else {
       this.state = {
@@ -33,6 +39,12 @@ class Comments extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.commentsByPost !== nextProps.commentsByPost) {
       this.setState({ commentsByPost: nextProps.commentsByPost });
+
+    }
+    if (this.props.likesCount !== nextProps.likesCount) {
+      this.setState({
+        liked: nextProps.liked
+      });
     }
   }
 
@@ -114,20 +126,57 @@ class Comments extends React.Component {
     );
   }
 
+  plusLike(e) {
+    e.preventDefault();
+    const like = this.state.like;
+    this.props.addLike(like);
+  }
+
+  minusLike(e) {
+    e.preventDefault();
+    const like = this.state.like;
+    this.props.removeLike(like);
+  }
+
+  likeButton() {
+
+    const likeClass = (this.state.liked) ? 'no-like' : 'like';
+
+    const addLikeButton = (
+      <button
+        className={`icon icon-likes ${likeClass}`}
+        onClick={this.plusLike}
+        >Like</button>
+    );
+    const removeLikeButton = (
+      <button
+        className={`icon icon-likes ${likeClass}`}
+        onClick={this.minusLike}
+        >Unlike</button>
+    );
+    return (this.state.liked) ? removeLikeButton : addLikeButton;
+  }
+
   render() {
     if (this.state.loading) return <span></span>;
 
     return (
-      <div className="comments-container">
-        <section className="comments-display-container" >
-          { this.displayComments() }
-        </section>
-        <section className="add-comments-container">
+      <section className="comments-container">
+        <div className="comments-display-container" >
+          {this.displayComments()}
+        </div>
+        <div>
+          <div className="post-actions-container">
+            {this.likeButton()}
+            <span>{this.props.post.likesCount}</span>
+          </div>
+        </div>
+        <div className="add-comments-container">
             <form className="comment-form" onSubmit={this._handleSubmit}>
               { this.toggleCommentInput() }
             </form>
-        </section>
-      </div>
+        </div>
+      </section>
     );
   }
 

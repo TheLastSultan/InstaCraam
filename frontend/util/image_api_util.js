@@ -25,3 +25,32 @@ export const destroyPost = postId => {
     url: `/api/images/${postId}`
   });
 };
+
+
+export const postLike = like => {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/likes',
+    data: {
+      like: {
+        likable_type: like.likeType,
+        likable_id: like.likableId,
+        liker_id: like.likerId
+      }
+    }
+  });
+};
+
+export const destroyLike = like => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/likes/1`,
+    data: {
+      like: {
+        likable_type: like.likeType,
+        likable_id: like.likableId,
+        liker_id: like.likerId
+      }
+    }
+  });
+};

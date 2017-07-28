@@ -12,7 +12,7 @@ class Api::CommentsController < ApplicationController
   def index
     id = params[:image_id].to_i
     if id.zero?
-      @comments = Comment.all
+      @comments = Comment.includes(:post, :author, :likes).all
     else
       @comments = Comment.includes(:post, :author, :likes).where(post_id: id)
     end

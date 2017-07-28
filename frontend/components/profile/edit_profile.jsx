@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class EditProfile extends React.Component {
   constructor(props) {
@@ -72,7 +73,8 @@ class EditProfile extends React.Component {
               </div>
               <div className="user-box">
                 <div className="username-box">
-                  <span>{ currentUser.username }</span>
+                  <Link to={`/user/${currentUser.id}`}><span>{ currentUser.username }</span></Link>
+
                 </div>
                 <div className="stats">
                   <strong>5 </strong>posts &nbsp;&nbsp;&nbsp; <strong>3 </strong>followers &nbsp;&nbsp;&nbsp; <strong>3 </strong>following

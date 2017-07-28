@@ -1,4 +1,5 @@
-json.extract! image, :id, :img_url, :user_id, :caption, :location, :comments
+json.extract! image, :id, :user_id, :caption, :location, :comments
+json.url image.image.url
 json.likes_count image.likes.count
 
 json.likedBy do

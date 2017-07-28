@@ -90,10 +90,14 @@ div.user-box {
 }
 
 @media (max-width: 640px) {
+  .edit-main {
+    .user-profile.container {
+      padding: 15px 0px;
+    }
+  }
   .user-profile.container {
     display: block;
     .avatar-box {
-      float: left;
       margin-bottom: 20px;
     }
     .description {
@@ -101,6 +105,10 @@ div.user-box {
     }
     .user-box {
       position: relative;
+      .username-box a {
+        width: 100%;
+        justify-content: center;
+      }
     }
   }
   .username-box {

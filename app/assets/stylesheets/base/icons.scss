@@ -1,0 +1,52 @@
+div.post-actions-container {
+  margin: 5px auto 10px;
+  padding-bottom: 5px;
+  button.icon {
+    width: 23px;
+    height: 23px;
+    margin-right: 10px;
+  }
+}
+
+a.icon {
+  margin-right: 20px;
+}
+button.icon {
+  width: 27px;
+  height: 27px;
+  text-indent: -99999px;
+  background-color: transparent;
+  background-position: 50%;
+  background-size: cover;
+  margin-right: 20px;
+  border: 0px;
+  padding: 0px;
+  &:hover {
+    box-shadow: none;
+  }
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+.icon-upload {
+  background-image: url('https://s3-us-west-2.amazonaws.com/shootr-dev/plus.svg');
+}
+.icon-likes {
+  background-image: url('https://s3-us-west-2.amazonaws.com/shootr-dev/like_stroke.svg');
+  &.no-like {
+    background-image: url('https://s3-us-west-2.amazonaws.com/shootr-dev/like.svg');
+    background: #ff4c4c;
+  }
+}
+.icon-profile {
+  background-image: image-url('profile.svg');
+}
+.icon-explore {
+  background-image: url("https://s3-us-west-2.amazonaws.com/shootr-dev/explore.svg");
+}
+
+@media (max-width: 640px) {
+  button.icon {
+    margin-right: 20px;
+  }
+}

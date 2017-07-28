@@ -5,10 +5,7 @@ import { deletePost,
 import { selectAllComments } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => {
-// const mapStateToProps = ({ errors, comments, profile }) => {
   return ({
-    // profile,
-    // errors
     currentUser: state.session.currentUser,
     currentProfile: state.profile,
     errors: state.errors
@@ -16,9 +13,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  // requestAllCommentsForPost: postId => (
-  //   dispatch(requestAllCommentsForPost(postId))
-  // )
   requestAllImagesForUser: userId => dispatch(requestAllImagesForUser(userId)),
   deletePost: post => dispatch(deletePost(post)),
 });

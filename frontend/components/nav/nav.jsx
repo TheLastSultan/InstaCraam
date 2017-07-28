@@ -17,7 +17,7 @@ const personalGreeting = (currentUser, logout) => {
           <img
             id="logo"
             title="Shootr"
-            src="http://res.cloudinary.com/norriskwan/image/upload/v1500594083/shootr_logo_rounded_n4zbkf.svg" />
+            src="https://s3-us-west-2.amazonaws.com/shootr-dev/shootr_logo_rounded.svg" />
         <h1 className='shootr' title="Shootr App">Shootr</h1>
           </Link>
         </div>

@@ -4,6 +4,9 @@
   display: flex;
   max-width: 935px;
   margin: 0 auto;
+  .username-box a {
+    color: #262626;
+  }
 }
 .edit-options {
   display: flex;

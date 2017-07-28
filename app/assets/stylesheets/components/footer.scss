@@ -32,3 +32,9 @@
     font-size: 15px;
   }
 }
+@media (max-width: 640px) {
+  #app-footer ul {
+    display: block;
+    text-align: center;
+  }
+}

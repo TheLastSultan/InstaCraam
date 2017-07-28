@@ -3,8 +3,7 @@ class Api::ImagesController < ApplicationController
     @image = Image.new(image_params)
 
     if @image.save
-      @user = @image.poster
-      render 'api/users/show'
+      render @image
     else
       render json: ["Failed to upload image"], status: 401
     end
@@ -14,6 +13,7 @@ class Api::ImagesController < ApplicationController
     id = params[:user_id].to_i
 
     if id.zero?
+      # @images = Image.includes(:likers, :poster, :comments).limit(12).order('created_at DESC')
       @images = Image.includes(:likers, :poster, :comments).limit(12).order("RANDOM()")
     else
       @images = Image.includes(:likers, :poster, :comments).where(user_id: params[:user_id])
@@ -34,7 +34,7 @@ class Api::ImagesController < ApplicationController
   end
 
   def show
-    @image = Image.find(params[:id])
+    @image = Image.includes(:likers, :poster, :comments).find(params[:id])
   end
 
   private

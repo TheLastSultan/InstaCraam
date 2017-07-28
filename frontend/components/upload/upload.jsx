@@ -54,8 +54,8 @@ class Upload extends React.Component {
     formData.append("image[caption]", this.state.caption);
     formData.append("image[location]", this.state.location);
     formData.append("image[image]", this.state.imageFile);
-    this.props.uploadPhoto(formData);
-    this.props.history.push(`/users/${this.state.userId}`);
+    this.props.uploadPhoto(formData)
+    .then( () => this.props.history.push(`/user/${this.state.userId}`));
   }
 
   clearButtonClasses() {

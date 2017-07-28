@@ -16,15 +16,20 @@ body.ReactModal__Body--open {
 }
 .modal {
   min-width: 300px;
+  // max-height: 600px;
   height: auto;
   background: #fff;
   outline: none;
+  overflow: scroll;
+}
+.modal-overlay_after-open {
+  overflow: hidden !important;
 }
 button.close-modal {
   position: absolute;
   top: 15px;
   right: 15px;
-  background: url("http://res.cloudinary.com/norriskwan/image/upload/v1500764881/close_lrpfyb.svg") transparent;
+  background: url("https://s3-us-west-2.amazonaws.com/shootr-dev/close.svg") transparent;
   background-size: cover;
   text-indent: 999px;
   width: 30px;
@@ -32,6 +37,7 @@ button.close-modal {
   border: 0px;
   color: #fff;
   box-shadow: none;
+  z-index: 99999;
   &:hover {
     outline: none;
   }
@@ -40,7 +46,7 @@ button.close-modal {
 .modal-content-container {
   display: flex;
   flex-direction: row;
-  max-width: 860px;
+  max-width: 1200px;
 }
 
 .modal-media-box {
@@ -59,6 +65,7 @@ button.close-modal {
   width: 335px;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   .user-profile {
     padding-bottom: 15px;
     margin-bottom: 15px;
@@ -73,6 +80,7 @@ button.close-modal {
   }
   .avatar-box {
     margin-right: 15px;
+    flex: none;
   }
   .avatar-container {
     width: 50px;
@@ -89,5 +97,30 @@ button.close-modal {
     max-height: 420px;
     overflow-y: inherit;
     overflow-x: hidden;
+  }
+}
+
+@media (max-width: 860px) {
+  .modal {
+    max-width: 600px;
+  }
+  .modal-details-box {
+    width: 100%;
+  }
+  .modal-content-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 620px) {
+  .modal-media-box {
+    height: auto;
+  }
+}
+
+@media (max-width: 375px) {
+  .modal {
+    max-height: 600px;
+    overflow: scroll;
   }
 }

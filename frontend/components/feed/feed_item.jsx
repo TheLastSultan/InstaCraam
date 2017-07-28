@@ -39,14 +39,10 @@ class FeedItem extends React.Component {
         </header>
 
         <figure className="item-image-container">
-          <img src={image.imgUrl} />
+          <img src={image.url} />
         </figure>
 
         <section className="item-goodies">
-
-          <div className="image-actions-container">
-            <button className="icon icon-likes">like</button>
-          </div>
 
           <div className="caption-container">
             <span className="username">
@@ -57,7 +53,7 @@ class FeedItem extends React.Component {
             <span className="caption">{image.caption}</span>
           </div>
 
-          <CommentsContainer post={image.id} />
+          <CommentsContainer post={image} />
 
         </section>
       </article>

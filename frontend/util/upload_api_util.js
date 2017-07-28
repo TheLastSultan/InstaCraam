@@ -1,5 +1,4 @@
 export const uploadPhoto = formData => {
-  console.log(formData);
   return $.ajax({
     method: 'POST',
     url: '/api/images',

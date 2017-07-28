@@ -101,44 +101,19 @@
     left: 55px;
   }
 }
-a.icon {
-  margin-right: 20px;
-}
-button.icon {
-  width: 27px;
-  height: 27px;
-  text-indent: -99999px;
-  background-color: transparent;
-  background-position: 50%;
-  background-size: cover;
-  margin-right: 20px;
-  border: 0px;
-  padding: 0px;
-  &:hover {
-    box-shadow: none;
-  }
-  &:last-child {
-    margin-right: 0px;
-  }
-}
-.icon-upload {
-  background-image: image-url('plus.svg');
-}
-.icon-likes {
-  background-image: image-url('heart.svg');
-}
-.icon-profile {
-  background-image: image-url('profile.svg');
-}
-.icon-explore {
-  background-image: url("http://res.cloudinary.com/norriskwan/image/upload/v1500677507/explore_pr2xs5.svg");
-}
+
 
 @media (max-width: 640px) {
-  button.icon {
-    margin-right: 20px;
-  }
   #main-nav .search-container {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  #logo {
+    border-right: 0px;
+  }
+  .logo-container h1 {
     display: none;
   }
 }

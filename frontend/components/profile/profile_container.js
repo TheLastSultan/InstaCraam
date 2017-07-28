@@ -5,7 +5,7 @@ import { requestProfileInfo, updateUserProfile } from '../../actions/profile_act
 import { selectAllObjects } from '../../reducers/selectors';
 import { requestAllImagesForUser } from '../../actions/image_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return ({
     postById: state.images.byId,
     postByProfile: state.images.byProfile,
@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => ({
   requestAllImagesForUser: userId => dispatch(requestAllImagesForUser(userId)),
   requestProfileInfo: userId => dispatch(requestProfileInfo(userId)),
-  updateUserProfile: user => dispatch(updateUserProfile(user)),
+  updateUserProfile: user => dispatch(updateUserProfile(user))
 });
 
 export const ProfileContainer = connect(

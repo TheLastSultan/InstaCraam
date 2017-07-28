@@ -44,7 +44,7 @@ class GridItem extends React.Component {
     const { image, currentProfile } = this.props;
     return (
       <figure className="grid-item">
-        <img src={image.imgUrl} onClick={this.handleOpenModal} />
+        <img src={image.url} onClick={this.handleOpenModal} />
         <ReactModal
           isOpen={this.state.showModal}
           contentLabel="Image Modal"
@@ -64,7 +64,7 @@ class GridItem extends React.Component {
 
           <div className="modal-content-container">
             <figure className="modal-media-box">
-              <img src={image.imgUrl} />
+              <img src={image.url} />
             </figure>
             <aside className="modal-details-box">
 
@@ -98,7 +98,7 @@ class GridItem extends React.Component {
                   <span className="caption">{image.caption}</span>
                 </div>
               </section>
-              <CommentsContainer post={image.id}/>
+              <CommentsContainer post={image} />
             </aside>
           </div>
         </ReactModal>

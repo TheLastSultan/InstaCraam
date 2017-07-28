@@ -33,13 +33,12 @@ class Profile extends React.Component {
     }
 
     if(this.props.postByProfile !== nextProps.postByProfile) {
-      console.log('postByProfile changed, recalculate post count');
-      // console.log(this.state);
       nextProps.requestProfileInfo(newId);
       this.setState({
         postCount: nextProps.postByProfile.length
       });
     }
+
   }
 
   toggleUserButtons() {

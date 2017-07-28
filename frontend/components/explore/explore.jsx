@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import GridContainer from '../grid/grid_container';
-// import GridItem from '../grid/grid_item';
 
 class Explore extends React.Component {
   constructor(props) {
@@ -14,12 +13,10 @@ class Explore extends React.Component {
   }
 
   componentWillUnMount() {
-    this.props.images.data = [];
   }
 
   render() {
     const { images, profile, currentUser } = this.props;
-    console.log(images);
     const loaded = (
       <div id="explore-page">
         <figure className="map-temp">
@@ -30,13 +27,12 @@ class Explore extends React.Component {
             <div className="grid-container">
               {
                 images.map( (el, i) => (
-
                   <GridContainer
-                      image={el}
-                      currentUser={currentUser}
-                      id={el.id}
-                      key={el.id}
-                      />
+                    image={el}
+                    currentUser={currentUser}
+                    id={el.id}
+                    key={el.id}
+                    />
                 ))
               }
             </div>
@@ -51,9 +47,3 @@ class Explore extends React.Component {
 }
 
 export default Explore;
-//
-// <GridItem
-//   key={i}
-//   image={el}
-//   profile={profile}
-//   currentUser={currentUser} />

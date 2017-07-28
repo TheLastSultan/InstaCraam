@@ -6,6 +6,7 @@ class FeedIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      imageIds: this.props.imageIds,
       loading: true
     };
   }
@@ -16,13 +17,22 @@ class FeedIndex extends React.Component {
     .then( () => (this.setState({ loading: false})));
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(this.props.imageIds !== nextProps.imageIds) {
+      this.setState({
+        imageIds: nextProps.imageIds
+      });
+    }
+  }
+
   render() {
-    const { imageIds, images } = this.props;
+    const { images } = this.props;
+    const arrayIds = this.state.imageIds;
     if (this.state.loading) return <Loading />;
     return (
       <div className="main-content-container">
         <div className="feed-container list">
-          {imageIds.map( (id) => <FeedItem key={id} image={images[id]} />)}
+          {arrayIds.map( (id) => <FeedItem key={id} image={images[id]} />)}
         </div>
       </div>
     );

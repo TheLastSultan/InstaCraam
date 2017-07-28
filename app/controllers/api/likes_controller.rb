@@ -10,7 +10,7 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.find(params[:id])
+    @like = Like.find_by(like_params)
 
     if @like.destroy
       render @like

@@ -50,6 +50,5 @@ export const postComment = comment => dispatch => {
 
 export const destroyComment = comment => dispatch => {
   return APIUtil.destroyComment(comment)
-  .then( res => dispatch(removeComment(res)) )
-  .then( res => console.log(res) );
+  .then( res => dispatch(removeComment(res)) );
 };

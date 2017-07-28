@@ -47,18 +47,10 @@ article.feed-item-container {
   }
   section.item-goodies {
     padding: 15px;
-    div.image-actions-container {
-      margin-bottom: 10px;
-      button.icon {
-        width: 23px;
-        height: 23px;
-      }
-      padding-bottom: 5px;
-    }
     div.caption-container {
       margin-bottom: 6px;
     }
-    div.comments-container {
+    .comments-container {
       margin-bottom: 10px;
       li {
         margin-bottom: 6px;

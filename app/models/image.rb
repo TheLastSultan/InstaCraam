@@ -19,7 +19,7 @@ class Image < ApplicationRecord
   validates :img_url, presence: true
   validates :poster, presence: true
 
-  has_attached_file :image, default_url: "missing.png"
+  has_attached_file :image, default_url: "/assets/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :poster,
