@@ -34,7 +34,6 @@ Photos on the main feed and modal views have actions to like/dislike and add/rem
 Media queries and SVGs were used to create a smooth transition between desktop and mobile devices.
 
 ![responsive image 1](docs/images/mobile1.png) ![responsive image 2](docs/images/mobile2.png) ![responsive image 3](docs/images/mobile3.png)
-flow.
 
 ## Technologies used
 ### Backend
