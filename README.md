@@ -13,7 +13,7 @@ Users sign up and log in to upload and edit personal information. While profiles
 
 ### Photos/Feed/Filters
 
-Photos uploaded by users and whom they follow are displayed on the main feed. The feed is sorted by created_at, with the most recent upload displaying first. To upload images, simply navigate to the upload page. Click and drag an image to the input field to see a preview. Then, users can toggle buttons to imitate filters. Plans to implement persistence to come. Images are hosted and served by Amazon Web Services (AWS).
+Photos uploaded by users and whom they follow are displayed on the main feed. The feed is sorted by created_at, with the most recent upload displaying first. To upload images, simply navigate to the upload page. Click and drag an image to the input field to see a preview. Then, users can toggle buttons to imitate filters. Plans to implement persistence to come. Images are hosted on an Amazon Web Services (AWS) S3 bucket.
 
 ![feed image](docs/images/feed.png)
 
@@ -34,6 +34,7 @@ Photos on the main feed and modal views have actions to like/dislike and add/rem
 Media queries and SVGs were used to create a smooth transition between desktop and mobile devices.
 
 ![responsive image 1](docs/images/mobile1.png) ![responsive image 2](docs/images/mobile2.png) ![responsive image 3](docs/images/mobile3.png)
+flow.
 
 ## Technologies used
 ### Backend
@@ -65,7 +66,7 @@ has_many :likers,
 - BCrypt for password hashing and privacy
 
 ### Frontend
-Facebook's [React](https://facebook.github.io/react/) frontend framework was used for speedy rendering. [Redux](http://redux.js.org) architecture was used for unidirectional data flow.
+Facebook's [React](https://facebook.github.io/react/) frontend framework was used for speedy rendering. [Redux](http://redux.js.org) architecture was used for unidirectional dat
 
 - Webpack for bundling
 - Guard for live reloading
