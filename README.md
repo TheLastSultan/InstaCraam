@@ -4,7 +4,7 @@
 
 [heroku]: https://shootrapp.herokuapp.com
 
-Shootr is a responsive SPA built with a Ruby on Rails backend and React/Redux frontend. Inspired by Instagram, it serves as a platform to allow photographers, professional and amateur, to create a profile, share, and interact with fellow 'Shootrs'.
+Shootr is a responsive SPA built with a Ruby on Rails backend and React/Redux frontend. Inspired by Instagram, it serves as a platform to allow photographers, professional and amateur, to create a profile, share, and interact with fellow 'Shootrs'. This MVP was styled and developed in 12 days so there's still more to come, desired features are listed at the bottom.
 
 ## Features
 ### User Authentication
@@ -25,7 +25,7 @@ User profiles are public yet limited to functionality. Once logged in, profile e
 
 ### Likes and Comments
 
-Photos on the main feed and modal views have actions to like/dislike and add/remove comments.
+Photos on the main feed and modal views have actions allowing the current user to like/dislike content and add/remove their own comments.
 
 ![modal image](docs/images/modal.png)
 
