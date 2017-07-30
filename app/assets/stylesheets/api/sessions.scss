@@ -11,11 +11,15 @@ $var: 15px;
   font-size: $var;
 }
 .splash-image-container {
-  background-image: image-url('splash-phones.png');
+  background-image: url('https://s3-us-west-2.amazonaws.com/shootr-dev/splash.gif');
+  background-size: contain;
+  flex-basis: 800px;
+  background-repeat: no-repeat;
+  // background-image: image-url('splash-phones.png');
+  // background-size: cover;
+  // flex-basis: 420px;
   background-position: 50% 50%;
-  background-size: cover;
   height: 620px;
-  flex-basis: 420px;
 }
 .splash-form-container {
   h1 {

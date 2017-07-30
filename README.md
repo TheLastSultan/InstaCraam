@@ -11,6 +11,8 @@ Shootr is a responsive SPA built with a Ruby on Rails backend and React/Redux fr
 
 Users sign up and log in to upload and edit personal information. While profiles are public, protected routes limit navigation and features accessibility. An animated guest login was added for fun!
 
+![login image](docs/images/demo_login.gif)
+
 ### Photos/Feed/Filters
 
 Photos uploaded by users and whom they follow are displayed on the main feed. The feed is sorted by created_at, with the most recent upload displaying first. To upload images, simply navigate to the upload page. Click and drag an image to the input field to see a preview. Then, users can toggle buttons to imitate filters. Plans to implement persistence to come. Images are hosted on an Amazon Web Services (AWS) S3 bucket.

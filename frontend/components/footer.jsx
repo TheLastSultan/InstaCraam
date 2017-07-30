@@ -7,7 +7,6 @@ const Footer = () => (
         <ul>
           <li><a href="http://github.com/nrrs" target="_blank">github</a></li>
           <li><a href="https://www.linkedin.com/in/norriskwan" target="_blank">LinkedIn</a></li>
-          <li><a href="#" target="_blank">AngelList</a></li>
           <li><a href="#" target="_blank">Portfolio</a></li>
         </ul>
       </nav>
