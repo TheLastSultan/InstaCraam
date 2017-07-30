@@ -40,7 +40,7 @@ Media queries and SVGs were used to create a smooth transition between desktop a
 [Ruby on Rails](http://rubyonrails.org/) was used to serve the backend. [PostgreSQL](https://postgresql.org/) database to store data.
 `ActiveRecords` used for Object-relational Mapping.
 
-```
+```Ruby
 belongs_to :poster,
   primary_key: :id,
   foreign_key: :user_id,
@@ -71,11 +71,15 @@ Facebook's [React](https://facebook.github.io/react/) frontend framework was use
 - Guard for live reloading
 - ES6 Javascript
 
-```
+```Javascript
 componentWillMount() {
   const { requestCommentsForPost, post } = this.props;
+
   requestCommentsForPost(post)
-  .then( () => this.setState({ loading: false }));
+    .then( () => this.setState({
+      loading: false
+      })
+    );
 }
 
 componentWillReceiveProps(nextProps) {
