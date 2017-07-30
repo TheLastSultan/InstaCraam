@@ -94,7 +94,7 @@ componentWillReceiveProps(nextProps) {
 ```
 - SCSS and CSS styling based on [SMACSS](https://smacss.com/) style guide
 
-```
+```CSS
 $bgcolor: #fafafa;
 $var: 15px;
 
