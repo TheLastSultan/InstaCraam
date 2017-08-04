@@ -62,7 +62,8 @@ has_many :likers,
 
 - Hosted on Heroku
 - AWS S3 Buckets and Paperclip to host and upload content
-- RESTful API endpoints created with Jbuilder
+- RESTful API endpoints
+- Views created with Jbuilder
 - Figaro for API key protection
 - BCrypt for password hashing and privacy
 
@@ -96,7 +97,7 @@ componentWillReceiveProps(nextProps) {
 ```
 - SCSS and CSS styling based on [SMACSS](https://smacss.com/) style guide
 
-```CSS
+```
 $bgcolor: #fafafa;
 $var: 15px;
 
