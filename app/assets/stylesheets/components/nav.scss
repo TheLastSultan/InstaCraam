@@ -53,7 +53,9 @@
     }
   }
 }
-
+#nav-likes {
+  display: none;
+}
 @media (max-width: 640px) {
   #profile-options {
     width: 100%;
