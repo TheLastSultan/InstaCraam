@@ -29,19 +29,19 @@ button.icon {
   }
 }
 .icon-upload {
-  background-image: url('https://s3-us-west-2.amazonaws.com/shootr-dev/plus.svg');
+  background-image: url('https://s3-us-west-1.amazonaws.com/instacram/plus.svg');
 }
 .icon-likes {
-  background-image: url('https://s3-us-west-2.amazonaws.com/shootr-dev/like_stroke.svg');
+  background-image: url('https://s3-us-west-1.amazonaws.com/instacram/like_stroke.svg');
   &.no-like {
-    background-image: url('https://s3-us-west-2.amazonaws.com/shootr-dev/like.svg');
+    background-image: url("https://s3-us-west-1.amazonaws.com/instacram/explore.svg");
   }
-}
+  }
 .icon-profile {
-  background-image: image-url('profile.svg');
+  background-image: image-url('https://s3-us-west-1.amazonaws.com/instacram/profile.svg');
 }
 .icon-explore {
-  background-image: url("https://s3-us-west-2.amazonaws.com/shootr-dev/explore.svg");
+  background-image: url("https://s3-us-west-1.amazonaws.com/instacram/explore.svg");
 }
 
 @media (max-width: 640px) {

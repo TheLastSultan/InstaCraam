@@ -55,12 +55,12 @@ class SessionForm extends React.Component {
 
   _demo(e) {
     e.preventDefault();
-    const fullname = "Bruce Wayne".split(""),
-          username = "Batman".split(""),
+    const fullname = "Barney Stison".split(""),
+          username = "The_Barnacle".split(""),
           password = "password".split(""),
           batman = {
-            fullname: 'Bruce Wayne',
-            username: 'Batman',
+            fullname: 'Barney Stinson',
+            username: 'The_Barnacle',
             password: 'password'
           };
     const delayTime = 100;
@@ -145,7 +145,7 @@ class SessionForm extends React.Component {
         <div className="splash-image-container">&nbsp;</div>
         <div className="splash-form-container">
           <div className="session-form splash-box">
-            <h1 className="shootr">Shootr</h1>
+            <h1 className="shootr">InstaCram</h1>
             { greeting }
             <form className="">
               { fullname }
@@ -187,7 +187,7 @@ class SessionForm extends React.Component {
           </div>
           <div className="cta">
             Check out the
-            <a href="https://github.com/nrrs/shootr/" target="_blank"> repo</a>.
+            <a href="https://github.com/TheLastSultan" target="_blank"> repo</a>.
           </div>
         </div>
       </div>

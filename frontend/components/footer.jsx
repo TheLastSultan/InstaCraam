@@ -6,21 +6,21 @@ const Footer = () => (
       <nav>
         <ul>
           <li>
-            <a href="http://github.com/nrrs" target="_blank">
+            <a href="http://github.com/TheLastSultan" target="_blank">
               github
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/norriskwan" target="_blank">
+            <a href="https://www.linkedin.com/in/mohamed-ali-elzeiny-70132a95/" target="_blank">
               LinkedIn
             </a>
           </li>
         </ul>
       </nav>
       <div className="shootr-footer">
-        2017
-        <a href="http://www.norriskwan.com" target="_blank">
-          &nbsp;Norris Kwan
+        2018
+        <a href="https://www.linkedin.com/in/mohamed-ali-elzeiny-70132a95/" target="_blank">
+          &nbsp;Mohamed Ali Elzeiny
         </a>
       </div>
     </div>

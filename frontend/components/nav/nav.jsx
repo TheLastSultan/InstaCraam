@@ -17,8 +17,8 @@ const personalGreeting = (currentUser, logout) => {
           <img
             id="logo"
             title="Shootr"
-            src="https://s3-us-west-2.amazonaws.com/shootr-dev/shootr_logo_rounded.svg" />
-        <h1 className='shootr' title="Shootr App">Shootr</h1>
+            src="https://i.imgur.com/XMAN1Ti.png" />
+        <h1 className='shootr' title="Shootr App">InstaCram</h1>
           </Link>
         </div>
 

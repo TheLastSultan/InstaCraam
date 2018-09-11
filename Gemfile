@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.4'
 # Use postgresql as the database for Active Record
@@ -14,12 +15,21 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+
+# gem 'config'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+gem 'image_suckr'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'ui_faces'
+gem 'carrierwave', '~> 1.2', '>= 1.2.3'
+gem 'dotenv', '~> 2.5'
+gem 'mini_magick', '~> 4.8'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -45,9 +55,9 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '~> 3.1', '>= 3.1.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 2.0', '>= 2.0.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   # Guard/LiveReload
@@ -55,7 +65,7 @@ group :development do
   gem 'rack-livereload'
 
   gem 'better_errors'
-  gem 'binding_of_caller'
+  # gem 'binding_of_caller', '~> 0.7.2'
   gem 'pry-rails'
   gem 'annotate'
 
