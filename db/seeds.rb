@@ -2,11 +2,19 @@ require 'faker'
 
 
 User.create!(
+    username: "TheLastSultan",
+    password: "password",
+    fullname: "MohamedElzeiny",
+    description: "Isn't it exciting to finially get this working?!?!?!",
+    avatar_url: "https://ih1.redbubble.net/image.418403076.5841/flat,550x550,075,f.jpg"
+)
+
+User.create!(
     username: "The_Barnacle",
     password: "password",
     fullname: "Barney Stinson",
     description: "A lie is just a great story that someone ruined with the truth",
-    avatar_url: "https://ih1.redbubble.net/image.418403076.5841/flat,550x550,075,f.jpg"
+    avatar_url: "https://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/002/981/medium/Blake_Zeiny.jpg?1534882633"
 )
 
 10.times do |i|
