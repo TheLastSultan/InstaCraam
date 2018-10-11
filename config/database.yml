@@ -19,6 +19,8 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
+  username: mobro
+  password: allah199
 
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
@@ -84,7 +86,8 @@ test:
 production:
   <<: *default
   database: instacram_production
-  username: mobro
-  password: allah199
+  host: localhost
+  port: 5432
+ 
 
-  # "postgres://mobro:allah199@localhost:5432/instacraam"
+  # "postgres://mobro:allah199@localhost:5432/instacram"
