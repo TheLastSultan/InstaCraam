@@ -25,7 +25,7 @@ default: &default
 
 development:
   <<: *default
-  database: instacraam_development
+  database: mobro_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -59,8 +59,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: instacraam_test
-
+  database: morbo_test
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -75,6 +74,8 @@ test:
 #
 #   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
 #
+# postgres://mobro:allah199@localhost/mobro
+
 # You can use this database configuration with:
 #
 #   production:
@@ -82,7 +83,7 @@ test:
 #
 production:
   <<: *default
-  database: instacraam_production
+  database: mobro_production
   username: mobro
   password: allah199
 
