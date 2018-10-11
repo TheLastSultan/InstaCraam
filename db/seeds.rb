@@ -69,5 +69,4 @@ end
         userid = (1..30).to_a.shuffle.pop
         user = User.find_by_id(userid)
         Like.create!(likable_type: "Image", likable_id: img.id, liker_id: user.id)
-    end
 end

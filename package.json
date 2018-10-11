@@ -9,6 +9,7 @@
     "test": "test"
   },
   "scripts": {
+    "start": "webpack",
     "postinstall": "webpack"
   },
   "repository": {
