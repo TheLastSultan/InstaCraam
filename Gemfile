@@ -8,8 +8,7 @@ source 'https://rubygems.org'
 ruby "2.3.1"
 
 gem 'dotenv', '~> 2.5'
-gem 'dotenv-rails', '~> 2.1', '>= 2.1.1', require: 'dotenv/rails-now' , groups: [:development, :test]
-
+gem 'dotenv-rails', '~> 2.1', '>= 2.1.1', require: 'dotenv/rails-now' 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.4'
