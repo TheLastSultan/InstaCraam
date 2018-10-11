@@ -1,9 +1,9 @@
 # InstaCraam
-[Shootr][heroku]
+[Instacram][heroku]
 
-[heroku]: https://sinstacraam-production.herokuapp.com
+[heroku]: https://instacraam-production.herokuapp.com
 
-Shootr is a responsive SPA built with a Ruby on Rails backend and React/Redux frontend. Inspired by Instagram, it serves as a platform to allow photographers, professional and amateur, to create a profile, share, and interact with fellow 'Shootrs'. This MVP was styled and developed in 12 days so there's still more to come, desired features are listed at the bottom.
+InstaCraam is a responsive SPA built with a Ruby on Rails backend and React/Redux frontend. Inspired by Instagram, it serves as a platform to allow photographers, professional and amateur, to create a profile, share, and interact with fellow 'Shootrs'. This MVP was styled and developed in 12 days so there's still more to come, desired features are listed at the bottom.
 
 ## Features
 ### User Authentication
