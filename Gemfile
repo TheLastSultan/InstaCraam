@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 #   "https://github.com/#{repo_name}.git"
 # end
 
-ruby "2.3.1"
 
 gem 'dotenv', '~> 2.5'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1', require: 'dotenv/rails-now' 
@@ -76,4 +75,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails_12factor'
+
+ruby "2.3.1"
 
