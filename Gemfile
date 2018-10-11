@@ -55,20 +55,20 @@ end
 
 group :development, :production do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.1', '>= 3.1.5'
+  # gem 'web-console', '>= 3.3.0'
+  # gem 'listen', '~> 3.1', '>= 3.1.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 2.0', '>= 2.0.2'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  # gem 'spring', '~> 2.0', '>= 2.0.2'
+  # gem 'spring-watcher-listen', '~> 2.0.0'
 
   # Guard/LiveReload
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'rack-livereload'
 
-  gem 'better_errors'
+  # gem 'better_errors'
   # gem 'binding_of_caller', '~> 0.7.2'
-  gem 'pry-rails'
-  gem 'annotate'
+  # gem 'pry-rails'
+  # gem 'annotate'
 
 end
 
