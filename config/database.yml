@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: InstaCraam_production
-  username: mozeiny
-  password: <%= ENV['SHOOTR_DATABASE_PASSWORD'] %>
+  username: mobro
+  password: allah199
