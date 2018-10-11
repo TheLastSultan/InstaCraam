@@ -17,7 +17,7 @@ const personalGreeting = (currentUser, logout) => {
           <img
             id="logo"
             title="Shootr"
-            src="https://i.imgur.com/XMAN1Ti.png" />
+            src="https://storage.googleapis.com/instacram/XMAN1Ti.png" />
         <h1 className='shootr' title="Shootr App">InstaCram</h1>
           </Link>
         </div>

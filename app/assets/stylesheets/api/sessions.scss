@@ -11,7 +11,7 @@ $var: 15px;
   font-size: $var;
 }
 .splash-image-container {
-  background-image: url('https://s3-us-west-1.amazonaws.com/instacram/splash.gif');
+  background-image: url('https://storage.googleapis.com/instacram/instacram.gif');
   background-size: contain;
   flex-basis: 800px;
   background-repeat: no-repeat;
@@ -20,6 +20,7 @@ $var: 15px;
   // flex-basis: 420px;
   background-position: 50% 50%;
   height: 620px;
+  margin-right: 15%; 
 }
 .splash-form-container {
   h1 {

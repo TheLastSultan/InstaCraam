@@ -55,7 +55,7 @@ class SessionForm extends React.Component {
 
   _demo(e) {
     e.preventDefault();
-    const fullname = "Barney Stison".split(""),
+    const fullname = "Barney Stinson".split(""),
           username = "The_Barnacle".split(""),
           password = "password".split(""),
           batman = {
@@ -113,7 +113,7 @@ class SessionForm extends React.Component {
       );
       greeting = (
         <p className="greeting">
-          Share photos with your friends and family!
+          Check in on your favorite NewYork Sitcom Characters!
         </p>
       );
       finePrint = (

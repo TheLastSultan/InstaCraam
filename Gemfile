@@ -6,6 +6,9 @@ git_source(:github) do |repo_name|
 end
 
 
+gem 'dotenv', '~> 2.5'
+gem 'dotenv-rails', '~> 2.1', '>= 2.1.1', require: 'dotenv/rails-now' , groups: [:development, :test]
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.4'
@@ -25,7 +28,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'ui_faces'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
-gem 'dotenv', '~> 2.5'
 gem 'mini_magick', '~> 4.8'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

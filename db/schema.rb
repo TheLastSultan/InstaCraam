@@ -56,13 +56,13 @@ ActiveRecord::Schema.define(version: 20180910022135) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",                                                                             null: false
-    t.string   "password_digest",                                                                      null: false
-    t.string   "session_token",                                                                        null: false
-    t.string   "avatar_url",      default: "https://s3-us-west-1.amazonaws.com/instacram/profile.svg"
+    t.string   "username",                                                                         null: false
+    t.string   "password_digest",                                                                  null: false
+    t.string   "session_token",                                                                    null: false
+    t.string   "avatar_url",      default: "https://storage.googleapis.com/instacram/profile.svg"
     t.text     "description"
-    t.datetime "created_at",                                                                           null: false
-    t.datetime "updated_at",                                                                           null: false
+    t.datetime "created_at",                                                                       null: false
+    t.datetime "updated_at",                                                                       null: false
     t.string   "fullname"
     t.index ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree

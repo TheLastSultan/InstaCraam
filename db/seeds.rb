@@ -1,21 +1,8 @@
 require 'faker'
+# require 'byebug'
 
 
-User.create!(
-    username: "TheLastSultan",
-    password: "password",
-    fullname: "MohamedElzeiny",
-    description: "Isn't it exciting to finially get this working?!?!?!",
-    avatar_url: "https://ih1.redbubble.net/image.418403076.5841/flat,550x550,075,f.jpg"
-)
 
-User.create!(
-    username: "The_Barnacle",
-    password: "password",
-    fullname: "Barney Stinson",
-    description: "A lie is just a great story that someone ruined with the truth",
-    avatar_url: "https://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/002/981/medium/Blake_Zeiny.jpg?1534882633"
-)
 
 10.times do |i|
     User.create!(
@@ -47,6 +34,15 @@ end
     )
 end
 
+User.create!(
+    username: "The_Barnacle",
+    password: "password",
+    fullname: "Barney Stinson",
+    description: "A lie is just a great story that someone ruined with the truth",
+    avatar_url: "https://storage.googleapis.com/instacram/Barney-Stinson-barney-stinson-31316015-1920-2560.jpg"
+)
+
+
     
 
 (1..50).each do |i|
@@ -68,10 +64,11 @@ end
         author_id: random_id, post_id: image_id, body: Faker::ChuckNorris.fact.to_s)
 end
 
-(1..50).each do |i|
-        img = Image.find_by_id(i)
-    (1..30).to_a.sample.times do |i|
-        user = User.find_by_id(i)
-        Like.create!(likable_type: img.class.to_s, likable_id: img.id, liker_id: user.id)
+(1..30).each do |j|
+        img = Image.find_by_id(j)
+    5.times do |i|
+        userid = (1..30).to_a.shuffle.pop
+        user = User.find_by_id(userid)
+        Like.create!(likable_type: "Image", likable_id: img.id, liker_id: user.id)
     end
 end
