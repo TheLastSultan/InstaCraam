@@ -14,8 +14,10 @@ Users sign up and log in to upload and edit personal information. While profiles
 
 ### Photos/Feed/Filters
 
-Photos uploaded by users and whom they follow are displayed on the main feed. The feed is sorted by created_at, with the most recent upload displaying first. To upload images, simply navigate to the upload page. Click and drag an image to the input field to see a preview. Then, users can toggle buttons to imitate filters. Plans to implement persistence to come. Images are hosted on an Amazon Web Services (AWS) S3 bucket.
+![Real Instagram](http://digitalspyuk.cdnds.net/16/48/320x568/gallery-1480338651-instagram-screenshot.png)
 
+Photos uploaded by users and whom they follow are displayed on the main feed. The feed is sorted by created_at, with the most recent upload displaying first. To upload images, simply navigate to the upload page. Click and drag an image to the input field to see a preview. Then, users can toggle buttons to imitate filters. Plans to implement persistence to come. Images are hosted on an Amazon Web Services (AWS) S3 bucket.
+https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2018/06/Image-uploaded-from-iOS-3-1.png
 
 ### User Profiles
 
