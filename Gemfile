@@ -76,5 +76,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails_12factor'
 
-ruby "2.3.1"
-
+ruby "2.5.1"
