@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 #   "https://github.com/#{repo_name}.git"
 # end
 
-ruby "2.3.0"
+ruby "2.3.1"
 
 gem 'dotenv', '~> 2.5'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1', require: 'dotenv/rails-now' , groups: [:development, :test]
