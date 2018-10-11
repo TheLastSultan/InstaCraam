@@ -16,7 +16,6 @@ Users sign up and log in to upload and edit personal information. While profiles
 
 Photos uploaded by users and whom they follow are displayed on the main feed. The feed is sorted by created_at, with the most recent upload displaying first. To upload images, simply navigate to the upload page. Click and drag an image to the input field to see a preview. Then, users can toggle buttons to imitate filters. Plans to implement persistence to come. Images are hosted on an Amazon Web Services (AWS) S3 bucket.
 
-![feed image](docs/images/feed.png)
 
 ### User Profiles
 
