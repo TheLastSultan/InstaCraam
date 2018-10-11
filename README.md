@@ -22,8 +22,6 @@ Photos uploaded by users and whom they follow are displayed on the main feed. Th
 
 User profiles are public yet limited to functionality. Once logged in, profile editing and CRUD options are available. Clicking an image will open a modal which displays the photo, caption & location, and comments and likes. The layout utilizes CSS3 for responsiveness.
 
-![profile image](docs/images/profile.png)
-
 ### Likes and Comments
 
 Photos on the main feed and modal views have actions allowing the current user to like/dislike content and add/remove their own comments.
